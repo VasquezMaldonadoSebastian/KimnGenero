@@ -1,3 +1,4 @@
+import React from 'react';
 import { ChevronRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
