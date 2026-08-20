@@ -1,6 +1,6 @@
 # Estado de la documentacion
 
-Fecha base: 2026-05-20
+Fecha base: 2026-08-20
 Estado: vigente
 
 ## Objetivo
@@ -33,39 +33,37 @@ Separar la documentacion que hoy sirve como referencia operativa real de la docu
 - `RELEASE_CHECKLIST.md`
 - `UI_UX_GUIDELINES.md`
 - `ARTIFACT_POLICY.md`
-- `PLAN_SANEAMIENTO_REAL.md`
+- `DEPENDENCY_AUDIT.md`
 - `RELEASE_NOTE_SANAMIENTO_2026-05-20.md`
-- `GAP_ANALYSIS.md`
-  - contiene brechas detectadas en una revision anterior; parte de ellas ya fue cubierta
 
 ## Documentacion auxiliar
 
 - `GUIA_EJECUTIVA_KIMNGENERO.md`
   - sintesis ejecutiva para presentacion, comunicacion y contexto general del proyecto
-- `plan-kimn-uct-diseno.md`
-  - plan visual auxiliar para adoptar el lenguaje institucional KIMN/UCT
+
+## Documentacion archivada (`archive/`)
+
+Documentacion historica, de planificacion o ya completada. No debe guiar decisiones tecnicas.
+
 - `archive/BRIEF_DISENO_GRAFICO.md`
 - `archive/BRIEF_DISENO_GRAFICO_EJECUTIVO.md`
 - `archive/BRIEF_DISENO_GRAFICO_RECOMENDACIONES.md`
 - `archive/BRIEF_DISENO_GRAFICO_CON_SCREENSHOTS.md`
-
-Notas:
-
-- estos briefs pueden servir como insumo de diseno o comunicacion
-- no deben tratarse como definicion arquitectonica ni como guias operativas del sistema
-- algunos dependen de capturas y artefactos externos en `outputs/`
-- `outputs/` esta ignorado y debe tratarse como historico o de trabajo local, no como parte del producto
+- `archive/OPTIMIZATION_PLAN_2026-04-17.md`
+- `archive/PLAN_SANEAMIENTO_REAL.md`
+- `archive/GAP_ANALYSIS.md`
+- `archive/KIMNGENERO_SUBDOMINIO_PLAN_IMPLEMENTACION.md`
+- `archive/plan-kimn-uct-diseno.md`
+- `archive/DOCUMENT_TEMPLATE.md`
+- `archive/README.md`
 
 ## Documentacion fuera de `docs/` que no debe guiar decisiones tecnicas por si sola
 
 - `env.example`
   - archivo de configuracion de referencia para desarrollo local
-- `OPTIMIZATION_PLAN.md`
-  - describe una etapa anterior del repositorio
-- `Informe_de_cambios_Fase_1.txt`
 
 ## Proxima limpieza sugerida
 
-1. mantener `PLAN_SANEAMIENTO_REAL.md` y este inventario alineados con cada fase de limpieza
+1. mantener este inventario alineado con cada fase de limpieza
 2. seguir reduciendo artefactos auxiliares que no aporten al flujo principal del producto
 3. validar por ejecucion los cambios de frontend y normalizacion cuando el entorno tenga `node` y `pnpm` disponibles
