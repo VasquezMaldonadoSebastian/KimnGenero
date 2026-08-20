@@ -13,13 +13,8 @@ export default function HeaderUCT() {
   }, [location]);
 
   const topLinks = [
-    { label: "CONECTA", href: "#" },
-    { label: "UCT AL DIA", href: "#" },
-    { label: "TEC-UCT", href: "#" },
-    { label: "CENTRO DE AYUDA", href: "#" },
-    { label: "DIRECTORIO", href: "#" },
-    { label: "WEBMAIL", href: "#" },
-    { label: "PORTAL DE PAGOS", href: "#" },
+    { label: "CENTRO DE AYUDA", href: "https://www.uct.cl/centro-de-ayuda" },
+    { label: "PORTAL DE PAGOS", href: "https://pagosweb.uct.cl" },
   ];
 
   const mainNavLinks = [

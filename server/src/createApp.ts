@@ -7,6 +7,7 @@ import { createHttpLogger } from "./observability/logger";
 import { getMetricsSnapshot, metricsMiddleware } from "./middleware/metrics.middleware";
 import compression from "compression";
 import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 import { getAllowedFrameSrc, isCspReportOnly } from "./config/security";
 
 type CreateAppDeps = {
@@ -46,6 +47,18 @@ export function createApp(deps: CreateAppDeps) {
   // Lightweight perf baseline: enable gzip/br when available.
   app.use(compression());
   app.use(express.json({ limit: "100kb" }));
+
+  // Rate limiting para proteger la API de abuso
+  app.use(
+    "/api",
+    rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutos
+      max: 100, // 100 requests por IP por ventana
+      message: { error: "Too many requests, please try again later" },
+      standardHeaders: true,
+      legacyHeaders: false,
+    })
+  );
 
   app.get("/health", (_req, res) => {
     res.json({ status: "ok" });

@@ -15,7 +15,7 @@ export function getAllowedFrameSrc() {
 }
 
 export function isCspReportOnly() {
-  // Default to report-only to avoid breaking existing dashboards.
-  return (process.env.CSP_REPORT_ONLY ?? "true").toLowerCase() !== "false";
+  // Default a enforcing para producción. Configurar CSP_REPORT_ONLY=true solo si hay problemas con dashboards.
+  return (process.env.CSP_REPORT_ONLY ?? "false").toLowerCase() === "true";
 }
 

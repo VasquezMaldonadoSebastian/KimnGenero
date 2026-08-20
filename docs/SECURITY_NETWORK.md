@@ -84,11 +84,11 @@ Controles actuales:
 
 ## Hardening pendiente
 
-- Definir si produccion seguira con CSP `report-only` o pasara a enforcing.
-- Documentar criterio de `IFRAME_ALLOWLIST` por ambiente.
-- Revisar si `script-src` y `style-src` pueden reducir o eliminar `unsafe-inline`.
-- Evaluar necesidad de rate limiting si la API se expone fuera de mismo origen.
-- Definir monitoreo de errores CSP y embeds fallidos.
+- ~~Definir si produccion seguira con CSP `report-only` o pasara a enforcing~~ ✅ **RESUELTO**: Default a enforcing desde 2026-08-20
+- Documentar criterio de `IFRAME_ALLOWLIST` por ambiente
+- Revisar si `script-src` y `style-src` pueden reducir o eliminar `unsafe-inline`
+- ~~Evaluar necesidad de rate limiting si la API se expone fuera de mismo origen~~ ✅ **RESUELTO**: Rate limiting implementado (100 req/15min/IP)
+- Definir monitoreo de errores CSP y embeds fallidos
 
 ## Validacion
 

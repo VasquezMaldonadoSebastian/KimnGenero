@@ -40,10 +40,13 @@ Si el global no es consumido activamente, conviene migrar a una alternativa app-
 
 ## Estado actual
 
-- El parche sigue activo y declarado en `pnpm.patchedDependencies`.
+- **Parche eliminado** (2026-08-20).
 - No se encontro un consumidor interno directo de `window.__WOUTER_ROUTES__` en el codigo del repo.
-- La motivacion vigente es diagnostico o tooling externo, no funcionalidad de negocio.
-- Por ahora se mantiene como deuda controlada y no como refactor urgente.
+- La motivacion original era diagnostico o tooling externo, pero nunca se implementó.
+- El parche fue removido durante la auditoría de producción al confirmar que:
+  1. No hay código que consuma `window.__WOUTER_ROUTES__`
+  2. pnpm 10+ migró `patchedDependencies` de `package.json` a `pnpm-workspace.yaml`
+  3. Mantener el parche sin uso activo era deuda técnica innecesaria
 
 ## Checklist al actualizar `wouter`
 
