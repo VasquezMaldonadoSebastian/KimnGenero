@@ -25,11 +25,11 @@ const footerLogos = [
 
 export default function FooterUCT() {
   return (
-    <footer className="border-t-8 border-[#0176DE] bg-white text-[#8B8B8B]">
+    <footer className="border-t-8 border-[var(--brand-primary)] bg-white text-[var(--text-muted)]">
       <div className="mx-auto w-full max-w-[1200px] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-[1.1fr_1.1fr_1.2fr_0.9fr] xl:gap-14">
           <section>
-            <h2 className="font-montserrat mb-8 text-2xl font-extrabold text-[#4A4A4A]">KIMN es parte de</h2>
+            <h2 className="font-montserrat mb-8 text-2xl font-extrabold text-[var(--text-dark)]">KIMN es parte de</h2>
             <a href="https://gobiernodedatos.uct.cl" target="_blank" rel="noreferrer" className="inline-flex">
               <img
                 src="https://kimn.uct.cl/wp-content/uploads/2025/10/gobierno-de-datos.webp"
@@ -38,7 +38,7 @@ export default function FooterUCT() {
               />
             </a>
 
-            <h3 className="font-montserrat mb-5 mt-12 text-lg font-extrabold text-[#4A4A4A]">Impulsado por</h3>
+            <h3 className="font-montserrat mb-5 mt-12 text-lg font-extrabold text-[var(--text-dark)]">Impulsado por</h3>
             <a href="https://gobiernodedatos.uct.cl" target="_blank" rel="noreferrer" className="inline-flex">
               <img
                 src="https://kimn.uct.cl/wp-content/uploads/2025/10/dgob.webp"
@@ -46,25 +46,25 @@ export default function FooterUCT() {
                 className="h-auto w-36"
               />
             </a>
-            <p className="font-montserrat mt-6 text-base font-medium text-[#999]">#SomosUCT</p>
+            <p className="font-montserrat mt-6 text-base font-medium text-[var(--text-light)]">#SomosUCT</p>
           </section>
 
           <section>
-            <h2 className="font-montserrat mb-7 text-2xl font-extrabold text-[#4A4A4A]">Contactanos</h2>
+            <h2 className="font-montserrat mb-7 text-2xl font-extrabold text-[var(--text-dark)]">Contactanos</h2>
             <div className="space-y-5 text-base leading-relaxed">
               <div className="flex items-start gap-4">
-                <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-[#8B8B8B]" />
+                <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-[var(--text-muted)]" />
                 <p>Av. Alemania 0422 Casona Malmus, Campus Mechaca Lira, Temuco</p>
               </div>
               <div className="flex items-center gap-4">
-                <Phone className="h-5 w-5 flex-shrink-0 text-[#8B8B8B]" />
-                <a href="tel:+56452553706" className="font-medium text-[#0176DE] hover:underline">
+                <Phone className="h-5 w-5 flex-shrink-0 text-[var(--text-muted)]" />
+                <a href="tel:+56452553706" className="font-medium text-[var(--brand-primary)] hover:underline">
                   +56 45 2 553 706
                 </a>
               </div>
               <div className="flex items-center gap-4">
-                <Mail className="h-5 w-5 flex-shrink-0 text-[#8B8B8B]" />
-                <a href="mailto:dgob@uct.cl" className="font-medium text-[#0176DE] hover:underline">
+                <Mail className="h-5 w-5 flex-shrink-0 text-[var(--text-muted)]" />
+                <a href="mailto:dgob@uct.cl" className="font-medium text-[var(--brand-primary)] hover:underline">
                   dgob@uct.cl
                 </a>
               </div>
@@ -72,16 +72,16 @@ export default function FooterUCT() {
           </section>
 
           <section>
-            <h2 className="font-montserrat mb-7 text-2xl font-extrabold text-[#4A4A4A]">Links de interes</h2>
+            <h2 className="font-montserrat mb-7 text-2xl font-extrabold text-[var(--text-dark)]">Links de interes</h2>
             <nav className="space-y-4 text-base leading-snug">
-              <a href="https://www.uct.cl" target="_blank" rel="noreferrer" className="block hover:text-[#0176DE]">
+              <a href="https://www.uct.cl" target="_blank" rel="noreferrer" className="block hover:text-[var(--brand-primary)]">
                 Vicerrectoria de Calidad y Gestion Estrategica
               </a>
               <a
                 href="https://gobiernodedatos.uct.cl"
                 target="_blank"
                 rel="noreferrer"
-                className="block hover:text-[#0176DE]"
+                className="block hover:text-[var(--brand-primary)]"
               >
                 Programa de Gobierno de Datos
               </a>
@@ -89,18 +89,18 @@ export default function FooterUCT() {
                 href="https://catalogoindicadores.uct.cl"
                 target="_blank"
                 rel="noreferrer"
-                className="block hover:text-[#0176DE]"
+                className="block hover:text-[var(--brand-primary)]"
               >
                 Catalogo de Indicadores
               </a>
-              <a href="https://kimn.uct.cl" target="_blank" rel="noreferrer" className="block hover:text-[#0176DE]">
+              <a href="https://kimn.uct.cl" target="_blank" rel="noreferrer" className="block hover:text-[var(--brand-primary)]">
                 KIMN UCT
               </a>
               <a
                 href="https://escuchaactiva.uct.cl"
                 target="_blank"
                 rel="noreferrer"
-                className="block hover:text-[#0176DE]"
+                className="block hover:text-[var(--brand-primary)]"
               >
                 Escucha Activa
               </a>
@@ -118,7 +118,7 @@ export default function FooterUCT() {
           </section>
         </div>
 
-        <div className="mt-14 border-t border-[#E5E5E5] pt-6 text-sm text-[#999]">
+        <div className="mt-14 border-t border-[var(--border-light)] pt-6 text-sm text-[var(--text-light)]">
           Universidad Catolica de Temuco | Sistema de Informacion Institucional KIMN
         </div>
       </div>

@@ -22,8 +22,8 @@ function formatTwoDigits(value: number) {
 
 function MetricCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex min-h-12 items-center justify-center rounded-full border-2 border-[#0176DE] bg-white px-6 py-3 text-center">
-      <div className="flex flex-wrap items-baseline justify-center gap-x-2 text-[#0176DE]">
+    <div className="flex min-h-12 items-center justify-center rounded-full border-2 border-[var(--brand-primary)] bg-white px-6 py-3 text-center">
+      <div className="flex flex-wrap items-baseline justify-center gap-x-2 text-[var(--brand-primary)]">
         <span className="font-montserrat whitespace-nowrap text-[1.35rem] font-extrabold leading-none">{value}</span>
         <span className="font-montserrat whitespace-nowrap text-[0.92rem] font-bold leading-none">{label}</span>
       </div>
@@ -113,11 +113,11 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1440px] px-4 pb-14 pt-20 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8 lg:pt-28">
           <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1fr_1.04fr] lg:gap-12 xl:gap-14">
             <div>
-              <p className="font-montserrat text-lg font-bold leading-none text-[#858B91]">
+              <p className="font-montserrat text-lg font-bold leading-none text-[var(--text-secondary)]">
                 Plataforma Institucional de Datos
               </p>
 
-              <h1 className="font-montserrat mt-6 text-[4.1rem] font-extrabold leading-[0.8] text-[#0176DE] sm:mt-7 sm:text-[5.4rem] md:text-[6rem] xl:text-[6.7rem]">
+              <h1 className="font-montserrat mt-6 text-[4.1rem] font-extrabold leading-[0.8] text-[var(--brand-primary)] sm:mt-7 sm:text-[5.4rem] md:text-[6rem] xl:text-[6.7rem]">
                 Kimn
                 <br />
                 Género
@@ -125,12 +125,12 @@ export default function Home() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/indicadores">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[#0176DE] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[#0668C0]">
+                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                     Explorar Indicadores
                   </span>
                 </Link>
                 <Link href="/metodologia">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[#0176DE] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[#0668C0]">
+                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                     Ver Metodología
                   </span>
                 </Link>
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
 
             <div className="pb-2 lg:pb-10">
-              <p className="font-montserrat max-w-[39rem] text-[1.05rem] font-bold leading-[1.18] text-[#858B91] sm:text-[1.35rem] md:text-[1.55rem] lg:text-[1.75rem]">
+              <p className="font-montserrat max-w-[39rem] text-[1.05rem] font-bold leading-[1.18] text-[var(--text-secondary)] sm:text-[1.35rem] md:text-[1.55rem] lg:text-[1.75rem]">
                 Plataforma interactiva para la visualización y análisis de datos desagregados por sexo.
                 Evidencia para el diseño de políticas públicas con enfoque de género.
               </p>
@@ -157,12 +157,12 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 lg:px-8 xl:grid-cols-[360px_minmax(0,1fr)] xl:gap-12">
           <div>
-            <h2 className="font-montserrat max-w-[18rem] text-[1.75rem] font-bold leading-[1.08] text-[#0176DE]">
+            <h2 className="font-montserrat max-w-[18rem] text-[1.75rem] font-bold leading-[1.08] text-[var(--brand-primary)]">
               Datos para la igualdad de género
             </h2>
-            <div className="mt-7 max-w-[21rem] space-y-5 text-[1rem] leading-[1.25] text-[#8B8B95]">
+            <div className="mt-7 max-w-[21rem] space-y-5 text-[1rem] leading-[1.25] text-[var(--text-muted)]">
               <p>
-                <strong className="font-montserrat font-extrabold text-[#858B91]">KimnGenero</strong> es una plataforma
+                <strong className="font-montserrat font-extrabold text-[var(--text-secondary)]">KimnGenero</strong> es una plataforma
                 institucional que pone a disposición del público indicadores desagregados en múltiples dimensiones
                 relacionadas con la equidad de género.
               </p>
@@ -193,27 +193,27 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-14 px-4 pb-28 pt-10 sm:px-6 lg:px-8 xl:grid-cols-[0.9fr_1.1fr]">
           <figure className="max-w-[21rem] text-center">
-            <blockquote className="font-montserrat text-[1.08rem] font-extrabold italic leading-[1.22] text-[#0176DE]">
+            <blockquote className="font-montserrat text-[1.08rem] font-extrabold italic leading-[1.22] text-[var(--brand-primary)]">
               &quot;Un indicador de género es una medida que señala el estado o nivel de las diferencias entre hombres
               y mujeres en un momento del tiempo, expresando en particular las desigualdades que resultan de la
               diferencia sexual o de género.&quot;
             </blockquote>
-            <figcaption className="mt-4 text-right text-sm text-[#858B91]">— INE, 2019</figcaption>
+            <figcaption className="mt-4 text-right text-sm text-[var(--text-secondary)]">— INE, 2019</figcaption>
           </figure>
 
           <div className="max-w-[37rem]">
-            <p className="font-montserrat text-lg font-bold text-[#858B91]">Datos abiertos</p>
-            <h2 className="font-montserrat mt-6 max-w-[24rem] text-[1.85rem] font-bold leading-[1.05] text-[#0176DE]">
+            <p className="font-montserrat text-lg font-bold text-[var(--text-secondary)]">Datos abiertos</p>
+            <h2 className="font-montserrat mt-6 max-w-[24rem] text-[1.85rem] font-bold leading-[1.05] text-[var(--brand-primary)]">
               Explore los
               <br />
               indicadores interactivos
             </h2>
-            <p className="mt-6 text-[1rem] leading-snug text-[#8B8B95]">
+            <p className="mt-6 text-[1rem] leading-snug text-[var(--text-muted)]">
               Acceda a visualizaciones dinámicas de Power BI con datos actualizados sobre brechas de género.
             </p>
             <div className="mt-7">
               <Link href="/indicadores">
-                <span className="inline-flex h-8 min-w-[120px] items-center justify-center gap-2 rounded-full bg-[#0176DE] px-5 text-[0.6rem] font-bold text-white transition-colors hover:bg-[#0668C0]">
+                <span className="inline-flex h-8 min-w-[120px] items-center justify-center gap-2 rounded-full bg-[var(--brand-primary)] px-5 text-[0.6rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                   Ir a indicadores
                   <ArrowRight className="h-3 w-3" />
                 </span>

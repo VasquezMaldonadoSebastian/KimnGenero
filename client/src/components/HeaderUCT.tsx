@@ -32,7 +32,7 @@ export default function HeaderUCT() {
 
   return (
     <>
-      <div className="bg-[#0073CC] text-white">
+      <div className="bg-[var(--color-header-blue)] text-white">
         <div className="mx-auto hidden h-10 max-w-7xl items-center justify-between gap-4 px-4 lg:flex">
           <div className="flex min-w-0 items-center overflow-hidden text-[11px] font-semibold tracking-wider">
             {topLinks.map((link, idx) => (
@@ -71,8 +71,8 @@ export default function HeaderUCT() {
                     aria-current={isActiveLink(link.href) ? "page" : undefined}
                     className={`border-b-2 pb-1 text-[11px] font-bold transition-colors ${
                       isActiveLink(link.href)
-                        ? "border-[#0073CC] text-[#0073CC]"
-                        : "border-transparent text-gray-700 hover:border-[#0073CC] hover:text-[#0073CC]"
+                        ? "border-[var(--color-header-blue)] text-[var(--color-header-blue)]"
+                        : "border-transparent text-gray-700 hover:border-[var(--color-header-blue)] hover:text-[var(--color-header-blue)]"
                     }`}
                   >
                     {link.label}
@@ -83,7 +83,7 @@ export default function HeaderUCT() {
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               <button
-                className="inline-flex items-center justify-center rounded-full bg-white p-2.5 text-[#0073CC] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50"
+                className="inline-flex items-center justify-center rounded-full bg-white p-2.5 text-[var(--color-header-blue)] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
                 aria-expanded={mobileMenuOpen}
@@ -103,7 +103,7 @@ export default function HeaderUCT() {
           className="!fixed !inset-0 !h-dvh !max-w-none !translate-x-0 !translate-y-0 !rounded-none !border-0 !p-0 shadow-none"
         >
           <div className="flex h-full flex-col bg-white">
-            <div className="bg-[#0073CC] text-white">
+            <div className="bg-[var(--color-header-blue)] text-white">
               <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] font-semibold tracking-wider scrollbar-none">
                 {topLinks.map((link, idx) => (
                   <div key={link.label} className="flex items-center">
@@ -146,8 +146,8 @@ export default function HeaderUCT() {
                       aria-current={isActiveLink(link.href) ? "page" : undefined}
                       className={`flex min-h-12 items-center justify-between rounded-xl border px-4 py-3 text-sm font-semibold transition-colors ${
                         isActiveLink(link.href)
-                          ? "border-[#0073CC]/30 bg-[#0073CC]/5 text-[#0073CC]"
-                          : "border-gray-200 bg-gray-50 text-gray-800 hover:border-[#0073CC]/20 hover:bg-white hover:text-[#0073CC]"
+                          ? "border-[var(--color-header-blue)]/30 bg-[var(--color-header-blue)]/5 text-[var(--color-header-blue)]"
+                          : "border-gray-200 bg-gray-50 text-gray-800 hover:border-[var(--color-header-blue)]/20 hover:bg-white hover:text-[var(--color-header-blue)]"
                       }`}
                     >
                       <span>{link.label}</span>

@@ -55,6 +55,21 @@
   --color-brand-light: #173F8A;
   --color-brand-pale: #E8F2FF;
   --color-brand-accent: #FEC60D;
+
+  /* Header colors */
+  --color-header-blue: #0073CC;
+
+  /* Text colors */
+  --color-text-secondary: #858B91;
+  --color-text-muted: #8B8B95;
+  --color-text-light: #999999;
+  --color-text-dark: #4A4A4A;
+
+  /* Border and background colors */
+  --color-border-light: #E5E5E5;
+  --color-border-blue: #E8F2FF;
+  --color-bg-light: #F5F4F8;
+  --color-bg-lighter: #F8F9FA;
 }
 
 :root {
