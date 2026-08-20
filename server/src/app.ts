@@ -7,6 +7,7 @@ import { createApp } from "./createApp";
 import { createIndicatorRepository } from "./config/repositoryFactory";
 import { loadIndicatorSeed } from "./data/indicatorSeed";
 import { IndicatorService } from "./services/indicatorService";
+import { logger } from "./observability/logger";
 import indicadoresData from "../../data/indicadores.json";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -48,8 +49,11 @@ async function startServer() {
   const port = process.env.PORT || 3000;
 
   server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
+    logger.info(`Server running on http://localhost:${port}/`);
   });
 }
 
-startServer().catch(console.error);
+startServer().catch((err) => {
+  logger.error({ err }, "Server startup failed");
+  process.exit(1);
+});

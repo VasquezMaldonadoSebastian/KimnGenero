@@ -1,8 +1,7 @@
-import { ChevronRight, Menu, Search, X } from "lucide-react";
+import { ChevronRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 export default function HeaderUCT() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,18 +45,7 @@ export default function HeaderUCT() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="#" className="transition-transform hover:scale-110 hover:text-gray-200" aria-label="Facebook">
-              <FacebookIcon />
-            </a>
-            <a href="#" className="transition-transform hover:scale-110 hover:text-gray-200" aria-label="Twitter">
-              <TwitterIcon />
-            </a>
-            <a href="#" className="transition-transform hover:scale-110 hover:text-gray-200" aria-label="Instagram">
-              <InstagramIcon />
-            </a>
-            <a href="#" className="transition-transform hover:scale-110 hover:text-gray-200" aria-label="LinkedIn">
-              <LinkedInIcon />
-            </a>
+            {/* Redes sociales removidas temporalmente hasta obtener URLs reales */}
           </div>
         </div>
       </div>
@@ -94,14 +82,7 @@ export default function HeaderUCT() {
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               <button
-                className="hidden rounded-full p-2 transition-colors hover:bg-gray-50 xl:inline-flex"
-                aria-label="Buscar"
-              >
-                <Search className="h-5 w-5 stroke-[2.5] text-[#0073CC]" />
-              </button>
-
-              <button
-                className="inline-flex items-center justify-center rounded-full bg-white p-2.5 text-[#0073CC] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50 xl:hidden"
+                className="inline-flex items-center justify-center rounded-full bg-white p-2.5 text-[#0073CC] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
                 aria-expanded={mobileMenuOpen}
@@ -143,13 +124,6 @@ export default function HeaderUCT() {
                 </Link>
 
                 <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-white text-[#0073CC] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50"
-                    aria-label="Buscar"
-                  >
-                    <Search className="h-5 w-5 stroke-[2.5]" />
-                  </button>
                   <button
                     type="button"
                     onClick={() => setMobileMenuOpen(false)}
