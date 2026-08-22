@@ -106,7 +106,7 @@ function NotebookCard({
           {item.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-500"
+              className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-500"
             >
               {tag}
             </span>

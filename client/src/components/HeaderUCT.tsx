@@ -34,7 +34,7 @@ export default function HeaderUCT() {
     <>
       <div className="bg-[var(--color-header-blue)] text-white">
         <div className="mx-auto hidden h-10 max-w-7xl items-center justify-between gap-4 px-4 lg:flex">
-          <div className="flex min-w-0 items-center overflow-hidden text-[11px] font-semibold tracking-wider">
+          <div className="flex min-w-0 items-center overflow-hidden text-xs font-semibold tracking-wider">
             {topLinks.map((link, idx) => (
               <div key={link.label} className="flex items-center whitespace-nowrap">
                 <a href={link.href} className="px-3 transition-colors hover:text-gray-200">
@@ -69,7 +69,7 @@ export default function HeaderUCT() {
                 <Link key={link.href} href={link.href}>
                   <a
                     aria-current={isActiveLink(link.href) ? "page" : undefined}
-                    className={`border-b-2 pb-1 text-[11px] font-bold transition-colors ${
+                    className={`border-b-2 pb-1 text-xs font-bold transition-colors ${
                       isActiveLink(link.href)
                         ? "border-[var(--color-header-blue)] text-[var(--color-header-blue)]"
                         : "border-transparent text-gray-700 hover:border-[var(--color-header-blue)] hover:text-[var(--color-header-blue)]"
@@ -104,7 +104,7 @@ export default function HeaderUCT() {
         >
           <div className="flex h-full flex-col bg-white">
             <div className="bg-[var(--color-header-blue)] text-white">
-              <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap px-4 py-2 text-[11px] font-semibold tracking-wider scrollbar-none">
+              <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap px-4 py-2 text-xs font-semibold tracking-wider scrollbar-none">
                 {topLinks.map((link, idx) => (
                   <div key={link.label} className="flex items-center">
                     <a href={link.href} className="shrink-0 px-2 transition-colors hover:text-gray-200">

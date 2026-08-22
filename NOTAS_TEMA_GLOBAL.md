@@ -102,7 +102,8 @@ REGLAS:
    - Tipos corregidos en paso: "Sistema de Indicadores de Genero"→"Género", "Glosario de Genero"→"Género", subtítulos sin acentos normalizados.
 4. ✅ HECHO (2026-08-22): superficies por página migradas a `surface-base` (interno blanco azulado): reemplazados `#F5F4F8`/`#F8F9FA`/`surface-muted` en Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, NotebooksLMS, IndicadorDetail, IndicadorPage. Migrados ~131 hex restantes a tokens: brand-primary/dark/pale/light/accent, nuevo `brand-mid` (#B3D9FF), `status-ok/update/late`, y Tailwind para acentos (amber/emerald/indigo/sky). tarjetas blancas + bordes brand-pale + inputs/badges surface-alt. Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓ · utilidades nuevas (bg-surface-base, bg-brand-mid, bg-status-*) generadas ✓.
 5. ✅ HECHO (2026-08-22): grep-verify META — CERO hex hardcodeados fuera de index.css, dimensionColors.ts y page2-resources.ts (0 usos).
-6. Bugs en ruta: fix overflow SELECT /indicadores (min-width/flex), "Genero"→"Género" en h1s, subir 10-11px→12px.
+6. ✅ HECHO (2026-08-22): fix overflow vertical del header/selects — `min-w-0` en los 2 selects de filtro de /indicadores (elimina el desborde horizontal de 95px a 1440px, flexbox shrink). Tipografía mínima: subidos 10-11px→12px (`text-xs`) en Indicadores (id/badge/Área/Dimensión), NotebooksLMS (tag pill) y HeaderUCT (barra superior + nav + menú móvil). Typos "Genero"→"Género" en h1 ya corregidos en Fase 3.
+   - NOTA: el glosario conserva términos/datos sin acento ("Brecha de genero", "Genero", etc.) — es contenido de datos, fuera del refactor de código (NICE-TO-HAVE de contenido).
 
 ## 5. CRITERIO DE ÉXITO
 - Todas las páginas se sienten "del mismo sitio" al navegar: mismo header/footer, mismo patrón de inicio de página (PageHeader), misma regla de color.

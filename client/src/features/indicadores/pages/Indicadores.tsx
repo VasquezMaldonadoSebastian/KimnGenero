@@ -138,7 +138,7 @@ export default function Indicadores() {
             <select
               value={filterArea}
               onChange={(e) => setFilterArea(e.target.value)}
-              className="min-h-11 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
+              className="min-h-11 min-w-0 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             >
               <option value="todos">Todas las areas</option>
               {areas.filter((a) => a !== "todos").map((area) => (
@@ -154,7 +154,7 @@ export default function Indicadores() {
             <select
               value={filterDimension}
               onChange={(e) => setFilterDimension(e.target.value)}
-              className="min-h-11 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
+              className="min-h-11 min-w-0 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             >
               <option value="todos">Todas las dimensiones</option>
               {dimensiones.filter((d) => d !== "todos").map((dimension) => (
@@ -195,11 +195,11 @@ export default function Indicadores() {
                                 className="h-8 w-8 object-contain"
                               />
                             ) : (
-                              <span className="text-[11px] font-black text-white">{indicador.id}</span>
+                              <span className="text-xs font-black text-white">{indicador.id}</span>
                             )}
                           </span>
                           <span
-                            className="px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide"
+                            className="px-2.5 py-1 rounded-full text-xs font-bold tracking-wide"
                             style={{ backgroundColor: color.text, color: "white" }}
                           >
                             {indicador.codigo}
@@ -209,11 +209,11 @@ export default function Indicadores() {
                           {indicador.frecuenciaMedicion}
                         </span>
                       </div>
-                      <p className="text-[10px] uppercase tracking-wider font-bold text-gray-500 mb-1">
+                      <p className="text-xs uppercase tracking-wider font-bold text-gray-500 mb-1">
                         Área
                       </p>
                       <p className="text-xs text-gray-600">{indicador.area}</p>
-                      <p className="mt-3 text-[10px] uppercase tracking-wider font-bold text-gray-500 mb-1">
+                      <p className="mt-3 text-xs uppercase tracking-wider font-bold text-gray-500 mb-1">
                         Dimensión
                       </p>
                       <p className="text-xs text-gray-600">{indicador.dimension}</p>
