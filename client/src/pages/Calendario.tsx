@@ -36,7 +36,7 @@ export default function Calendario() {
             href="https://calendar.google.com/calendar/u/0?cid=c_7aa6cfd290f787a674e8f2bed624e22ee309900e32135a3c9c3678eafa5e9a63%40group.calendar.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-[#0176DE] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0165c0] sm:w-auto"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-brand-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-primary/90 sm:w-auto"
           >
             Añadir Calendario
           </a>

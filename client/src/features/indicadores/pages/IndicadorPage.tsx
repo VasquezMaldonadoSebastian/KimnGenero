@@ -35,9 +35,9 @@ export default function IndicadorPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8F9FA]">
+      <div className="min-h-screen flex items-center justify-center bg-surface-base">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#0176DE] mb-4" />
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary mb-4" />
           <p className="text-gray-600">Cargando indicador...</p>
         </div>
       </div>
@@ -46,14 +46,14 @@ export default function IndicadorPage() {
 
   if (error || !indicador) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8F9FA]">
+      <div className="min-h-screen flex items-center justify-center bg-surface-base">
         <div className="text-center max-w-md">
           <div className="text-6xl mb-4">!</div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Error al cargar</h1>
           <p className="text-gray-600 mb-6">{error || "Indicador no encontrado"}</p>
           <button
             onClick={() => navigate("/indicadores")}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0176DE] text-white font-semibold rounded-lg hover:bg-[#03122E] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-brand-dark transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Volver a Indicadores
@@ -69,7 +69,7 @@ export default function IndicadorPage() {
         <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
           <button
             onClick={() => navigate("/indicadores")}
-            className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 font-semibold text-[#0176DE] transition-colors hover:bg-[#E8F2FF] hover:text-[#03122E]"
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 font-semibold text-brand-primary transition-colors hover:bg-brand-pale hover:text-brand-dark"
           >
             <ArrowLeft className="w-4 h-4" />
             Volver a Indicadores

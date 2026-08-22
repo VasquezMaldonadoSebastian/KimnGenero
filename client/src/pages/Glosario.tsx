@@ -116,7 +116,7 @@ export default function Glosario() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F5F4F8]">
+    <div className="min-h-screen bg-surface-base">
       <PageHeader
         eyebrow={{ icon: <BookMarked className="h-5 w-5" />, label: "Referencia" }}
         title="Glosario de Género"
@@ -125,7 +125,7 @@ export default function Glosario() {
 
         <div className="container py-8 sm:py-10">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 rounded-xl border border-[#E8F2FF] bg-white p-4 shadow-sm sm:p-5">
+          <div className="mb-6 rounded-xl border border-brand-pale bg-white p-4 shadow-sm sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -134,7 +134,7 @@ export default function Glosario() {
                   placeholder="Buscar termino o definicion..."
                   value={busqueda}
                   onChange={(e) => setBusqueda(e.target.value)}
-                  className="w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] py-3 pl-9 pr-4 text-sm focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                  className="w-full rounded-lg border border-brand-pale bg-brand-pale py-3 pl-9 pr-4 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                 />
               </div>
               <div className="flex flex-wrap gap-2 sm:justify-end">
@@ -144,8 +144,8 @@ export default function Glosario() {
                     onClick={() => setCategoriaFiltro(cat)}
                     className={`min-h-11 rounded-lg px-3 py-2 text-xs font-medium transition-all ${
                       categoriaFiltro === cat
-                        ? "bg-[#0176DE] text-white"
-                        : "border border-[#E8F2FF] bg-[#E8F2FF] text-gray-600 hover:bg-[#E8F2FF]"
+                        ? "bg-brand-primary text-white"
+                        : "border border-brand-pale bg-brand-pale text-gray-600 hover:bg-brand-pale"
                     }`}
                   >
                     {cat}
@@ -162,13 +162,13 @@ export default function Glosario() {
             {terminosFiltrados.map((t) => (
               <div
                 key={t.termino}
-                className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm transition-colors hover:border-[#0176DE]/30 sm:p-6"
+                className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm transition-colors hover:border-brand-primary/30 sm:p-6"
               >
                 <div className="mb-2 flex items-start justify-between gap-4">
-                  <h3 className="text-base font-bold text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                  <h3 className="text-base font-bold text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
                     {t.termino}
                   </h3>
-                  <span className="flex-shrink-0 rounded-full bg-[#E8F2FF] px-2.5 py-1 text-xs font-semibold text-[#03122E]">
+                  <span className="flex-shrink-0 rounded-full bg-brand-pale px-2.5 py-1 text-xs font-semibold text-brand-dark">
                     {t.categoria}
                   </span>
                 </div>

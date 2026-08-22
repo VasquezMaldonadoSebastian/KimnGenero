@@ -69,7 +69,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
     <div className="mb-10 overflow-hidden rounded-xl bg-white shadow-md sm:mb-12">
       <div className="flex flex-col gap-4 border-b border-brand-pale bg-brand-pale px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="flex items-start gap-3">
-          <div className={`w-3 h-3 rounded-full ${tieneIframe ? "bg-[#27AE60]" : "bg-[#F59E0B]"}`} />
+          <div className={`w-3 h-3 rounded-full ${tieneIframe ? "bg-status-ok" : "bg-status-update"}`} />
           <div>
             <div
               className="font-semibold text-brand-dark"
@@ -121,7 +121,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
             <div className="w-20 h-20 rounded-3xl bg-brand-pale flex items-center justify-center mb-6">
               <span className="text-4xl">Dashboard</span>
             </div>
-            <h3 className="text-xl font-bold text-[#4B5563] mb-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <h3 className="text-xl font-bold text-gray-600 mb-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
               Visualizacion por Configurar
             </h3>
             <p className="text-center text-gray-500 max-w-md mb-6">
@@ -135,7 +135,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
       </div>
 
       {tieneIframe && (
-        <div className="flex flex-col gap-3 border-t border-gray-100 bg-surface-muted px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="flex flex-col gap-3 border-t border-gray-100 bg-surface-base px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span className="flex items-center gap-2 text-xs text-gray-600">
             <Info className="w-4 h-4 text-brand-primary" />
             Los datos se actualizan siguiendo el cronograma institucional de indicadores.

@@ -23,7 +23,7 @@ export default function Hero({ indicador }: HeroProps) {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#03122E] via-[#03122E] to-[#0176DE] py-12 sm:py-16">
+    <section className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand-dark to-brand-primary py-12 sm:py-16">
       <div className="pointer-events-none absolute -top-48 -right-24 hidden h-[500px] w-[500px] rounded-full bg-white/4 sm:block" />
       <div className="pointer-events-none absolute -bottom-24 left-12 hidden h-[300px] w-[300px] rounded-full bg-white/4 sm:block" />
 
@@ -59,7 +59,7 @@ export default function Hero({ indicador }: HeroProps) {
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <button
             onClick={handleExplore}
-            className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-3 font-bold text-[#03122E] transition-all hover:shadow-lg sm:w-auto"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-3 font-bold text-brand-dark transition-all hover:shadow-lg sm:w-auto"
             title="Explorar datos del indicador"
           >
             Explorar Datos

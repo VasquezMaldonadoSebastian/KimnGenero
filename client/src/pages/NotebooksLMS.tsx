@@ -23,9 +23,9 @@ function StatCard({
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
-          <p className="mt-2 text-3xl font-extrabold text-[#1A0A2E]">{value}</p>
+          <p className="mt-2 text-3xl font-extrabold text-brand-dark">{value}</p>
         </div>
-        <div className="rounded-2xl bg-[#0176DE]/10 p-3 text-[#0176DE]">{icon}</div>
+        <div className="rounded-2xl bg-brand-primary/10 p-3 text-brand-primary">{icon}</div>
       </div>
     </div>
   );
@@ -36,7 +36,7 @@ function NotebookArtwork({ item }: { item: NotebookItem }) {
 
   if (failed) {
     return (
-      <div className="flex h-full w-full items-end justify-between bg-gradient-to-br from-[#1A0A2E] via-[#173F8A] to-[#0176DE] p-5 text-white">
+      <div className="flex h-full w-full items-end justify-between bg-gradient-to-br from-brand-dark via-brand-light to-brand-primary p-5 text-white">
         <div className="max-w-[78%]">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">KimnIA</p>
           <p className="mt-2 text-lg font-bold leading-tight">{item.title}</p>
@@ -74,12 +74,12 @@ function NotebookCard({
       <button
         type="button"
         onClick={() => onOpen(item)}
-        className="relative block aspect-[16/10] overflow-hidden bg-slate-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0176DE]"
+        className="relative block aspect-[16/10] overflow-hidden bg-slate-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
         aria-label={`Ver detalle de ${item.title}`}
       >
         <NotebookArtwork item={item} />
         <div className="absolute left-4 top-4 flex items-center gap-2">
-          <span className="rounded-full bg-[#0176DE] px-3 py-1 text-xs font-bold text-white">
+          <span className="rounded-full bg-brand-primary px-3 py-1 text-xs font-bold text-white">
             {item.featured ? "Destacado" : "Notebook"}
           </span>
         </div>
@@ -94,7 +94,7 @@ function NotebookCard({
           <button
             type="button"
             onClick={() => onOpen(item)}
-            className="text-left transition-colors hover:text-[#0176DE] focus:outline-none focus-visible:underline"
+            className="text-left transition-colors hover:text-brand-primary focus:outline-none focus-visible:underline"
           >
             {item.title}
           </button>
@@ -118,7 +118,7 @@ function NotebookCard({
             <button
               type="button"
               onClick={() => onOpen(item)}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-[#0176DE]/30 hover:text-[#0176DE]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-brand-primary/30 hover:text-brand-primary"
             >
               Ver detalle
               <ArrowRight className="h-4 w-4" />
@@ -127,7 +127,7 @@ function NotebookCard({
               href={item.notebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#0176DE] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#03122E]"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
             >
               NotebookLM
               <ExternalLink className="h-4 w-4" />
@@ -153,14 +153,14 @@ function NotebookDetailDialog({
           <div className="grid gap-0 md:grid-cols-[1.05fr_0.95fr]">
             <div className="relative min-h-[260px] bg-slate-100">
               <img src={item.imageUrl} alt={item.imageAlt} className="h-full w-full object-cover" />
-              <div className="absolute left-4 top-4 rounded-full bg-[#0176DE] px-3 py-1 text-xs font-bold text-white">
+              <div className="absolute left-4 top-4 rounded-full bg-brand-primary px-3 py-1 text-xs font-bold text-white">
                 KimnIA
               </div>
             </div>
 
             <div className="p-6 md:p-7">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-extrabold tracking-tight text-[#1A0A2E]">
+                <DialogTitle className="text-2xl font-extrabold tracking-tight text-brand-dark">
                   {item.title}
                 </DialogTitle>
                 <DialogDescription className="text-sm leading-relaxed text-slate-600">
@@ -197,7 +197,7 @@ function NotebookDetailDialog({
                     href={item.notebookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#0176DE] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#03122E]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
                   >
                     Abrir en NotebookLM
                     <ExternalLink className="h-4 w-4" />
@@ -226,11 +226,11 @@ export default function NotebooksLMS() {
   const notebookLabel = stats.total === 1 ? "notebook" : "notebooks";
 
   return (
-    <div className="min-h-screen bg-[#F5F4F8] text-slate-700">
-      <section className="relative overflow-hidden bg-[#03122E] text-white">
+    <div className="min-h-screen bg-surface-base text-slate-700">
+      <section className="relative overflow-hidden bg-brand-dark text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(1,118,222,0.35),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(124,58,237,0.28),_transparent_32%),linear-gradient(135deg,_#1A0A2E_0%,_#03122E_45%,_#0176DE_100%)]" />
         <div className="absolute left-[-5rem] top-12 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute right-[-4rem] top-8 h-64 w-64 rounded-full bg-[#9fd4ff]/20 blur-3xl" />
+        <div className="absolute right-[-4rem] top-8 h-64 w-64 rounded-full bg-sky-300/20 blur-3xl" />
 
       <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
           <div className="max-w-4xl">
@@ -255,7 +255,7 @@ export default function NotebooksLMS() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#catalogo"
-                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#03122E] transition-colors hover:bg-[#E8F2FF] sm:w-auto"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition-colors hover:bg-brand-pale sm:w-auto"
               >
                 Explorar catalogo
                 <ArrowRight className="h-4 w-4" />
@@ -293,11 +293,11 @@ export default function NotebooksLMS() {
         <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm md:p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#0176DE]">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-primary">
                 Exploracion rapida
               </p>
               <h2
-              className="mt-2 text-2xl font-extrabold tracking-tight text-[#1A0A2E] sm:text-3xl"
+              className="mt-2 text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 {stats.total} {notebookLabel} disponibles en KimnIA
@@ -317,7 +317,7 @@ export default function NotebooksLMS() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Buscar por titulo o palabra clave..."
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-700 outline-none transition focus:border-[#0176DE] focus:bg-white focus:ring-4 focus:ring-[#0176DE]/10"
+              className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-700 outline-none transition focus:border-brand-primary focus:bg-white focus:ring-4 focus:ring-brand-primary/10"
               />
             </label>
             {query && (
@@ -326,7 +326,7 @@ export default function NotebooksLMS() {
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  className="inline-flex items-center gap-2 font-semibold text-slate-600 hover:text-[#0176DE]"
+                  className="inline-flex items-center gap-2 font-semibold text-slate-600 hover:text-brand-primary"
                 >
                   <X className="h-4 w-4" />
                   Limpiar
@@ -342,7 +342,7 @@ export default function NotebooksLMS() {
           <div className="rounded-[2rem] border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
             <BookOpen className="mx-auto h-12 w-12 text-slate-300" />
             <h2
-              className="mt-4 text-2xl font-bold text-[#1A0A2E]"
+              className="mt-4 text-2xl font-bold text-brand-dark"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               No encontramos coincidencias
@@ -354,7 +354,7 @@ export default function NotebooksLMS() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="mt-6 rounded-xl bg-[#0176DE] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#03122E]"
+              className="mt-6 rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
             >
               Limpiar busqueda
             </button>

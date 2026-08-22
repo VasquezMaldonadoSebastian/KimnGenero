@@ -51,7 +51,7 @@ function ResourceCard({
   return (
     <Link href={`/indicadores?dimension=${encodeURIComponent(dimension)}`}>
       <article
-        className="group flex h-[12.25rem] overflow-hidden bg-[#0176DE] text-white transition-[filter] hover:brightness-95"
+        className="group flex h-[12.25rem] overflow-hidden bg-brand-primary text-white transition-[filter] hover:brightness-95"
         style={{ backgroundColor: color }}
       >
         <div className="flex h-full w-full flex-col px-4 pb-4 pt-2.5">

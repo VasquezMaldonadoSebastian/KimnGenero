@@ -29,7 +29,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
           aria-expanded={openFuentes}
         >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#FEF3C7] flex items-center justify-center text-[#92400E]">DB</div>
+            <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800">DB</div>
             <div className="text-left">
               <h3 className="font-bold text-gray-900">Fuente y Responsables</h3>
               <p className="text-xs text-gray-500">Sistemas de origen y roles</p>
@@ -76,7 +76,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
           aria-expanded={openInfo}
         >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#D1FAE5] flex items-center justify-center text-[#065F46]">i</div>
+            <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">i</div>
             <div className="text-left">
               <h3 className="font-bold text-gray-900">Informacion Tecnica</h3>
               <p className="text-xs text-gray-500">Periodicidad y cobertura</p>
@@ -107,8 +107,8 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
               <p className="text-xs font-semibold text-gray-700 mb-1">Estado</p>
               <p className="text-sm text-gray-600">{indicador.estado || "Por definir"}</p>
             </div>
-            <div className="bg-[#FFF8E1] border-l-4 border-[#F59E0B] rounded-r-lg p-3 mt-4">
-              <p className="text-xs text-[#78350F]">
+            <div className="bg-amber-50 border-l-4 border-amber-500 rounded-r-lg p-3 mt-4">
+              <p className="text-xs text-amber-900">
                 <strong>Nota:</strong> La calidad de las cifras presentadas es de exclusiva responsabilidad de la institucion productora del indicador.
               </p>
             </div>

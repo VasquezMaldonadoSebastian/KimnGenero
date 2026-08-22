@@ -60,7 +60,7 @@ const estandares = [
   {
     nivel: "Consolidar",
     descripcion: "Institucionalización con garantías de sostenibilidad",
-    color: "bg-[#B3D9FF]",
+    color: "bg-brand-mid",
     textColor: "text-brand-dark",
   },
   {
@@ -114,7 +114,7 @@ const fases = [
 
 export default function Metodologia() {
   return (
-    <div className="min-h-screen bg-surface-muted">
+    <div className="min-h-screen bg-surface-base">
       <PageHeader
         eyebrow={{ icon: <BookOpen className="w-5 h-5" />, label: "Documentación" }}
         title="Metodología"

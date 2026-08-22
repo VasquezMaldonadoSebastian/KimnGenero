@@ -28,7 +28,7 @@ export default function EstadoAgrupado() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-surface-muted flex items-center justify-center">
+      <div className="min-h-screen bg-surface-base flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary" />
       </div>
     );
@@ -36,7 +36,7 @@ export default function EstadoAgrupado() {
 
   if (error || !report) {
     return (
-      <div className="min-h-screen bg-surface-muted flex items-center justify-center text-center">
+      <div className="min-h-screen bg-surface-base flex items-center justify-center text-center">
         <div>
           <div className="text-6xl mb-4">!</div>
           <h1 className="text-2xl font-bold mb-2">Error al cargar reportes</h1>
@@ -47,7 +47,7 @@ export default function EstadoAgrupado() {
   }
 
   return (
-    <div className="min-h-screen bg-surface-muted">
+    <div className="min-h-screen bg-surface-base">
       <PageHeader
         breadcrumb={[{ label: "Estado Agrupado" }]}
         title="Estado Agrupado de Indicadores"

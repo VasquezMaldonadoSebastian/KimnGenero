@@ -100,8 +100,8 @@ REGLAS:
 3. ✅ HECHO (2026-08-22): componente `client/src/components/PageHeader.tsx` (white + borde brand-pale + breadcrumb auto con "Inicio" + eyebrow + h1 font-black text-brand-dark + subtítulo + banda `bandColor`). Implementado en los 7 interiores planos: Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, Calendario (eliminado su hero oscuro) + IndicadorDetail recibe banda superior de DIMENSIÓN (h-2, color sólido de su triplete). Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓.
    - DECISIÓN: KimnIA (NotebooksLMS) y el Hero del detalle CONSERVAN su hero oscuro — son páginas tipo "herramienta"/"individual" con identidad propia; los 7 interiores de contenido/listado quedan uniformes con PageHeader.
    - Tipos corregidos en paso: "Sistema de Indicadores de Genero"→"Género", "Glosario de Genero"→"Género", subtítulos sin acentos normalizados.
-4. Normalizar superficies por tipo (sección 3): unificar metodologia/glosario/contacto/calendario; estado-agrupado con estados.
-5. grep-verify META: CERO hex hardcodeados fuera de index.css y dimensionColors.ts.
+4. ✅ HECHO (2026-08-22): superficies por página migradas a `surface-base` (interno blanco azulado): reemplazados `#F5F4F8`/`#F8F9FA`/`surface-muted` en Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, NotebooksLMS, IndicadorDetail, IndicadorPage. Migrados ~131 hex restantes a tokens: brand-primary/dark/pale/light/accent, nuevo `brand-mid` (#B3D9FF), `status-ok/update/late`, y Tailwind para acentos (amber/emerald/indigo/sky). tarjetas blancas + bordes brand-pale + inputs/badges surface-alt. Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓ · utilidades nuevas (bg-surface-base, bg-brand-mid, bg-status-*) generadas ✓.
+5. ✅ HECHO (2026-08-22): grep-verify META — CERO hex hardcodeados fuera de index.css, dimensionColors.ts y page2-resources.ts (0 usos).
 6. Bugs en ruta: fix overflow SELECT /indicadores (min-width/flex), "Genero"→"Género" en h1s, subir 10-11px→12px.
 
 ## 5. CRITERIO DE ÉXITO

@@ -55,6 +55,7 @@
   --color-brand-light: #173F8A;
   --color-brand-pale: #E8F2FF;
   --color-brand-accent: #FEC60D;
+  --color-brand-mid: #B3D9FF;
 
   /* Header colors */
   --color-header-blue: #03122E; /* estructura navy - unificado a brand-dark (tema global) */
@@ -72,11 +73,15 @@
   --color-bg-lighter: #F8F9FA;
 
   /* Tema global - superficies (base=--background, alt=brand-pale, strong=brand-dark) */
-  --color-surface-muted: #F5F4F8;
   --color-surface-base: var(--background);
   --color-surface-alt: var(--color-brand-pale);
   --color-surface-strong: var(--color-brand-dark);
   --shadow-card: 0 2px 8px rgba(1, 118, 222, 0.08);
+
+  /* Status (dashboards / estado agrupado) */
+  --color-status-ok: #27AE60;
+  --color-status-update: #F59E0B;
+  --color-status-late: #D8002D;
 }
 
 :root {

@@ -28,7 +28,7 @@ export default function Contacto() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F4F8]">
+    <div className="min-h-screen bg-surface-base">
       <PageHeader
         eyebrow={{ icon: <MessageSquare className="h-5 w-5" />, label: "Comunicaciones" }}
         title="Contacto"
@@ -38,50 +38,50 @@ export default function Contacto() {
       <div className="container py-8 sm:py-10">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-3">
           <div className="space-y-4">
-            <div className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-6">
-              <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <div className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-6">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Información de Contacto
               </h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF]">
-                    <Mail className="h-4 w-4 text-[#0176DE]" />
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-pale">
+                    <Mail className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
                     <div className="mb-0.5 text-xs text-gray-400">Correo electrónico</div>
-                    <a href="mailto:observatorio@uct.cl" className="text-sm font-medium text-[#0176DE] hover:underline">
+                    <a href="mailto:observatorio@uct.cl" className="text-sm font-medium text-brand-primary hover:underline">
                       observatorio@uct.cl
                     </a>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF]">
-                    <Phone className="h-4 w-4 text-[#0176DE]" />
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-pale">
+                    <Phone className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
                     <div className="mb-0.5 text-xs text-gray-400">Dirección de Género</div>
-                    <a href="tel:+56452685126" className="text-sm font-medium text-gray-700 hover:text-[#0176DE]">
+                    <a href="tel:+56452685126" className="text-sm font-medium text-gray-700 hover:text-brand-primary">
                       (45) 2 685126
                     </a>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF]">
-                    <Phone className="h-4 w-4 text-[#0176DE]" />
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-pale">
+                    <Phone className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
                     <div className="mb-0.5 text-xs text-gray-400">Observatorio de Género</div>
-                    <a href="tel:+56452685057" className="text-sm font-medium text-gray-700 hover:text-[#0176DE]">
+                    <a href="tel:+56452685057" className="text-sm font-medium text-gray-700 hover:text-brand-primary">
                       (45) 2 685057
                     </a>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#E8F2FF]">
-                    <MapPin className="h-4 w-4 text-[#0176DE]" />
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-pale">
+                    <MapPin className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
                     <div className="mb-0.5 text-xs text-gray-400">Dirección</div>
@@ -95,7 +95,7 @@ export default function Contacto() {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-[#1A0A2E] p-5 text-white sm:p-6">
+            <div className="rounded-xl bg-brand-dark p-5 text-white sm:p-6">
               <h3 className="mb-2 text-sm font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Horario de atención
               </h3>
@@ -115,8 +115,8 @@ export default function Contacto() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-8">
-              <h2 className="mb-6 font-bold text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <div className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-8">
+              <h2 className="mb-6 font-bold text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Enviar consulta
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -132,7 +132,7 @@ export default function Contacto() {
                       onChange={handleChange}
                       required
                       placeholder="Su nombre"
-                      className="w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                     />
                   </div>
 
@@ -144,7 +144,7 @@ export default function Contacto() {
                       value={form.institucion}
                       onChange={handleChange}
                       placeholder="Organización o institución"
-                      className="w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                     />
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function Contacto() {
                     onChange={handleChange}
                     required
                     placeholder="correo@ejemplo.cl"
-                    className="w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                    className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                   />
                 </div>
 
@@ -173,7 +173,7 @@ export default function Contacto() {
                     value={form.asunto}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] px-3.5 py-2.5 text-sm text-gray-700 focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                    className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm text-gray-700 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                   >
                     <option value="">Seleccione un asunto</option>
                     <option value="consulta-datos">Consulta sobre datos o indicadores</option>
@@ -195,7 +195,7 @@ export default function Contacto() {
                     required
                     rows={5}
                     placeholder="Describa su consulta con el mayor detalle posible..."
-                    className="resize-none w-full rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/30"
+                    className="resize-none w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                   />
                 </div>
 
@@ -206,7 +206,7 @@ export default function Contacto() {
                   <button
                     type="submit"
                     disabled={enviando}
-                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#0176DE] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#03122E] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                   >
                     {enviando ? (
                       <>

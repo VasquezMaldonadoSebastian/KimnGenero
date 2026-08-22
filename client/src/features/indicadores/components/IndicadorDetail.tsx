@@ -14,14 +14,14 @@ interface IndicadorDetailProps {
 
 export default function IndicadorDetail({ indicador }: IndicadorDetailProps) {
   return (
-    <div className="min-h-screen bg-[#F8F9FA]">
+    <div className="min-h-screen bg-surface-base">
       <div
         className="h-2 w-full"
         style={{ backgroundColor: getDimensionColor(indicador.dimension).text }}
       />
       <Hero indicador={indicador} />
       <div
-        className="h-8 w-full bg-[#F8F9FA] sm:h-12"
+        className="h-8 w-full bg-surface-base sm:h-12"
         style={{ clipPath: "ellipse(55% 100% at 50% 0%)", marginTop: "-1px" }}
       />
 
