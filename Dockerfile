@@ -24,7 +24,6 @@ RUN corepack enable
 WORKDIR /app
 COPY --from=source /src/app/package.json ./package.json
 COPY --from=source /src/app/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=source /src/app/patches ./patches
 RUN pnpm install --prod --frozen-lockfile && pnpm store prune
 
 FROM ${NODE_IMAGE} AS runtime
