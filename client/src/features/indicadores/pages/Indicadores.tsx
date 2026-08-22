@@ -1,7 +1,7 @@
 /*
  * Indicadores - Listado de indicadores
  * Design: Grid de tarjetas con enlaces a cada indicador individual
- * Colors: #F5F4F8 bg, white cards, #0176DE accents
+ * Colors: tokens del tema global (surface-muted bg, white cards, brand-primary accents)
  */
 
 import { useEffect, useMemo, useState } from "react";
@@ -9,39 +9,8 @@ import { Link, useLocation } from "wouter";
 import { ChevronRight, Filter, Search } from "lucide-react";
 import type { Indicator } from "@shared/types/indicator-domain";
 import { apiGetJson } from "@/lib/apiClient";
-import { page2Resources } from "@/lib/page2-resources";
+import { getDimensionColor, getDimensionResource } from "../dimensionColors";
 import { useIndicatorsContext } from "../../../contexts/IndicatorsContext";
-
-const COLOR_MAP: Record<string, { bg: string; border: string; text: string }> = {
-  "1.- Institucionalizacion": { bg: "#E8F2FF", border: "#E5D4F0", text: "#0176DE" },
-  "2.- Violencia de Genero": { bg: "#FEE2E2", border: "#FECACA", text: "#DC2626" },
-  "3.- Corresponsabilidad en los cuidados": { bg: "#D1FAE5", border: "#A7F3D0", text: "#059669" },
-  "4.- Trayectorias laborales": { bg: "#F3E8FF", border: "#E9D5FF", text: "#7C3AED" },
-  "5.- Trayectorias educativas": { bg: "#CFFAFE", border: "#A5F3FC", text: "#0891B2" },
-  "6.- Modelo educativo con perspectiva de genero": {
-    bg: "#FEF3C7",
-    border: "#FDE68A",
-    text: "#F59E0B",
-  },
-  "7.- Divulgacion Cientifica": { bg: "#FCE7F3", border: "#FBCFE8", text: "#EC4899" },
-  "8.- Mujeres en Conocimiento": { bg: "#EDE9FE", border: "#DDD6FE", text: "#8B5CF6" },
-};
-
-const DEFAULT_COLOR = { bg: "#F0F9FF", border: "#E0F2FE", text: "#0369A1" };
-
-const normalizeDimensionKey = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .toLowerCase();
-
-const getResourceForDimension = (dimension: string | undefined) => {
-  if (!dimension) return undefined;
-  const key = normalizeDimensionKey(dimension);
-  return page2Resources.find((resource) => normalizeDimensionKey(resource.dimension) === key);
-};
 
 export default function Indicadores() {
   const { indicators, loading, error } = useIndicatorsContext();
@@ -113,15 +82,6 @@ export default function Indicadores() {
     });
   }, [visibleIndicators, indicators, searchTerm, filtersReady, loadingFiltered]);
 
-  const getColorForDimension = (dimension: string | undefined) => {
-    if (!dimension) return DEFAULT_COLOR;
-    const resource = getResourceForDimension(dimension);
-    if (resource) {
-      return { bg: `${resource.color}14`, border: `${resource.color}33`, text: resource.color };
-    }
-    return COLOR_MAP[dimension] ?? DEFAULT_COLOR;
-  };
-
   const handleClearFilters = () => {
     setSearchTerm("");
     setFilterArea("todos");
@@ -131,15 +91,15 @@ export default function Indicadores() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F4F8] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0176DE]" />
+      <div className="min-h-screen bg-surface-muted flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary" />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#F5F4F8] flex items-center justify-center text-center">
+      <div className="min-h-screen bg-surface-muted flex items-center justify-center text-center">
         <div>
           <div className="text-6xl mb-4">!</div>
           <h1 className="text-2xl font-bold mb-2">Error al cargar</h1>
@@ -150,17 +110,17 @@ export default function Indicadores() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F4F8]">
-      <div className="bg-white border-b border-[#E8F2FF]">
+    <div className="min-h-screen bg-surface-muted">
+      <div className="bg-white border-b border-brand-pale">
         <div className="container py-8 sm:py-10">
           <nav className="mb-4 flex items-center gap-1.5 text-xs text-gray-400">
-            <a href="/" className="hover:text-[#0176DE]">
+            <a href="/" className="hover:text-brand-primary">
               Inicio
             </a>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-[#0176DE] font-medium">Indicadores</span>
+            <span className="text-brand-primary font-medium">Indicadores</span>
           </nav>
-          <h1 className="mb-2 text-3xl font-black text-[#03122E]">
+          <h1 className="mb-2 text-3xl font-black text-brand-dark">
             Sistema de Indicadores de Genero
           </h1>
           <p className="max-w-2xl text-gray-600">
@@ -180,7 +140,7 @@ export default function Indicadores() {
               placeholder="Buscar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-lg border border-[#E8F2FF] py-3 pl-10 pr-4 text-sm focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/20"
+              className="w-full rounded-lg border border-brand-pale py-3 pl-10 pr-4 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             />
           </div>
 
@@ -189,7 +149,7 @@ export default function Indicadores() {
             <select
               value={filterArea}
               onChange={(e) => setFilterArea(e.target.value)}
-              className="min-h-11 flex-1 rounded-lg border border-[#E8F2FF] px-4 py-3 text-sm focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/20"
+              className="min-h-11 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             >
               <option value="todos">Todas las areas</option>
               {areas.filter((a) => a !== "todos").map((area) => (
@@ -205,7 +165,7 @@ export default function Indicadores() {
             <select
               value={filterDimension}
               onChange={(e) => setFilterDimension(e.target.value)}
-              className="min-h-11 flex-1 rounded-lg border border-[#E8F2FF] px-4 py-3 text-sm focus:border-[#0176DE] focus:outline-none focus:ring-2 focus:ring-[#0176DE]/20"
+              className="min-h-11 flex-1 rounded-lg border border-brand-pale px-4 py-3 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             >
               <option value="todos">Todas las dimensiones</option>
               {dimensiones.filter((d) => d !== "todos").map((dimension) => (
@@ -220,8 +180,8 @@ export default function Indicadores() {
         {filtrados.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {filtrados.map((indicador: Indicator) => {
-              const color = getColorForDimension(indicador.dimension);
-              const resource = getResourceForDimension(indicador.dimension);
+              const color = getDimensionColor(indicador.dimension);
+              const resource = getDimensionResource(indicador.dimension);
               return (
                 <Link key={indicador.id} href={`/indicador/${indicador.id}`} className="group h-full">
                   <div className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-lg">
@@ -270,7 +230,7 @@ export default function Indicadores() {
                       <p className="text-xs text-gray-600">{indicador.dimension}</p>
                     </div>
                     <div className="p-5">
-                      <h3 className="mb-2 text-xl font-black leading-tight text-[#03122E] group-hover:text-[#0176DE]">
+                      <h3 className="mb-2 text-xl font-black leading-tight text-brand-dark group-hover:text-brand-primary">
                         {indicador.titulo}
                       </h3>
                       <p className="mb-4 text-sm text-gray-600 line-clamp-3">
@@ -289,12 +249,12 @@ export default function Indicadores() {
             })}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-[#E8F2FF] bg-white py-16 text-center">
+          <div className="flex flex-col items-center justify-center rounded-xl border border-brand-pale bg-white py-16 text-center">
             <div className="text-5xl mb-4">?</div>
             <h3 className="text-lg font-bold mb-2">No se encontraron indicadores</h3>
             <button
               onClick={handleClearFilters}
-              className="mt-4 min-h-11 rounded-lg bg-[#0176DE] px-6 py-3 font-semibold text-white"
+              className="mt-4 min-h-11 rounded-lg bg-brand-primary px-6 py-3 font-semibold text-white"
             >
               Limpiar filtros
             </button>

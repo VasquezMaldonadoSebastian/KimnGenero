@@ -16,7 +16,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
   return (
     <section className="mb-10 sm:mb-12">
       <div className="flex items-center gap-3 mb-6">
-        <h2 className="text-2xl font-bold text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+        <h2 className="text-2xl font-bold text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
           Ficha Tecnica
         </h2>
       </div>
@@ -24,7 +24,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
       <div className="mb-3 overflow-hidden rounded-lg bg-white shadow-sm">
         <button
           type="button"
-          className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-[#E8F2FF] sm:px-6"
+          className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-brand-pale sm:px-6"
           onClick={() => setOpenFuentes((v) => !v)}
           aria-expanded={openFuentes}
         >
@@ -71,7 +71,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
       <div className="overflow-hidden rounded-lg bg-white shadow-sm">
         <button
           type="button"
-          className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-[#E8F2FF] sm:px-6"
+          className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-brand-pale sm:px-6"
           onClick={() => setOpenInfo((v) => !v)}
           aria-expanded={openInfo}
         >

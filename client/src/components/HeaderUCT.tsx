@@ -166,7 +166,7 @@ export default function HeaderUCT() {
                     <a
                       key={link.label}
                       href={link.href}
-                      className="flex min-h-11 items-center rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-[#0073CC]/20 hover:bg-gray-50 hover:text-[#0073CC]"
+                      className="flex min-h-11 items-center rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-[var(--color-header-blue)]/20 hover:bg-gray-50 hover:text-[var(--color-header-blue)]"
                     >
                       {link.label}
                     </a>

@@ -7,22 +7,22 @@ import { BookOpen, Target, Database, RefreshCw, CheckCircle2, Zap, BarChart3 } f
 
 const principios = [
   {
-    icono: <Target className="w-5 h-5 text-[#0176DE]" />,
+    icono: <Target className="w-5 h-5 text-brand-primary" />,
     titulo: "Pertinencia",
     descripcion: "Los indicadores responden a necesidades concretas de información para el diseño y evaluación de políticas públicas con enfoque de género.",
   },
   {
-    icono: <CheckCircle2 className="w-5 h-5 text-[#0176DE]" />,
+    icono: <CheckCircle2 className="w-5 h-5 text-brand-primary" />,
     titulo: "Confiabilidad",
     descripcion: "Los datos provienen de fuentes oficiales, encuestas estadísticas con diseño probabilístico y registros administrativos validados.",
   },
   {
-    icono: <Database className="w-5 h-5 text-[#0176DE]" />,
+    icono: <Database className="w-5 h-5 text-brand-primary" />,
     titulo: "Desagregación",
     descripcion: "Todos los indicadores se presentan desagregados por sexo como mínimo, con desagregaciones adicionales por edad, región y nivel socioeconómico.",
   },
   {
-    icono: <RefreshCw className="w-5 h-5 text-[#0176DE]" />,
+    icono: <RefreshCw className="w-5 h-5 text-brand-primary" />,
     titulo: "Actualización periódica",
     descripcion: "Los indicadores se actualizan con la periodicidad de sus fuentes primarias, garantizando información reciente.",
   },
@@ -53,19 +53,19 @@ const estandares = [
   {
     nivel: "Fortalecer",
     descripcion: "Capacidades personales y colectivas en perspectiva de género",
-    color: "bg-[#E8F2FF]",
-    textColor: "text-[#0176DE]",
+    color: "bg-brand-pale",
+    textColor: "text-brand-primary",
   },
   {
     nivel: "Consolidar",
     descripcion: "Institucionalización con garantías de sostenibilidad",
     color: "bg-[#B3D9FF]",
-    textColor: "text-[#03122E]",
+    textColor: "text-brand-dark",
   },
   {
     nivel: "Transformar",
     descripcion: "Cambio sistémico y transformación de cultura organizacional",
-    color: "bg-[#0176DE]",
+    color: "bg-brand-primary",
     textColor: "text-white",
   },
 ];
@@ -113,19 +113,19 @@ const fases = [
 
 export default function Metodologia() {
   return (
-    <div className="min-h-screen bg-[#F9F9FB]">
+    <div className="min-h-screen bg-surface-muted">
       {/* Header */}
       <div
-        className="bg-white border-b border-[#E8F2FF]"
-        style={{ background: "linear-gradient(180deg, #E8F2FF 0%, #FFFFFF 100%)" }}
+        className="bg-white border-b border-brand-pale"
+        style={{ background: "linear-gradient(180deg, var(--color-brand-pale) 0%, #FFFFFF 100%)" }}
       >
         <div className="container py-8 sm:py-10">
           <div className="flex items-center gap-2 mb-2">
-            <BookOpen className="w-5 h-5 text-[#0176DE]" />
-            <span className="text-xs font-semibold text-[#0176DE] uppercase tracking-wider">Documentación</span>
+            <BookOpen className="w-5 h-5 text-brand-primary" />
+            <span className="text-xs font-semibold text-brand-primary uppercase tracking-wider">Documentación</span>
           </div>
           <h1
-            className="text-3xl font-bold text-[#1A0A2E] mb-3"
+            className="text-3xl font-bold text-brand-dark mb-3"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
             Metodología
@@ -140,9 +140,9 @@ export default function Metodologia() {
         <div className="mx-auto max-w-4xl space-y-6 sm:space-y-10">
 
           {/* 1. Definición del Modelo */}
-          <section className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-8">
+          <section className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-8">
             <h2
-              className="text-xl font-bold text-[#1A0A2E] mb-4"
+              className="text-xl font-bold text-brand-dark mb-4"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               1. Definición del Modelo
@@ -156,16 +156,16 @@ export default function Metodologia() {
           </section>
 
           {/* 2. Estado del Arte */}
-          <section className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-8">
+          <section className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-8">
             <h2
-              className="text-xl font-bold text-[#1A0A2E] mb-6"
+              className="text-xl font-bold text-brand-dark mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               2. Estado del Arte (Antecedentes y Contexto)
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="font-semibold text-[#1A0A2E] mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <h3 className="font-semibold text-brand-dark mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Marco Normativo
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
@@ -173,7 +173,7 @@ export default function Metodologia() {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-[#1A0A2E] mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <h3 className="font-semibold text-brand-dark mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Trayectoria Institucional
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
@@ -181,7 +181,7 @@ export default function Metodologia() {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-[#1A0A2E] mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <h3 className="font-semibold text-brand-dark mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   Diagnóstico de Brechas
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
@@ -192,26 +192,26 @@ export default function Metodologia() {
           </section>
 
           {/* 3. Metodología de Implementación */}
-          <section className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-8">
+          <section className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-8">
             <h2
-              className="text-xl font-bold text-[#1A0A2E] mb-6"
+              className="text-xl font-bold text-brand-dark mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               3. Metodología de Implementación
             </h2>
             
             <div className="mb-8">
-              <h3 className="font-semibold text-[#1A0A2E] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <h3 className="font-semibold text-brand-dark mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Ciclo PHVA (Planificar, Hacer, Verificar, Actuar)
               </h3>
               <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
                 {etapas.map((etapa) => (
-                <div key={etapa.numero} className="rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] p-4 sm:p-5">
+                <div key={etapa.numero} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-full bg-[#0176DE] text-white flex items-center justify-center text-sm font-bold">
+                      <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center text-sm font-bold">
                         {etapa.numero}
                       </div>
-                      <h4 className="font-semibold text-[#1A0A2E]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <h4 className="font-semibold text-brand-dark" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                         {etapa.titulo}
                       </h4>
                     </div>
@@ -222,7 +222,7 @@ export default function Metodologia() {
             </div>
 
             <div className="mb-8">
-              <h3 className="font-semibold text-[#1A0A2E] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <h3 className="font-semibold text-brand-dark mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Ruta Progresiva de Transversalización
               </h3>
               <p className="text-gray-700 leading-relaxed text-sm mb-4">
@@ -230,7 +230,7 @@ export default function Metodologia() {
               </p>
               <div className="space-y-3">
                 {estandares.map((est) => (
-                  <div key={est.nivel} className={`${est.color} rounded-lg border border-[#E8F2FF] p-4`}>
+                  <div key={est.nivel} className={`${est.color} rounded-lg border border-brand-pale p-4`}>
                     <div className={`font-semibold ${est.textColor} mb-1`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
                       {est.nivel}
                     </div>
@@ -241,7 +241,7 @@ export default function Metodologia() {
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#1A0A2E] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <h3 className="font-semibold text-brand-dark mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Ámbitos Estratégicos de Acción
               </h3>
               <p className="text-gray-700 leading-relaxed text-sm mb-4">
@@ -249,9 +249,9 @@ export default function Metodologia() {
               </p>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {ambitos.map((ambito) => (
-                  <div key={ambito.titulo} className="rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] p-4 sm:p-5">
+                  <div key={ambito.titulo} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
                     <div className="text-2xl mb-2">{ambito.icono}</div>
-                    <h4 className="font-semibold text-[#1A0A2E] mb-2 text-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    <h4 className="font-semibold text-brand-dark mb-2 text-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                       {ambito.titulo}
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed">{ambito.descripcion}</p>
@@ -262,43 +262,43 @@ export default function Metodologia() {
           </section>
 
           {/* 4. Plan de Trabajo */}
-          <section className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-8">
+          <section className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-8">
             <h2
-              className="text-xl font-bold text-[#1A0A2E] mb-6"
+              className="text-xl font-bold text-brand-dark mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               4. Plan de Trabajo (Operacionalización)
             </h2>
             
             <div className="mb-8">
-              <h3 className="font-semibold text-[#1A0A2E] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <h3 className="font-semibold text-brand-dark mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Dimensiones e Indicadores
               </h3>
               <p className="text-gray-700 leading-relaxed text-sm mb-4">
                 Se definieron <strong>8 dimensiones clave</strong> operacionalizadas mediante <strong>19 indicadores estratégicos</strong> que permiten monitorear el avance en la transversalización de la perspectiva de género:
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex gap-3"><span className="text-[#0176DE] font-bold">•</span> <span><strong>Institucionalización:</strong> Normativas y políticas con perspectiva de género</span></li>
-                <li className="flex gap-3"><span className="text-[#0176DE] font-bold">•</span> <span><strong>Violencia de Género:</strong> Conocimiento y cumplimiento de protocolos</span></li>
-                <li className="flex gap-3"><span className="text-[#0176DE] font-bold">•</span> <span><strong>Corresponsabilidad:</strong> Conciliación vida laboral y familiar</span></li>
-                <li className="flex gap-3"><span className="text-[#0176DE] font-bold">•</span> <span><strong>Trayectorias Laborales:</strong> Participación y cargos directivos</span></li>
-                <li className="flex gap-3"><span className="text-[#0176DE] font-bold">•</span> <span>Y otras dimensiones de análisis estratégico</span></li>
+                <li className="flex gap-3"><span className="text-brand-primary font-bold">•</span> <span><strong>Institucionalización:</strong> Normativas y políticas con perspectiva de género</span></li>
+                <li className="flex gap-3"><span className="text-brand-primary font-bold">•</span> <span><strong>Violencia de Género:</strong> Conocimiento y cumplimiento de protocolos</span></li>
+                <li className="flex gap-3"><span className="text-brand-primary font-bold">•</span> <span><strong>Corresponsabilidad:</strong> Conciliación vida laboral y familiar</span></li>
+                <li className="flex gap-3"><span className="text-brand-primary font-bold">•</span> <span><strong>Trayectorias Laborales:</strong> Participación y cargos directivos</span></li>
+                <li className="flex gap-3"><span className="text-brand-primary font-bold">•</span> <span>Y otras dimensiones de análisis estratégico</span></li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold text-[#1A0A2E] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <h3 className="font-semibold text-brand-dark mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Fases de la Implementación
               </h3>
               <div className="space-y-3">
                 {fases.map((fase) => (
-                  <div key={fase.numero} className="rounded-lg border border-[#E8F2FF] bg-[#E8F2FF] p-4 sm:p-5">
+                  <div key={fase.numero} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
                     <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-full bg-[#0176DE] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
                         {fase.numero}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#1A0A2E] mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                        <h4 className="font-semibold text-brand-dark mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                           {fase.titulo}
                         </h4>
                         <p className="text-sm text-gray-700 leading-relaxed">{fase.descripcion}</p>
@@ -313,20 +313,20 @@ export default function Metodologia() {
           {/* 5. Principios Rectores */}
           <section>
             <h2
-              className="text-xl font-bold text-[#1A0A2E] mb-6"
+              className="text-xl font-bold text-brand-dark mb-6"
               style={{ fontFamily: 'Montserrat, sans-serif' }}
             >
               5. Principios Rectores
             </h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {principios.map((p) => (
-                <div key={p.titulo} className="rounded-xl border border-[#E8F2FF] bg-white p-5 shadow-sm sm:p-6">
+                <div key={p.titulo} className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#E8F2FF] flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-lg bg-brand-pale flex items-center justify-center">
                       {p.icono}
                     </div>
                     <h3
-                      className="font-semibold text-[#1A0A2E]"
+                      className="font-semibold text-brand-dark"
                       style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
                       {p.titulo}
@@ -339,10 +339,10 @@ export default function Metodologia() {
           </section>
 
           {/* Disclaimer */}
-          <div className="rounded-xl bg-[#1A0A2E] p-5 text-white sm:p-6">
+          <div className="rounded-xl bg-brand-dark p-5 text-white sm:p-6">
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#0176DE]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-[#FEC60D] text-sm font-bold">i</span>
+              <div className="w-8 h-8 rounded-full bg-brand-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-brand-accent text-sm font-bold">i</span>
               </div>
               <div>
                 <h3

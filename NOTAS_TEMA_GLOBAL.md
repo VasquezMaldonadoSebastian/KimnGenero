@@ -1,0 +1,107 @@
+# NOTAS — TEMA GLOBAL KimnGenero (normalización estética y de color)
+
+Fecha: 2026-08-22 · Alcance: plataforma completa (10 rutas) · Estado: PROPUESTA (sin tocar producción)
+
+---
+
+## 1. DIAGNÓSTICO (datos del inventario real, no percepción)
+
+El theme ya existe en `client/src/index.css` (`@theme inline` + `:root` shadcn/oklch) pero las páginas NO lo usan:
+
+| Hecho | Dato |
+|---|---|
+| brand-primary `#0176DE` | 93 usos hardcodeados |
+| brand-pale `#E8F2FF` | 64 usos hardcodeados |
+| brand-dark `#03122E` | 20 usos |
+| `#1A0A2E` (2ª tinta, casi igual) | 32 usos — DEBE mapear a brand-dark |
+| header-blue `#0073CC` | azul paralelo al primario (2 azules compitiendo) |
+| Neutros sueltos | #F5F4F8, #F8F9FA, #F9F9FB, #E5E5E5, #71717A, #8E8E8E, #4A4A4A |
+| Colores de dimensión | ~50 hexes pastel+oscuro (Tailwind 50/100 + 600/800) dispersos en 4 archivos: Indicadores.tsx, DashboardCard.tsx, TechnicalSheet.tsx, Metodologia.tsx |
+| Overflow | /indicadores desborda 95px (SELECT de filtros) |
+| Tipografía mínima | /indicadores usa 10-11px (badges/metadata) — subir a ≥12px |
+
+Causa raíz: tokens definidos pero sin punto único de acceso a dimensión, sin componente compartido de encabezado de página, y sin regla de superficie por tipo de página.
+
+---
+
+## 2. TEMA GLOBAL (una sola paleta para toda la plataforma)
+
+### 2.1 Azul institucional ÚNICO
+- `#0176DE` (brand-primary) = ÚNICO azul de interacción: botones, links, active, focos, KPIs.
+- `#03122E` (brand-dark) = navy de ESTRUCTURA: header bar, hero landing, footer, sidebar.
+- Eliminar `header-blue #0073CC` → header pasa a brand-dark.
+- Shades derivados existentes: brand-light #173F8A (hover/links oscuros), brand-pale #E8F2FF (superficie alt).
+
+### 2.2 Tinta y neutros (escala única)
+- Tinta fuerte: `#03122E` (mapear `#1A0A2E` → brand-dark).
+- Texto body: `--text-secondary #5F6368` (ya token).
+- Texto muted: `--text-muted #6B7280` (ya token).
+- Border: `--border oklch(0.88 0.02 250)` y `--border-blue #E8F2FF` (ya token).
+- ELIMINAR: #71717A, #4A4A4A, #E5E5E5, #8E8E8E → reemplazar por la escala anterior.
+
+### 2.3 Superficies (3 únicas)
+| Token | Valor | Uso |
+|---|---|---|
+| surface-base | oklch(0.98 0.01 250) (bg actual) | fondo por defecto de TODAS las páginas |
+| surface-alt | #E8F2FF (brand-pale) | bandas/secciones alternas + tarjetas sobre base |
+| surface-strong | #03122E (brand-dark) | hero landing, header, footer |
+
+Regla: las tarjetas SIEMPRE blancas (`card: oklch(1 0 0)`) sobre cualquier superficie.
+Eliminar #F5F4F8 / #F8F9FA / #F9F9FB → surface-alt o border.
+
+### 2.4 Dimensiones (8 tripletes, punto único de acceso)
+Nuevo archivo `client/src/features/indicadores/dimensionColors.ts` con:
+
+| dim | bg (pastel) | text (≥AA sobre blanco) | border/familia |
+|---|---|---|---|
+| azul | #E8F2FF | #173F8A | #B3D9FF |
+| púrpura | #EDE9FE | #6D28D9 | #C4B5FD |
+| verde | #D1FAE5 | #065F46 | #A7F3D0 |
+| ámbar | #FEF3C7 | #92400E | #FDE68A |
+| rojo | #FEE2E2 | #B91C1C | #FECACA |
+| rosado | #FCE7F3 | #BE185D | #FBCFE8 |
+| naranja | #FFEDD5 | #C2410C | #FED7AA |
+| celeste | #E0F2FE | #0369A1 | #BAE6FD |
+
+REGLAS:
+- Color de dimensión SOLO en chips/badges + banda superior de 8-16px en detalle. NUNCA fondos de tarjetas completas.
+- Texto del chip siempre el `text` del triplete (hoy falla 7/8 → se arregla).
+- Migrar los 4 archivos que tienen hex de dimensión a este módulo.
+
+### 2.5 Estados (estado-agrupado) — semántica, no dimensión
+- ok → triplete verde · update → ámbar · late → rojo (reutiliza 2.4).
+
+### 2.6 Tipografía y forma
+- Montserrat = display (h1-h3, KPIs) · Inter = UI/body (ya global).
+- Escala: display 36/44 · h1 30/38 · h2 24/32 · h3 18/26 · body 16/24 · small 14/20 · caption 12/16.
+- PROHIBIDO <12px: subir 10-11px de /indicadores.
+- Radio: tarjetas 12px, `--radius 0.5rem` ya definido. Sombra única suave azul (unificar .kpi-card / .dashboard-container en `--shadow-card`).
+
+---
+
+## 3. VARIACIÓN POR TIPO DE PÁGINA (solo estructura — el color es SIEMPRE el tema global)
+
+| Ruta | Tipo | Tratamiento estructural |
+|---|---|---|
+| `/` | Landing | Hero surface-strong (navy) + texto blanco; secciones alternan base/alt; KPIs borde azul |
+| `/indicadores` | Listado | Base blanca + PageHeader compartido; barra de filtros sticky; tarjetas borde; color solo en chips |
+| `/indicador/:id` | Detalle individual | PageHeader + banda superior de DIMENSIÓN (8-16px, único uso de color de fondo por dimensión); Hero claro (no navy); DashboardCard blanco; Ficha/Fórmula sobre surface-alt |
+| `/kimnia` | Herramienta | Tratamiento estándar como el resto: base blanca + PageHeader; tarjetas/burbujas blancas con borde; los fondos tintados actuales pasan a surface-alt (regla global de secciones alternas). SIN excepción de superficie |
+| `/metodologia` `/glosario` `/contacto` `/calendario` | Contenido editorial | Las 4 UNIFORMES: base blanca + secciones/bandas surface-alt, tarjetas blancas, acordeones border |
+| `/estado-agrupado` | Estado/datos | Base blanca; tarjetas con triplete de estado (ok/update/late) |
+| `/404` | Error | Base blanca o surface-strong simple, sin variantes |
+
+## 4. MECÁNICA (fases; cada una termina verificada)
+
+1. ✅ HECHO (2026-08-22): tokens `--color-surface-*` + `--shadow-card` en index.css; header #0073CC → navy brand-dark (#03122E); `.kpi-card` border → var(--color-brand-primary). Creación de `client/src/features/indicadores/dimensionColors.ts` (8 tripletes AA + DEFAULT). Migrados: Indicadores.tsx (eliminado COLOR_MAP local ~30 hex), Metodologia.tsx, EstadoAgrupado.tsx, DashboardCard.tsx, TechnicalSheet.tsx, HeaderUCT.tsx. Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓ · utilidades Tailwind (bg-surface-muted, bg-brand-pale, text-brand-*, border-brand-pale, focus:ring-brand-primary/20, bg-brand-primary/30) generadas ✓.
+   - DECISIÓN familias: canónicas = page2-resources (íconos 01..08). BUG resuelto: COLOR_MAP tenía dim 2=rojo / dim 3=verde INVERTIDAS vs recursos (hoy se renderizaba verde/rojo); normalizado a familias de recursos (dim 2=verde, dim 3=rojo).
+   - Queda mecánico pendiente de Fase 4 (superficies/PageHeader): hex restantes en Contacto (45), NotebooksLMS (30), Glosario (21), FormulaBlock (15), IndicadorPage (8), Calendario (5), Hero (4), DashboardCard status-dot 3 (#27AE60/#F59E0B/#4B5563), TechnicalSheet badges 7, Metodologia 2 (#B3D9FF/#FFFFFF), IndicadorDetail 2, Home 1.
+2. `dimensionColors.ts` + migrar los 4 archivos de dimensión. Verificar chips AA por cálculo de contraste (script). → (dimensión terminado en F1; restos de F4 arriba)
+3. Componente `PageHeader` compartido (breadcrumb + h1 + subtítulo + slot banda) e implementarlo en las 7 páginas interiores. Elimina la no-homogeneidad de inicio de página.
+4. Normalizar superficies por tipo (sección 3): unificar metodologia/glosario/contacto/calendario; estado-agrupado con estados.
+5. grep-verify META: CERO hex hardcodeados fuera de index.css y dimensionColors.ts.
+6. Bugs en ruta: fix overflow SELECT /indicadores (min-width/flex), "Genero"→"Género" en h1s, subir 10-11px→12px.
+
+## 5. CRITERIO DE ÉXITO
+- Todas las páginas se sienten "del mismo sitio" al navegar: mismo header/footer, mismo patrón de inicio de página (PageHeader), misma regla de color.
+- La única diferencia perceptible entre páginas es su TIPO (listado vs detalle vs herramienta vs contenido vs estado), no un dialecto de paleta.

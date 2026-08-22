@@ -28,15 +28,15 @@ export default function EstadoAgrupado() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F4F8] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0176DE]" />
+      <div className="min-h-screen bg-surface-muted flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary" />
       </div>
     );
   }
 
   if (error || !report) {
     return (
-      <div className="min-h-screen bg-[#F5F4F8] flex items-center justify-center text-center">
+      <div className="min-h-screen bg-surface-muted flex items-center justify-center text-center">
         <div>
           <div className="text-6xl mb-4">!</div>
           <h1 className="text-2xl font-bold mb-2">Error al cargar reportes</h1>
@@ -47,17 +47,17 @@ export default function EstadoAgrupado() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F4F8]">
-      <div className="bg-white border-b border-[#E8F2FF]">
+    <div className="min-h-screen bg-surface-muted">
+      <div className="bg-white border-b border-brand-pale">
         <div className="container py-8 sm:py-10">
           <nav className="mb-4 flex items-center gap-1.5 text-xs text-gray-400">
-            <a href="/" className="hover:text-[#0176DE]">
+            <a href="/" className="hover:text-brand-primary">
               Inicio
             </a>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-[#0176DE] font-medium">Estado Agrupado</span>
+            <span className="text-brand-primary font-medium">Estado Agrupado</span>
           </nav>
-          <h1 className="mb-2 text-3xl font-black text-[#03122E]">
+          <h1 className="mb-2 text-3xl font-black text-brand-dark">
             Estado Agrupado de Indicadores
           </h1>
           <p className="max-w-2xl text-gray-600">

@@ -67,12 +67,12 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
 
   return (
     <div className="mb-10 overflow-hidden rounded-xl bg-white shadow-md sm:mb-12">
-      <div className="flex flex-col gap-4 border-b border-[#E5D4F0] bg-[#E8F2FF] px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div className="flex flex-col gap-4 border-b border-brand-pale bg-brand-pale px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="flex items-start gap-3">
           <div className={`w-3 h-3 rounded-full ${tieneIframe ? "bg-[#27AE60]" : "bg-[#F59E0B]"}`} />
           <div>
             <div
-              className="font-semibold text-[#03122E]"
+              className="font-semibold text-brand-dark"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               {titulo}
@@ -95,7 +95,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
         )}
       </div>
 
-      <div className="relative h-[72vh] min-h-[420px] w-full bg-gradient-to-br from-[#E8F2FF] to-[#E8F2FF] md:h-[75vh] md:min-h-[700px]">
+      <div className="relative h-[72vh] min-h-[420px] w-full bg-gradient-to-br from-brand-pale to-brand-pale md:h-[75vh] md:min-h-[700px]">
         {tieneIframe ? (
           <iframe
             ref={iframeRef}
@@ -118,7 +118,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
           />
         ) : (
           <div className="flex h-full flex-col items-center justify-center px-6 py-12">
-            <div className="w-20 h-20 rounded-3xl bg-[#E8F2FF] flex items-center justify-center mb-6">
+            <div className="w-20 h-20 rounded-3xl bg-brand-pale flex items-center justify-center mb-6">
               <span className="text-4xl">Dashboard</span>
             </div>
             <h3 className="text-xl font-bold text-[#4B5563] mb-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
@@ -127,7 +127,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
             <p className="text-center text-gray-500 max-w-md mb-6">
               Este indicador aun no cuenta con una visualizacion interactiva. La integracion del dashboard esta en proceso.
             </p>
-            <div className="bg-white rounded-lg p-4 border border-[#E5D4F0] text-sm text-gray-600">
+            <div className="bg-white rounded-lg p-4 border border-brand-pale text-sm text-gray-600">
               <strong>Responsable de calculo:</strong> {indicador.responsableCalculo || "Por asignar"}
             </div>
           </div>
@@ -135,9 +135,9 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
       </div>
 
       {tieneIframe && (
-        <div className="flex flex-col gap-3 border-t border-gray-100 bg-[#F8F9FA] px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="flex flex-col gap-3 border-t border-gray-100 bg-surface-muted px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span className="flex items-center gap-2 text-xs text-gray-600">
-            <Info className="w-4 h-4 text-[#0176DE]" />
+            <Info className="w-4 h-4 text-brand-primary" />
             Los datos se actualizan siguiendo el cronograma institucional de indicadores.
           </span>
           <div className="flex gap-2">
