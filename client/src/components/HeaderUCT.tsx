@@ -81,7 +81,7 @@ export default function HeaderUCT() {
               ))}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3 xl:hidden">
               <button
                 className="inline-flex items-center justify-center rounded-full bg-white p-2.5 text-[var(--color-header-blue)] ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-50"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
