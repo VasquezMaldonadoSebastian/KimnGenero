@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 import type { GroupedReport } from "@shared/types/indicator-domain";
 import { apiGetJson } from "@/lib/apiClient";
 
@@ -48,24 +48,11 @@ export default function EstadoAgrupado() {
 
   return (
     <div className="min-h-screen bg-surface-muted">
-      <div className="bg-white border-b border-brand-pale">
-        <div className="container py-8 sm:py-10">
-          <nav className="mb-4 flex items-center gap-1.5 text-xs text-gray-400">
-            <a href="/" className="hover:text-brand-primary">
-              Inicio
-            </a>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-brand-primary font-medium">Estado Agrupado</span>
-          </nav>
-          <h1 className="mb-2 text-3xl font-black text-brand-dark">
-            Estado Agrupado de Indicadores
-          </h1>
-          <p className="max-w-2xl text-gray-600">
-            Visualiza el estado consolidado de los indicadores por areas estrategicas y
-            dimensiones.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={[{ label: "Estado Agrupado" }]}
+        title="Estado Agrupado de Indicadores"
+        subtitle="Visualiza el estado consolidado de los indicadores por áreas estratégicas y dimensiones."
+      />
 
       <div className="container py-6 sm:py-8">
         <div className="mb-8 w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">

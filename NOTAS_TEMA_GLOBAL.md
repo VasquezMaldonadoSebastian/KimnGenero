@@ -97,7 +97,9 @@ REGLAS:
    - DECISIÓN familias: canónicas = page2-resources (íconos 01..08). BUG resuelto: COLOR_MAP tenía dim 2=rojo / dim 3=verde INVERTIDAS vs recursos (hoy se renderizaba verde/rojo); normalizado a familias de recursos (dim 2=verde, dim 3=rojo).
    - Queda mecánico pendiente de Fase 4 (superficies/PageHeader): hex restantes en Contacto (45), NotebooksLMS (30), Glosario (21), FormulaBlock (15), IndicadorPage (8), Calendario (5), Hero (4), DashboardCard status-dot 3 (#27AE60/#F59E0B/#4B5563), TechnicalSheet badges 7, Metodologia 2 (#B3D9FF/#FFFFFF), IndicadorDetail 2, Home 1.
 2. `dimensionColors.ts` + migrar los 4 archivos de dimensión. Verificar chips AA por cálculo de contraste (script). → (dimensión terminado en F1; restos de F4 arriba)
-3. Componente `PageHeader` compartido (breadcrumb + h1 + subtítulo + slot banda) e implementarlo en las 7 páginas interiores. Elimina la no-homogeneidad de inicio de página.
+3. ✅ HECHO (2026-08-22): componente `client/src/components/PageHeader.tsx` (white + borde brand-pale + breadcrumb auto con "Inicio" + eyebrow + h1 font-black text-brand-dark + subtítulo + banda `bandColor`). Implementado en los 7 interiores planos: Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, Calendario (eliminado su hero oscuro) + IndicadorDetail recibe banda superior de DIMENSIÓN (h-2, color sólido de su triplete). Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓.
+   - DECISIÓN: KimnIA (NotebooksLMS) y el Hero del detalle CONSERVAN su hero oscuro — son páginas tipo "herramienta"/"individual" con identidad propia; los 7 interiores de contenido/listado quedan uniformes con PageHeader.
+   - Tipos corregidos en paso: "Sistema de Indicadores de Genero"→"Género", "Glosario de Genero"→"Género", subtítulos sin acentos normalizados.
 4. Normalizar superficies por tipo (sección 3): unificar metodologia/glosario/contacto/calendario; estado-agrupado con estados.
 5. grep-verify META: CERO hex hardcodeados fuera de index.css y dimensionColors.ts.
 6. Bugs en ruta: fix overflow SELECT /indicadores (min-width/flex), "Genero"→"Género" en h1s, subir 10-11px→12px.

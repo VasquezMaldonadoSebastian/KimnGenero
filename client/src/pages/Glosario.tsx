@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BookMarked, Search } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 
 const terminos = [
   {
@@ -116,23 +117,11 @@ export default function Glosario() {
 
   return (
     <div className="min-h-screen bg-[#F5F4F8]">
-      <div
-        className="border-b border-[#E8F2FF] bg-white"
-        style={{ background: "linear-gradient(180deg, #E8F2FF 0%, #FFFFFF 100%)" }}
-      >
-        <div className="container py-10">
-          <div className="mb-2 flex items-center gap-2">
-            <BookMarked className="h-5 w-5 text-[#0176DE]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0176DE]">Referencia</span>
-          </div>
-          <h1 className="mb-3 text-3xl font-bold text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
-            Glosario de Genero
-          </h1>
-          <p className="max-w-2xl leading-relaxed text-gray-600">
-            Definiciones de los principales conceptos sobre equidad, cuidados, brechas y prevencion de la violencia de genero, fundamentales para el diagnostico institucional.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow={{ icon: <BookMarked className="h-5 w-5" />, label: "Referencia" }}
+        title="Glosario de Género"
+        subtitle="Definiciones de los principales conceptos sobre equidad, cuidados, brechas y prevención de la violencia de género, fundamentales para el diagnóstico institucional."
+      />
 
         <div className="container py-8 sm:py-10">
         <div className="mx-auto max-w-4xl">

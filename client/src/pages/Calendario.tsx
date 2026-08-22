@@ -3,51 +3,17 @@
  * Design: Hero con gradiente azul/morado + iframe de Google Calendar
  */
 
+import PageHeader from "@/components/PageHeader";
 import React from "react";
 
 export default function Calendario() {
   return (
     <div className="min-h-screen bg-white">
-      {/* ─── HERO ─── */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #1A0A2E 0%, #03122E 40%, #0176DE 100%)",
-          minHeight: "35vh",
-        }}
-      >
-        {/* Background image overlay */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663447566391/LYhypHEVUXKoDvuf57dpiK/hero-observatorio-mwRwNRovbtzvjPr26s6PvP.webp)`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        
-        <div className="container relative z-10 py-10 sm:py-12 lg:py-16">
-          <div className="max-w-4xl">
-            {/* Breadcrumb style */}
-            <div className="text-white/80 text-xs mb-6">
-              Inicio &gt; <span className="font-semibold text-white">Calendario de actualizaciones</span>
-            </div>
-
-            {/* Title */}
-            <h1
-              className="mb-5 text-3xl font-extrabold leading-tight text-white lg:text-4xl"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
-            >
-              Calendario de actualizaciones
-            </h1>
-
-            {/* Description */}
-            <p className="max-w-3xl text-sm leading-relaxed text-white/90 lg:text-base">
-              El calendario de actualización de indicadores de género es una herramienta estratégica de comunicación que permite a la Universidad Católica de Temuco informar oportunamente a personas e instituciones interesadas sobre las fechas y procesos de actualización de estos indicadores. Facilita la planificación, el seguimiento y la toma de decisiones con enfoque de género, promoviendo la transparencia, la coordinación interinstitucional y el acceso equitativo a información clave a nivel nacional.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumb={[{ label: "Calendario" }]}
+        title="Calendario de actualizaciones"
+        subtitle="El calendario de actualización de indicadores de género es una herramienta estratégica de comunicación que permite a la Universidad Católica de Temuco informar oportunamente a personas e instituciones interesadas sobre las fechas y procesos de actualización de estos indicadores. Facilita la planificación, el seguimiento y la toma de decisiones con enfoque de género, promoviendo la transparencia, la coordinación interinstitucional y el acceso equitativo a información clave a nivel nacional."
+      />
 
       {/* ─── CALENDAR CONTENT ─── */}
       <section className="flex w-full flex-col items-center px-4 py-8 sm:py-12">

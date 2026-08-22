@@ -4,6 +4,7 @@
  */
 
 import { BookOpen, Target, Database, RefreshCw, CheckCircle2, Zap, BarChart3 } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 
 const principios = [
   {
@@ -114,27 +115,11 @@ const fases = [
 export default function Metodologia() {
   return (
     <div className="min-h-screen bg-surface-muted">
-      {/* Header */}
-      <div
-        className="bg-white border-b border-brand-pale"
-        style={{ background: "linear-gradient(180deg, var(--color-brand-pale) 0%, #FFFFFF 100%)" }}
-      >
-        <div className="container py-8 sm:py-10">
-          <div className="flex items-center gap-2 mb-2">
-            <BookOpen className="w-5 h-5 text-brand-primary" />
-            <span className="text-xs font-semibold text-brand-primary uppercase tracking-wider">Documentación</span>
-          </div>
-          <h1
-            className="text-3xl font-bold text-brand-dark mb-3"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
-          >
-            Metodología
-          </h1>
-          <p className="text-gray-600 max-w-2xl leading-relaxed">
-            Modelo de Promoción de la Igualdad de Género y No Discriminación: marco conceptual, implementación y operacionalización.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow={{ icon: <BookOpen className="w-5 h-5" />, label: "Documentación" }}
+        title="Metodología"
+        subtitle="Modelo de Promoción de la Igualdad de Género y No Discriminación: marco conceptual, implementación y operacionalización."
+      />
 
       <div className="container py-8 sm:py-10">
         <div className="mx-auto max-w-4xl space-y-6 sm:space-y-10">

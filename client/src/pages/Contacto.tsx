@@ -1,4 +1,5 @@
 import { Mail, MapPin, MessageSquare, Phone, Send } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -28,24 +29,11 @@ export default function Contacto() {
 
   return (
     <div className="min-h-screen bg-[#F5F4F8]">
-      <div
-        className="border-b border-[#E8F2FF] bg-white"
-        style={{ background: "linear-gradient(180deg, #E8F2FF 0%, #FFFFFF 100%)" }}
-      >
-        <div className="container py-8 sm:py-10">
-          <div className="mb-2 flex items-center gap-2">
-            <MessageSquare className="h-5 w-5 text-[#0176DE]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0176DE]">Comunicaciones</span>
-          </div>
-          <h1 className="mb-3 text-3xl font-bold text-[#1A0A2E]" style={{ fontFamily: "Montserrat, sans-serif" }}>
-            Contacto
-          </h1>
-          <p className="max-w-2xl leading-relaxed text-gray-600">
-            Para consultas sobre los datos, solicitudes de información o colaboraciones institucionales, utilice el
-            formulario o los canales de contacto indicados.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow={{ icon: <MessageSquare className="h-5 w-5" />, label: "Comunicaciones" }}
+        title="Contacto"
+        subtitle="Para consultas sobre los datos, solicitudes de información o colaboraciones institucionales, utilice el formulario o los canales de contacto indicados."
+      />
 
       <div className="container py-8 sm:py-10">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-3">

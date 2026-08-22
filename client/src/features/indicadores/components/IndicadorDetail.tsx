@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import type { Indicator } from "@shared/types/indicator-domain";
 import DashboardCard from "./detail/DashboardCard";
 import Hero from "./detail/Hero";
+import { getDimensionColor } from "../dimensionColors";
 import TechnicalSheet from "./detail/TechnicalSheet";
 
 // Lazy load FormulaBlock para reducir bundle size (KaTeX es pesado)
@@ -14,6 +15,10 @@ interface IndicadorDetailProps {
 export default function IndicadorDetail({ indicador }: IndicadorDetailProps) {
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
+      <div
+        className="h-2 w-full"
+        style={{ backgroundColor: getDimensionColor(indicador.dimension).text }}
+      />
       <Hero indicador={indicador} />
       <div
         className="h-8 w-full bg-[#F8F9FA] sm:h-12"

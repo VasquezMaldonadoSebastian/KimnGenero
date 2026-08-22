@@ -6,7 +6,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { ChevronRight, Filter, Search } from "lucide-react";
+import { Filter, Search } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
 import type { Indicator } from "@shared/types/indicator-domain";
 import { apiGetJson } from "@/lib/apiClient";
 import { getDimensionColor, getDimensionResource } from "../dimensionColors";
@@ -111,23 +112,11 @@ export default function Indicadores() {
 
   return (
     <div className="min-h-screen bg-surface-muted">
-      <div className="bg-white border-b border-brand-pale">
-        <div className="container py-8 sm:py-10">
-          <nav className="mb-4 flex items-center gap-1.5 text-xs text-gray-400">
-            <a href="/" className="hover:text-brand-primary">
-              Inicio
-            </a>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-brand-primary font-medium">Indicadores</span>
-          </nav>
-          <h1 className="mb-2 text-3xl font-black text-brand-dark">
-            Sistema de Indicadores de Genero
-          </h1>
-          <p className="max-w-2xl text-gray-600">
-            Explora los {indicators.length} indicadores del observatorio institucional.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        breadcrumb={[{ label: "Indicadores" }]}
+        title="Sistema de Indicadores de Género"
+        subtitle={`Explora los ${indicators.length} indicadores del observatorio institucional.`}
+      />
 
       <div className="container py-6 sm:py-8">
         {loadingFiltered && <div className="mb-4 text-sm text-gray-500">Cargando filtros...</div>}
