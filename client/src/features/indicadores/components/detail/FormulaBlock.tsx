@@ -61,7 +61,7 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
             <p className="text-xs text-gray-500">Formula de calculo e instructivo</p>
           </div>
         </div>
-        <ChevronDown className={`h-5 w-5 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-5 w-5 text-gray-500 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (

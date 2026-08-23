@@ -129,7 +129,7 @@ export default function Glosario() {
           <div className="mb-6 rounded-xl border border-brand-pale bg-white p-4 shadow-sm sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
                 <input
                   type="text"
                   placeholder="Buscar termino o definicion..."
@@ -154,7 +154,7 @@ export default function Glosario() {
                 ))}
               </div>
             </div>
-            <div className="mt-3 text-xs text-gray-400">
+            <div className="mt-3 text-xs text-gray-600">
               {terminosFiltrados.length} termino{terminosFiltrados.length !== 1 ? "s" : ""} encontrado{terminosFiltrados.length !== 1 ? "s" : ""}
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Glosario() {
             ))}
 
             {terminosFiltrados.length === 0 && (
-              <div className="py-12 text-center text-gray-400">
+              <div className="py-12 text-center text-gray-600">
                 <BookMarked className="mx-auto mb-3 h-10 w-10 opacity-30" />
                 <p className="text-sm">No se encontraron terminos que coincidan con la busqueda.</p>
               </div>

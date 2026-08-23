@@ -28,9 +28,9 @@ export default function Hero({ indicador }: HeroProps) {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <div className="mb-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-brand-pale bg-brand-pale px-3 py-2 text-xs font-semibold uppercase tracking-wider text-brand-dark">
           <span>Indicador {indicador.codigo || "S/N"}</span>
-          <span className="text-gray-400">|</span>
+          <span className="text-gray-500">|</span>
           <span>{indicador.area || "Sin categoria"}</span>
-          <span className="text-gray-400">|</span>
+          <span className="text-gray-500">|</span>
           <span>Corte: {formatFechaCorte(indicador.fechaCorte)}</span>
         </div>
 

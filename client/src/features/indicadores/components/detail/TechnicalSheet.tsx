@@ -36,7 +36,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
               <p className="text-xs text-gray-500">Sistemas de origen y roles</p>
             </div>
           </div>
-          <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${openFuentes ? "rotate-180" : ""}`} />
+          <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${openFuentes ? "rotate-180" : ""}`} />
         </button>
 
         {openFuentes && (
@@ -83,7 +83,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
               <p className="text-xs text-gray-500">Periodicidad y cobertura</p>
             </div>
           </div>
-          <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${openInfo ? "rotate-180" : ""}`} />
+          <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${openInfo ? "rotate-180" : ""}`} />
         </button>
 
         {openInfo && (

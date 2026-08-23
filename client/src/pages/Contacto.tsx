@@ -48,7 +48,7 @@ export default function Contacto() {
                     <Mail className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
-                    <div className="mb-0.5 text-xs text-gray-400">Correo electrónico</div>
+                    <div className="mb-0.5 text-xs text-gray-600">Correo electrónico</div>
                     <a href="mailto:observatorio@uct.cl" className="text-sm font-medium text-brand-primary hover:underline">
                       observatorio@uct.cl
                     </a>
@@ -60,7 +60,7 @@ export default function Contacto() {
                     <Phone className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
-                    <div className="mb-0.5 text-xs text-gray-400">Dirección de Género</div>
+                    <div className="mb-0.5 text-xs text-gray-600">Dirección de Género</div>
                     <a href="tel:+56452685126" className="text-sm font-medium text-gray-700 hover:text-brand-primary">
                       (45) 2 685126
                     </a>
@@ -72,7 +72,7 @@ export default function Contacto() {
                     <Phone className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
-                    <div className="mb-0.5 text-xs text-gray-400">Observatorio de Género</div>
+                    <div className="mb-0.5 text-xs text-gray-600">Observatorio de Género</div>
                     <a href="tel:+56452685057" className="text-sm font-medium text-gray-700 hover:text-brand-primary">
                       (45) 2 685057
                     </a>
@@ -84,7 +84,7 @@ export default function Contacto() {
                     <MapPin className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div>
-                    <div className="mb-0.5 text-xs text-gray-400">Dirección</div>
+                    <div className="mb-0.5 text-xs text-gray-600">Dirección</div>
                     <span className="text-sm text-gray-700">
                       Manuel Montt 56, Campus San Francisco,
                       <br />
@@ -104,10 +104,10 @@ export default function Contacto() {
                 <br />
                 09:00 - 18:00 hrs.
                 <br />
-                <span className="text-gray-400">(Hora de Santiago, GMT-3)</span>
+                <span className="text-gray-600">(Hora de Santiago, GMT-3)</span>
               </p>
               <div className="mt-4 border-t border-white/10 pt-4">
-                <p className="text-xs leading-relaxed text-gray-400">
+                <p className="text-xs leading-relaxed text-gray-600">
                   El tiempo de respuesta habitual es de 2 a 5 días hábiles.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export default function Contacto() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-gray-700">
-                      Nombre completo <span className="text-red-500">*</span>
+                      Nombre completo <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="text"
@@ -132,7 +132,7 @@ export default function Contacto() {
                       onChange={handleChange}
                       required
                       placeholder="Su nombre"
-                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-600 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                     />
                   </div>
 
@@ -144,14 +144,14 @@ export default function Contacto() {
                       value={form.institucion}
                       onChange={handleChange}
                       placeholder="Organización o institución"
-                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+                      className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-600 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="mb-1.5 block text-xs font-semibold text-gray-700">
-                    Correo electrónico <span className="text-red-500">*</span>
+                    Correo electrónico <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="email"
@@ -160,13 +160,13 @@ export default function Contacto() {
                     onChange={handleChange}
                     required
                     placeholder="correo@ejemplo.cl"
-                    className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+                    className="w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-600 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                   />
                 </div>
 
                 <div>
                   <label className="mb-1.5 block text-xs font-semibold text-gray-700">
-                    Asunto <span className="text-red-500">*</span>
+                    Asunto <span className="text-red-600">*</span>
                   </label>
                   <select
                     name="asunto"
@@ -186,7 +186,7 @@ export default function Contacto() {
 
                 <div>
                   <label className="mb-1.5 block text-xs font-semibold text-gray-700">
-                    Mensaje <span className="text-red-500">*</span>
+                    Mensaje <span className="text-red-600">*</span>
                   </label>
                   <textarea
                     name="mensaje"
@@ -195,13 +195,13 @@ export default function Contacto() {
                     required
                     rows={5}
                     placeholder="Describa su consulta con el mayor detalle posible..."
-                    className="resize-none w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-300 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+                    className="resize-none w-full rounded-lg border border-brand-pale bg-brand-pale px-3.5 py-2.5 text-sm placeholder:text-gray-600 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
                   />
                 </div>
 
                 <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs text-gray-400">
-                    <span className="text-red-500">*</span> Campos obligatorios
+                  <p className="text-xs text-gray-600">
+                    <span className="text-red-600">*</span> Campos obligatorios
                   </p>
                   <button
                     type="submit"

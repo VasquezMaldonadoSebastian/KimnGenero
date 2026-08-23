@@ -214,14 +214,14 @@ export default function HeaderUCT() {
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ChevronRight className="h-4 w-4 text-gray-400" />
+                      <ChevronRight className="h-4 w-4 text-gray-500" />
                     </a>
                   </Link>
                 ))}
               </nav>
 
               <div className="mt-8 border-t border-gray-100 pt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gray-600">
                   Accesos institucionales
                 </p>
                 <div className="mt-3 grid gap-2">

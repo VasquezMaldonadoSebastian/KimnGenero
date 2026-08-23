@@ -39,7 +39,7 @@ export default function PageHeader({
       {bandColor && <div className="h-2 w-full" style={{ backgroundColor: bandColor }} />}
       <div className="container py-8 sm:py-10">{crumbs && (
           <nav
-            className="mb-4 flex items-center gap-1.5 text-xs text-gray-400"
+            className="mb-4 flex items-center gap-1.5 text-xs text-gray-600"
             aria-label="Miga de pan"
           >
             {crumbs.map((c, i) => (
