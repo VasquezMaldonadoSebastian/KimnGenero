@@ -129,3 +129,34 @@ REGLAS:
 - Render usa **deploy manual** ("Deploy latest commit"). El sitio en producción estaba sirviendo el commit `65e7f85` (build fallaba antes por el Dockerfile). Para ver el resultado final hay que clickear `Deploy latest commit` en el dashboard; el JS cambia de `index-DI4XnGOd.js` a otro hash (señal de que el deploy tomó el código nuevo).
 - Verificación en producción: CSS debe contener tokens `surface-base`, `status-ok`, `brand-mid`, `brand-pale`; página `/kimnia` con PageHeader blanco (sin hero ni violetas); hamburguesa ausente en pantallas ≥1280px; barra superior azul con gradiente `#048fd4→#0086ca`.
 - PENDIENTE menor: contenido del glosario sin acentos (deuda de datos, NICE-TO-HAVE).
+
+## 8. AUDITORÍA DE TEMA Y COLOR + FIXES (2026-08-23)
+
+Auditoría de verificación (informe entregado en chat, NO se commitea al repo — regla del proyecto).
+Veredicto: tema global sólido; se ejecutaron los "detalles" detectados. Commits `576446a` → `ef841c6` (todos pusheados a `main`):
+
+1. **CRÍTICO — aliases var(--brand-*)/var(--text-*)** en `:root` (index.css): `@theme inline` NO
+   emite variables en runtime (solo `--color-*`). Las clases `bg-[var(--brand-primary)]` /
+   `text-[var(--text-muted)]` del Home y Footer quedaban con var() sin definir → título
+   "Kimn Género" gris heredado y botones del hero transparentes con texto blanco (invisibles).
+   Verificado en CSS compilado: `--brand-primary:#0176de`, `--text-muted:#6b7280` ahora existen.
+2. **Contraste AA 4.5:1** — textos gray-400 (2.54) → gray-600 (7.56) en captions/breadcrumbs/
+   labels (PageHeader, Contacto, Glosario, HeaderUCT); iconos/chevrons/separadores gray-400 →
+   gray-500 (4.83); placeholders gray-300 (1.47) → gray-600; asteriscos red-500 → red-600 (4.97).
+   Topbar UCT (blanco sobre #048fd4, 3.57) se mantiene como excepción institucional heredada.
+3. **Tipografía ≥12px** — Home: títulos de tarjetas de dimensión 0.66–0.68rem y badge
+   "N indicadores" 0.4rem (6.4px) → `text-xs` (12px); botones hero/CTA 0.68/0.6rem → `text-xs`.
+4. **KimnIA slate→gray** — 34 usos de escala slate (border/bg/text slate-50..900) unificados a
+   la escala gray del resto del sitio; labels slate-400 → gray-600.
+5. **404 al tema** — gradiente slate-50/100 → `surface-base`; botón `bg-blue-600/700` (azul fuera
+   de paleta) → `brand-primary`/`brand-dark`; textos slate → gray; h1 → `brand-dark`.
+6. **Tokens muertos eliminados** del @theme: `--color-bg-light`, `--color-bg-lighter`,
+   `--color-border-blue` (sin uso).
+
+**EXCEPCIÓN DOCUMENTADA (§2.4):** las 8 tarjetas de dimensión del **Home** usan el color de
+dimensión como fondo COMPLETO (inline style `backgroundColor`) — identidad de la landing heredada
+de kimn.uct.cl, fuera de la regla "solo chips/badges + banda 8-16px". Texto blanco sobre esos
+fondos pasa AA (5.18–15.72). No tocar sin decisión explícita.
+
+**PENDIENTES:** redeploy manual en Render · guía completa del sitio (fase B, separada de esta
+auditoría — actualización de contenido → paleta).

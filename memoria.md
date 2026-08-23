@@ -35,11 +35,17 @@ sistema institucional que vive en https://kimn.uct.cl/.
   · /indicadores · /metodologia · /glosario (stagger). Hover grow/lift en iconos, ResourceCards, tarjetas.
 - Detalle completo + fases + pitfall de filtro: **`NOTAS_ANIMACIONES.md`**
 
-## Estado actual (2026-08-22)
+## Estado actual (2026-08-23)
 - Tema global: ✅ completado y en `main` (NOTAS_TEMA_GLOBAL.md).
-- Animaciones: ✅ completado (fases A/B/C en `main`: commits cd30b23, a1be120, b155eee).
-- Página individual /indicador/:id: ✅ auditada y actualizada (NOTAS_PAGINA_INDICADOR.md, commits 94ab0ae/35fbf12/af60b9d) — Hero claro, iframe frameless, reveal, cero hex en UI.
-- **PENDIENTE**: redeploy manual en Render ("Deploy latest commit") para ver el resultado en producción.
+- Animaciones: ✅ completado (fases A/B/C en `main`).
+- Página individual /indicador/:id: ✅ auditada y actualizada (NOTAS_PAGINA_INDICADOR.md).
+- **Auditoría de tema y color 2026-08-23**: ✅ fixes ejecutados en `main` (commits 576446a→ef841c6):
+  aliases var(--brand-*)/var(--text-*) en `:root` (bug crítico: `@theme inline` no emite vars →
+  Home caía a título gris y botones transparentes), contraste AA en textos grises, tipografía
+  ≥12px en Home, KimnIA slate→gray, 404 al tema, tokens muertos eliminados. Informe en chat
+  (regla: no commitear auditorías). Detalle: NOTAS_TEMA_GLOBAL.md §8.
+- **PENDIENTE**: redeploy manual en Render ("Deploy latest commit") — hay 5 commits nuevos.
+- **PENDIENTE**: guía completa del sitio (actualización de contenido → paleta), fase B separada.
 - Rama limpia, todo pusheado a `origin/main`.
 
 ## Convenciones del proyecto
