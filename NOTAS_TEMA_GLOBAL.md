@@ -1,6 +1,6 @@
 # NOTAS — TEMA GLOBAL KimnGenero (normalización estética y de color)
 
-Fecha: 2026-08-22 · Alcance: plataforma completa (10 rutas) · Estado: PROPUESTA (sin tocar producción)
+Fecha: 2026-08-22 · Alcance: plataforma completa (10 rutas) · Estado: ✅ COMPLETADO (todas las fases + header; todo committeado y pusheado a `main`). Pendiente SOLO el redeploy manual en Render.
 
 ---
 
@@ -98,7 +98,7 @@ REGLAS:
    - Queda mecánico pendiente de Fase 4 (superficies/PageHeader): hex restantes en Contacto (45), NotebooksLMS (30), Glosario (21), FormulaBlock (15), IndicadorPage (8), Calendario (5), Hero (4), DashboardCard status-dot 3 (#27AE60/#F59E0B/#4B5563), TechnicalSheet badges 7, Metodologia 2 (#B3D9FF/#FFFFFF), IndicadorDetail 2, Home 1.
 2. `dimensionColors.ts` + migrar los 4 archivos de dimensión. Verificar chips AA por cálculo de contraste (script). → (dimensión terminado en F1; restos de F4 arriba)
 3. ✅ HECHO (2026-08-22): componente `client/src/components/PageHeader.tsx` (white + borde brand-pale + breadcrumb auto con "Inicio" + eyebrow + h1 font-black text-brand-dark + subtítulo + banda `bandColor`). Implementado en los 7 interiores planos: Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, Calendario (eliminado su hero oscuro) + IndicadorDetail recibe banda superior de DIMENSIÓN (h-2, color sólido de su triplete). Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓.
-   - DECISIÓN: KimnIA (NotebooksLMS) y el Hero del detalle CONSERVAN su hero oscuro — son páginas tipo "herramienta"/"individual" con identidad propia; los 7 interiores de contenido/listado quedan uniformes con PageHeader.
+   - DECISIÓN (posteriormente REVERTIDA): en F3 KimnIA (NotebooksLMS) y el Hero del detalle conservaron su hero oscuro. Por pedido del usuario, **KimnIA fue normalizado después** (commit c83a368): se eliminó el hero oscuro/gradiente/violetas y se le puso el PageHeader estándar + CTAs reestilizadas. El Hero del detalle individual conserva su hero (identidad de "indicador individual").
    - Tipos corregidos en paso: "Sistema de Indicadores de Genero"→"Género", "Glosario de Genero"→"Género", subtítulos sin acentos normalizados.
 4. ✅ HECHO (2026-08-22): superficies por página migradas a `surface-base` (interno blanco azulado): reemplazados `#F5F4F8`/`#F8F9FA`/`surface-muted` en Indicadores, EstadoAgrupado, Metodología, Glosario, Contacto, NotebooksLMS, IndicadorDetail, IndicadorPage. Migrados ~131 hex restantes a tokens: brand-primary/dark/pale/light/accent, nuevo `brand-mid` (#B3D9FF), `status-ok/update/late`, y Tailwind para acentos (amber/emerald/indigo/sky). tarjetas blancas + bordes brand-pale + inputs/badges surface-alt. Verificado: tsc ✓ · vitest 44/44 ✓ · build ✓ · utilidades nuevas (bg-surface-base, bg-brand-mid, bg-status-*) generadas ✓.
 5. ✅ HECHO (2026-08-22): grep-verify META — CERO hex hardcodeados fuera de index.css, dimensionColors.ts y page2-resources.ts (0 usos).
@@ -108,3 +108,24 @@ REGLAS:
 ## 5. CRITERIO DE ÉXITO
 - Todas las páginas se sienten "del mismo sitio" al navegar: mismo header/footer, mismo patrón de inicio de página (PageHeader), misma regla de color.
 - La única diferencia perceptible entre páginas es su TIPO (listado vs detalle vs herramienta vs contenido vs estado), no un dialecto de paleta.
+
+---
+
+## 6. TRABAJO POSTERIOR A LAS FASES (header + barra superior + fixes)
+
+7. ✅ Dockerfile (commit 65e7f85): eliminado `COPY --from=source /src/app/patches ./patches` — rompía el build de Render (no existe `patches/` ni patchedDependencies). Es la causa por la que Render servía un deploy viejo (build fallaba).
+8. ✅ Normalización de /kimnia (commit c83a368): eliminado el hero oscuro (gradiente navy→azul + glows violeta `rgba(124,58,237)`) y reemplazado por el PageHeader estándar; CTAs reestilizadas (botón primary + outline). Verificado en chunk compilado (PageHeader presente, radial-gradient/violetas ausentes).
+9. ✅ Hamburguesa (commit f7afcfc): `xl:hidden` en el botón — solo visible <1280px.
+10. ✅ Barra superior estilo UCT (commits 4dbdd76, 4761b3e, fe6d83e, ce40135):
+    - Gradiente azul `linear-gradient(128.19deg, #048fd4 15.7%, #0086ca 74.26%)` (NO navy), altura 35px, Roboto 13px weight 400 uppercase.
+    - Links a TODAS las secciones KimnGenero (Inicio, Indicadores, Vista General, KimnIA, Modelo, Calendario, Glosario, Contacto) con separadores verticales `1px solid rgba(255,255,255,0.2)`, alineados a la derecha.
+    - Iconos de redes sociales VECTORIALES (SVG inline) con URLs reales de UCT (kimn.uct.cl): Facebook `canaluctemuco`, Instagram `uctemuco`, YouTube `canaluctemuco`, LinkedIn `uctemuco`, Twitter `UC_Temuco`. En círculos `bg-white/20`.
+    - Antiguos "CENTRO DE AYUDA / PORTAL DE PAGOS" movidos a la sección "Accesos institucionales" del menú móvil.
+    - Roboto agregado al `@import` de index.css.
+    - Tests actualizados a secciones + redes.
+
+## 7. ESTADO DE DEPLOY (IMPORTANTE)
+- Todo lo anterior está **committeado y pusheado a `origin/main`** (rama main). Último commit: `ce40135`.
+- Render usa **deploy manual** ("Deploy latest commit"). El sitio en producción estaba sirviendo el commit `65e7f85` (build fallaba antes por el Dockerfile). Para ver el resultado final hay que clickear `Deploy latest commit` en el dashboard; el JS cambia de `index-DI4XnGOd.js` a otro hash (señal de que el deploy tomó el código nuevo).
+- Verificación en producción: CSS debe contener tokens `surface-base`, `status-ok`, `brand-mid`, `brand-pale`; página `/kimnia` con PageHeader blanco (sin hero ni violetas); hamburguesa ausente en pantallas ≥1280px; barra superior azul con gradiente `#048fd4→#0086ca`.
+- PENDIENTE menor: contenido del glosario sin acentos (deuda de datos, NICE-TO-HAVE).
