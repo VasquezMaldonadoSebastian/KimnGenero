@@ -35,6 +35,8 @@ Separar la documentacion que hoy sirve como referencia operativa real de la docu
 - `ARTIFACT_POLICY.md`
 - `DEPENDENCY_AUDIT.md`
 - `RELEASE_NOTE_SANAMIENTO_2026-05-20.md`
+- `GUIA_SITIO.md`
+  - guia operativa del sitio: navegacion (10 rutas), actualizacion de contenido y paleta de colores. Referencia de mantenimiento; actualizar al cambiar comportamiento real (2026-08-23).
 
 ## Documentacion auxiliar
 

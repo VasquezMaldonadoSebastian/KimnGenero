@@ -44,8 +44,8 @@ sistema institucional que vive en https://kimn.uct.cl/.
   Home caía a título gris y botones transparentes), contraste AA en textos grises, tipografía
   ≥12px en Home, KimnIA slate→gray, 404 al tema, tokens muertos eliminados. Informe en chat
   (regla: no commitear auditorías). Detalle: NOTAS_TEMA_GLOBAL.md §8.
-- **PENDIENTE**: redeploy manual en Render ("Deploy latest commit") — hay 5 commits nuevos.
-- **PENDIENTE**: guía completa del sitio (actualización de contenido → paleta), fase B separada.
+- **PENDIENTE**: redeploy manual en Render ("Deploy latest commit") — hay 6 commits nuevos.
+- **Guía completa del sitio**: ✅ `docs/GUIA_SITIO.md` (navegación 10 rutas → actualización de contenido → paleta/tokens) + `UI_UX_GUIDELINES.md` corregido (estaba desactualizado: COLOR_MAP, fondos/status obsoletos) + inventario `DOCUMENTATION_STATUS.md` y README actualizados.
 - Rama limpia, todo pusheado a `origin/main`.
 
 ## Convenciones del proyecto

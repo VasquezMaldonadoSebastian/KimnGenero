@@ -78,6 +78,7 @@ pnpm run build
 ## 7) Indice de documentacion
 
 - [Arquitectura](docs/ARCHITECTURE.md)
+- [Guia operativa del sitio (navegacion, actualizacion, paleta)](docs/GUIA_SITIO.md)
 - [Guia ejecutiva de KimnGenero](docs/GUIA_EJECUTIVA_KIMNGENERO.md)
 - [Estado de la Documentacion](docs/DOCUMENTATION_STATUS.md)
 - [Plan de Saneamiento Real](docs/PLAN_SANEAMIENTO_REAL.md)
