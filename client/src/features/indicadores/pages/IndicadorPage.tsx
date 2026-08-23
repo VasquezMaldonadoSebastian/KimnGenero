@@ -8,6 +8,7 @@ import { useLocation, useParams } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import type { Indicator } from "@shared/types/indicator-domain";
 import { apiGetJson } from "@/lib/apiClient";
+import Reveal from "@/components/Reveal";
 import IndicadorDetail from "../components/IndicadorDetail";
 
 export default function IndicadorPage() {
@@ -66,7 +67,7 @@ export default function IndicadorPage() {
   return (
     <>
       <div className="sticky top-[72px] z-40 border-b border-gray-200 bg-white/95 backdrop-blur sm:top-16">
-        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
+        <Reveal as="div" variant="down" className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
           <button
             onClick={() => navigate("/indicadores")}
             className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 font-semibold text-brand-primary transition-colors hover:bg-brand-pale hover:text-brand-dark"
@@ -74,7 +75,7 @@ export default function IndicadorPage() {
             <ArrowLeft className="w-4 h-4" />
             Volver a Indicadores
           </button>
-        </div>
+        </Reveal>
       </div>
 
       <IndicadorDetail indicador={indicador} />

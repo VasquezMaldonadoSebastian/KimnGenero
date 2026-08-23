@@ -20,10 +20,6 @@ export default function IndicadorDetail({ indicador }: IndicadorDetailProps) {
         style={{ backgroundColor: getDimensionColor(indicador.dimension).text }}
       />
       <Hero indicador={indicador} />
-      <div
-        className="h-8 w-full bg-surface-base sm:h-12"
-        style={{ clipPath: "ellipse(55% 100% at 50% 0%)", marginTop: "-1px" }}
-      />
 
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <DashboardCard indicador={indicador} />
