@@ -59,13 +59,21 @@ describe('HeaderUCT', () => {
     expect(contacto).toBeTruthy();
   });
 
-  it('NO renderiza íconos de redes sociales', () => {
+  it('renderiza los iconos de redes sociales UCT con URLs correctas', () => {
     render(<HeaderUCT />);
     
-    expect(screen.queryByLabelText('Facebook')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('Twitter')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('Instagram')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('LinkedIn')).not.toBeInTheDocument();
+    const rrssLinks = screen.getAllByRole('link').filter(el =>
+      el.getAttribute('href')?.includes('facebook.com') ||
+      el.getAttribute('href')?.includes('instagram.com') ||
+      el.getAttribute('href')?.includes('youtube.com')
+    );
+    expect(rrssLinks.length).toBeGreaterThanOrEqual(3);
+    
+    const fb = rrssLinks.find(el => el.getAttribute('href')?.includes('facebook.com'));
+    expect(fb).toBeTruthy();
+    
+    const yt = rrssLinks.find(el => el.getAttribute('href')?.includes('youtube.com'));
+    expect(yt).toBeTruthy();
   });
 
   it('NO renderiza botón de búsqueda', () => {

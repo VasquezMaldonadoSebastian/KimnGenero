@@ -23,6 +23,14 @@ export default function HeaderUCT() {
     { label: "Contacto", href: "/contacto" },
   ];
 
+  const socialLinks = [
+    { label: "Facebook", href: "https://www.facebook.com/canaluctemuco", abbr: "FB" },
+    { label: "Instagram", href: "https://www.instagram.com/uctemuco/", abbr: "IG" },
+    { label: "YouTube", href: "https://www.youtube.com/user/canaluctemuco", abbr: "YT" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/school/uctemuco", abbr: "LN" },
+    { label: "Twitter", href: "https://twitter.com/UC_Temuco", abbr: "TW" },
+  ];
+
   const externalLinks = [
     { label: "CENTRO DE AYUDA", href: "https://www.uct.cl/centro-de-ayuda" },
     { label: "PORTAL DE PAGOS", href: "https://pagosweb.uct.cl" },
@@ -71,6 +79,21 @@ export default function HeaderUCT() {
               </li>
             ))}
           </ul>
+
+          <div className="ml-4 flex items-center gap-2.5 shrink-0">
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[9px] font-bold text-white transition-colors hover:bg-white/35"
+              >
+                {s.abbr}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
