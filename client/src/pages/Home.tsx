@@ -69,10 +69,10 @@ function ResourceCard({
               formatTwoDigits(index + 1)
             )}
           </div>
-          <h3 className="font-montserrat mt-1.5 text-[0.66rem] font-extrabold leading-[1.05] text-white sm:text-[0.68rem]">
+          <h3 className="font-montserrat mt-1.5 text-xs font-extrabold leading-[1.1] text-white">
             {title}
           </h3>
-          <p className="mt-2 inline-flex h-4 w-fit min-w-[4.4rem] items-center justify-center rounded-full border border-white px-2.5 text-[0.4rem] font-extrabold text-white">
+          <p className="mt-2 inline-flex h-6 w-fit min-w-[4.4rem] items-center justify-center rounded-full border border-white px-2.5 text-xs font-extrabold text-white">
             {count} indicador{count !== 1 ? "es" : ""}
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function Home() {
   const dimensionsCount = page2Resources.length || 8;
 
   return (
-    <div className="bg-white text-slate-700">
+    <div className="bg-white text-gray-700">
       <section className="bg-white">
         <div className="mx-auto w-full max-w-[1440px] px-4 pb-14 pt-20 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8 lg:pt-28">
           <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1fr_1.04fr] lg:gap-12 xl:gap-14">
@@ -126,12 +126,12 @@ export default function Home() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/indicadores">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
+                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-xs font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                     Explorar Indicadores
                   </span>
                 </Link>
                 <Link href="/metodologia">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-[0.68rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
+                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-xs font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                     Ver Metodología
                   </span>
                 </Link>
@@ -215,7 +215,7 @@ export default function Home() {
             </p>
             <div className="mt-7">
               <Link href="/indicadores">
-                <span className="inline-flex h-8 min-w-[120px] items-center justify-center gap-2 rounded-full bg-[var(--brand-primary)] px-5 text-[0.6rem] font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
+                <span className="inline-flex h-8 min-w-[120px] items-center justify-center gap-2 rounded-full bg-[var(--brand-primary)] px-5 text-xs font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
                   Ir a indicadores
                   <ArrowRight className="h-3 w-3" />
                 </span>
