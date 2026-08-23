@@ -335,3 +335,45 @@
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
+
+/* ---------------------------------------------------------------------------
+ * Scroll reveal (ancestro kimn.uct.cl).
+ * Replica el "revelado progresivo por scroll" de Elementor (fadeInUp/Down/Fade).
+ * Activado por IntersectionObserver vía data-kr + .is-visible (hook useReveal).
+ * Respeta prefers-reduced-motion: en ese caso todo queda visible sin animar.
+ * Nombre corto `.kr` (= "Kimn Reveal") para no colisionar con utilidades.
+ *---------------------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  .kr {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.kr {
+  opacity: 0;
+  transition:
+    opacity var(--kr-dur, 0.6s) ease,
+    transform var(--kr-dur, 0.6s) ease;
+  transition-delay: var(--kr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.kr-up {
+  transform: translateY(24px); /* = fadeInUp UCT */
+}
+.kr-down {
+  transform: translateY(-24px); /* = fadeInDown UCT */
+}
+.kr-fade {
+  transform: none; /* = fadeIn UCT */
+}
+.kr-scale {
+  transform: scale(0.96); /* micro zoom suave */
+}
+
+.kr.is-visible {
+  opacity: 1;
+  transform: none;
+}
