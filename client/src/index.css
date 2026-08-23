@@ -6,6 +6,8 @@
  * Layout: Header sticky + Hero gradient + Sidebar 260px + Main content area
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
