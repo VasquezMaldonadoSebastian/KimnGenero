@@ -1,7 +1,12 @@
 # NOTAS — AUDITORÍA Y ACTUALIZACIÓN DE LA PÁGINA INDIVIDUAL DE INDICADOR (/indicador/:id)
 
 Fecha: 2026-08-22 · Alcance: página de detalle de indicador individual (Hero + Dashboard/iframe + Fórmula + Ficha Técnica)
-Estado: PLAN — a implementar por fases. Hay 2 cambios YA hechos localmente sin commit (Fase A las persiste).
+Estado: ✅ COMPLETADO (fases A/B/C/D implementadas, verificadas y pusheadas a `main`).
+  - Fase A `94ab0ae`: Hero claro (fin excepción navy) + iframe Power BI sin marco + divisor elipse eliminado + sticky bar reveal.
+  - Fase B `35fbf12`: Opción 1 — títulos de acordeón a text-brand-dark; acentos semánticos amber/emerald/indigo conservados.
+  - Fase C `af60b9d`: reveal por scroll en página individual (Hero, toolbar, acordeones; iframe sin animar).
+  - Fase D (verificación, sin cambio de código): contraste AA de acentos PASS (6.37–10.22) y CERO hex hardcodeados en componentes UI; status-dots en tokens; sin gradiente navy residual (solo hover:bg-brand-dark de botones).
+  Verificado en cada fase: tsc ✓ · vitest 44/44 ✓ · build ✓.
 
 ---
 

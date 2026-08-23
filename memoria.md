@@ -38,6 +38,7 @@ sistema institucional que vive en https://kimn.uct.cl/.
 ## Estado actual (2026-08-22)
 - Tema global: ✅ completado y en `main` (NOTAS_TEMA_GLOBAL.md).
 - Animaciones: ✅ completado (fases A/B/C en `main`: commits cd30b23, a1be120, b155eee).
+- Página individual /indicador/:id: ✅ auditada y actualizada (NOTAS_PAGINA_INDICADOR.md, commits 94ab0ae/35fbf12/af60b9d) — Hero claro, iframe frameless, reveal, cero hex en UI.
 - **PENDIENTE**: redeploy manual en Render ("Deploy latest commit") para ver el resultado en producción.
 - Rama limpia, todo pusheado a `origin/main`.
 
