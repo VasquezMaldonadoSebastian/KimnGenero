@@ -69,10 +69,7 @@
   --color-text-dark: #4A4A4A;
 
   /* Border and background colors */
-  --color-border-light: #E5E5E5;
-  --color-border-blue: #E8F2FF;
-  --color-bg-light: #F5F4F8;
-  --color-bg-lighter: #F8F9FA;
+    --color-border-light: #E5E5E5;
 
   /* Tema global - superficies (base=--background, alt=brand-pale, strong=brand-dark) */
   --color-surface-base: var(--background);
@@ -88,6 +85,23 @@
 
 :root {
   --radius: 0.5rem;
+
+  /* Aliases bare var(--brand-*) / var(--text-*) usados en componentes (Home, Footer).
+     @theme inline NO emite variables en runtime (solo --color-*); sin estos aliases
+     el CSS compilado dejaba var(--brand-primary) etc. sin definir → Home caía a
+     colores heredados (título gris, botones transparentes). Valores = tokens
+     oficiales del @theme (fuente única de hex: este archivo). */
+  --brand-primary: #0176DE;
+  --brand-dark: #03122E;
+  --brand-pale: #E8F2FF;
+  --brand-light: #173F8A;
+  --brand-accent: #FEC60D;
+  --brand-mid: #B3D9FF;
+  --text-secondary: #5F6368;
+  --text-muted: #6B7280;
+  --text-dark: #4A4A4A;
+  --text-light: #71717A;
+  --border-light: #E5E5E5;
 
   /* Brand blue palette - UCT */
   --primary: oklch(0.55 0.2 250); /* #0176DE */
