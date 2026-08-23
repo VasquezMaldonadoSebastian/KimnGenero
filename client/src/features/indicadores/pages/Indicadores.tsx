@@ -173,7 +173,7 @@ export default function Indicadores() {
               const resource = getDimensionResource(indicador.dimension);
               return (
                 <Link key={indicador.id} href={`/indicador/${indicador.id}`} className="group h-full">
-                  <div className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-lg">
+                  <div className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                     <div
                       className="p-4"
                       style={{

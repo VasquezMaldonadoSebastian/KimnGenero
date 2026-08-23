@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { useIndicatorsContext } from "@/contexts/IndicatorsContext";
 import { page2Resources } from "@/lib/page2-resources";
+import Reveal from "@/components/Reveal";
 import indicadoresData from "@data/indicadores.json";
 
 type DimensionSource = {
@@ -51,7 +52,7 @@ function ResourceCard({
   return (
     <Link href={`/indicadores?dimension=${encodeURIComponent(dimension)}`}>
       <article
-        className="group flex h-[12.25rem] overflow-hidden bg-brand-primary text-white transition-[filter] hover:brightness-95"
+        className="group flex h-[12.25rem] overflow-hidden bg-brand-primary text-white transition-[filter,transform] duration-300 ease-out hover:scale-[1.02] hover:brightness-95"
         style={{ backgroundColor: color }}
       >
         <div className="flex h-full w-full flex-col px-4 pb-4 pt-2.5">
@@ -112,7 +113,7 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto w-full max-w-[1440px] px-4 pb-14 pt-20 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8 lg:pt-28">
           <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1fr_1.04fr] lg:gap-12 xl:gap-14">
-            <div>
+            <Reveal as="div" variant="down">
               <p className="font-montserrat text-lg font-bold leading-none text-[var(--text-secondary)]">
                 Plataforma Institucional de Datos
               </p>
@@ -135,28 +136,28 @@ export default function Home() {
                   </span>
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="pb-2 lg:pb-10">
+            <Reveal as="div" variant="up" delay={140} className="pb-2 lg:pb-10">
               <p className="font-montserrat max-w-[39rem] text-[1.05rem] font-bold leading-[1.18] text-[var(--text-secondary)] sm:text-[1.35rem] md:text-[1.55rem] lg:text-[1.75rem]">
                 Plataforma interactiva para la visualización y análisis de datos desagregados por sexo.
                 Evidencia para el diseño de políticas públicas con enfoque de género.
               </p>
-            </div>
+            </Reveal>
           </div>
 
           <div className="mx-auto mt-12 grid max-w-[920px] grid-cols-1 gap-3 sm:mt-14 sm:grid-cols-2 md:grid-cols-4">
-            <MetricCard label="Indicadores" value={String(totalIndicators)} />
-            <MetricCard label="Áreas estratégicas" value="04" />
-            <MetricCard label="Dimensiones" value={formatTwoDigits(dimensionsCount)} />
-            <MetricCard label="Unidades" value="10" />
+            <Reveal variant="scale" delay={0}><MetricCard label="Indicadores" value={String(totalIndicators)} /></Reveal>
+            <Reveal variant="scale" delay={100}><MetricCard label="Áreas estratégicas" value="04" /></Reveal>
+            <Reveal variant="scale" delay={200}><MetricCard label="Dimensiones" value={formatTwoDigits(dimensionsCount)} /></Reveal>
+            <Reveal variant="scale" delay={300}><MetricCard label="Unidades" value="10" /></Reveal>
           </div>
         </div>
       </section>
 
       <section className="bg-white">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 lg:px-8 xl:grid-cols-[360px_minmax(0,1fr)] xl:gap-12">
-          <div>
+          <Reveal as="div" variant="up">
             <h2 className="font-montserrat max-w-[18rem] text-[1.75rem] font-bold leading-[1.08] text-[var(--brand-primary)]">
               Datos para la igualdad de género
             </h2>
@@ -171,20 +172,21 @@ export default function Home() {
                 reflejar la situación actual de las brechas de género en la institución.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid w-full grid-cols-1 gap-1 justify-self-center bg-white sm:grid-cols-2 lg:grid-cols-4 xl:max-w-[840px]">
             {resourceCards.map((resource, index) => (
-              <ResourceCard
-                key={resource.dimension}
-                title={resource.title}
-                color={resource.color}
-                iconSrc={resource.iconSrc}
-                iconScale={resource.iconScale}
-                count={resource.count}
-                dimension={resource.dimension}
-                index={index}
-              />
+              <Reveal key={resource.dimension} variant="scale" delay={(index % 4) * 100}>
+                <ResourceCard
+                  title={resource.title}
+                  color={resource.color}
+                  iconSrc={resource.iconSrc}
+                  iconScale={resource.iconScale}
+                  count={resource.count}
+                  dimension={resource.dimension}
+                  index={index}
+                />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -192,16 +194,16 @@ export default function Home() {
 
       <section className="bg-white">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-14 px-4 pb-28 pt-10 sm:px-6 lg:px-8 xl:grid-cols-[0.9fr_1.1fr]">
-          <figure className="max-w-[21rem] text-center">
+          <Reveal as="figure" variant="up" className="max-w-[21rem] text-center">
             <blockquote className="font-montserrat text-[1.08rem] font-extrabold italic leading-[1.22] text-[var(--brand-primary)]">
               &quot;Un indicador de género es una medida que señala el estado o nivel de las diferencias entre hombres
               y mujeres en un momento del tiempo, expresando en particular las desigualdades que resultan de la
               diferencia sexual o de género.&quot;
             </blockquote>
             <figcaption className="mt-4 text-right text-sm text-[var(--text-secondary)]">— INE, 2019</figcaption>
-          </figure>
+          </Reveal>
 
-          <div className="max-w-[37rem]">
+          <Reveal as="div" variant="up" delay={140} className="max-w-[37rem]">
             <p className="font-montserrat text-lg font-bold text-[var(--text-secondary)]">Datos abiertos</p>
             <h2 className="font-montserrat mt-6 max-w-[24rem] text-[1.85rem] font-bold leading-[1.05] text-[var(--brand-primary)]">
               Explore los
@@ -219,7 +221,7 @@ export default function Home() {
                 </span>
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>

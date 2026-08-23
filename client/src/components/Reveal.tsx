@@ -1,12 +1,15 @@
 /**
  * Reveal — wrapper de scroll reveal (ancestro kimn.uct.cl).
  *
- * Envuelve contenido con `data-kr` + clase `.kr-<variant>`; el hook `useReveal`
- * lo revela al entrar al viewport. `delay` se aplica como `--kr-delay` (stagger).
+ * Envuelve contenido con `data-kr` + clase `.kr-<variant>` y se auto-registra en
+ * el observer singleton (via callback ref) → se revela al entrar al viewport.
+ * Robusto ante lazy-load/Suspense y re-renders por filtro (los items nuevos se
+ * observan solos al montar). `delay` se aplica como `--kr-delay` (stagger).
  *
  * Uso: <Reveal variant="up" delay={index * 80}>…</Reveal>
  */
 import type { CSSProperties, ElementType, ReactNode } from "react";
+import { observeRevealEl } from "@/hooks/useReveal";
 
 type RevealProps = {
   /** Tag raíz (default "div"). */
@@ -31,7 +34,14 @@ export default function Reveal({
   const cls = `kr kr-${variant}${className ? ` ${className}` : ""}`;
 
   return (
-    <Tag data-kr className={cls} style={style}>
+    <Tag
+      data-kr
+      className={cls}
+      style={style}
+      ref={(el: HTMLElement | null) => {
+        if (el) observeRevealEl(el);
+      }}
+    >
       {children}
     </Tag>
   );

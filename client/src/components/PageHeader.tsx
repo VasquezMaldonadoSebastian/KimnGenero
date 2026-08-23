@@ -7,6 +7,7 @@
  */
 import { Fragment, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 type Crumb = { label: string; href?: string };
 
@@ -34,10 +35,9 @@ export default function PageHeader({
       : undefined;
 
   return (
-    <div className="border-b border-brand-pale bg-white">
+    <Reveal as="div" variant="down" className="border-b border-brand-pale bg-white">
       {bandColor && <div className="h-2 w-full" style={{ backgroundColor: bandColor }} />}
-      <div className="container py-8 sm:py-10">
-        {crumbs && (
+      <div className="container py-8 sm:py-10">{crumbs && (
           <nav
             className="mb-4 flex items-center gap-1.5 text-xs text-gray-400"
             aria-label="Miga de pan"
@@ -70,6 +70,6 @@ export default function PageHeader({
 
         {subtitle && <p className="max-w-2xl text-gray-600">{subtitle}</p>}
       </div>
-    </div>
+    </Reveal>
   );
 }

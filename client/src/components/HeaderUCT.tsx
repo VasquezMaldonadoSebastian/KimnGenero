@@ -88,7 +88,7 @@ export default function HeaderUCT() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/35"
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white transition-all duration-300 hover:scale-110 hover:bg-white/35"
               >
                 <svg viewBox={s.viewBox} className="h-3 w-3 fill-current" aria-hidden="true">
                   <path d={s.d} />
