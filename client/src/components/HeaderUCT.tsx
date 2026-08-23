@@ -13,6 +13,17 @@ export default function HeaderUCT() {
   }, [location]);
 
   const topLinks = [
+    { label: "Inicio", href: "/" },
+    { label: "Indicadores", href: "/indicadores" },
+    { label: "Vista General", href: "/estado-agrupado" },
+    { label: "KimnIA", href: "/kimnia" },
+    { label: "Modelo", href: "/metodologia" },
+    { label: "Calendario", href: "/calendario" },
+    { label: "Glosario", href: "/glosario" },
+    { label: "Contacto", href: "/contacto" },
+  ];
+
+  const externalLinks = [
     { label: "CENTRO DE AYUDA", href: "https://www.uct.cl/centro-de-ayuda" },
     { label: "PORTAL DE PAGOS", href: "https://pagosweb.uct.cl" },
   ];
@@ -162,7 +173,7 @@ export default function HeaderUCT() {
                   Accesos institucionales
                 </p>
                 <div className="mt-3 grid gap-2">
-                  {topLinks.map((link) => (
+                  {externalLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}

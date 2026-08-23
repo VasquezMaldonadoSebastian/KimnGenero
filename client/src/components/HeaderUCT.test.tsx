@@ -39,21 +39,24 @@ describe('HeaderUCT', () => {
     expect(screen.getAllByText('CONTACTO').length).toBeGreaterThan(0);
   });
 
-  it('renderiza los links institucionales en la barra superior', () => {
+  it('renderiza los links de seccion en la barra superior (estilo UCT)', () => {
     render(<HeaderUCT />);
     
-    expect(screen.getAllByText('CENTRO DE AYUDA').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('PORTAL DE PAGOS').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Indicadores').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('KimnIA').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Contacto').length).toBeGreaterThan(0);
   });
 
-  it('los links institucionales tienen URLs correctas', () => {
+  it('los links de la barra superior apuntan a las rutas internas correctas', () => {
     render(<HeaderUCT />);
     
-    const centroAyudaLinks = screen.getAllByText('CENTRO DE AYUDA').map(el => el.closest('a'));
-    expect(centroAyudaLinks[0]).toHaveAttribute('href', 'https://www.uct.cl/centro-de-ayuda');
+    const indicadoresLinks = screen.getAllByText('Indicadores').map(el => el.closest('a'));
+    const interno = indicadoresLinks.find(a => a?.getAttribute('href') === '/indicadores');
+    expect(interno).toBeTruthy();
     
-    const portalPagosLinks = screen.getAllByText('PORTAL DE PAGOS').map(el => el.closest('a'));
-    expect(portalPagosLinks[0]).toHaveAttribute('href', 'https://pagosweb.uct.cl');
+    const contactoLinks = screen.getAllByText('Contacto').map(el => el.closest('a'));
+    const contacto = contactoLinks.find(a => a?.getAttribute('href') === '/contacto');
+    expect(contacto).toBeTruthy();
   });
 
   it('NO renderiza íconos de redes sociales', () => {
