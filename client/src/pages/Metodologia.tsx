@@ -5,6 +5,7 @@
 
 import { BookOpen, Target, Database, RefreshCw, CheckCircle2, Zap, BarChart3 } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 
 const principios = [
   {
@@ -191,7 +192,8 @@ export default function Metodologia() {
               </h3>
               <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
                 {etapas.map((etapa) => (
-                <div key={etapa.numero} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
+                <Reveal key={etapa.numero} variant="up" delay={(etapa.numero - 1) * 80}>
+                  <div className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center text-sm font-bold">
                         {etapa.numero}
@@ -202,6 +204,7 @@ export default function Metodologia() {
                     </div>
                     <p className="text-sm text-gray-700 leading-relaxed">{etapa.descripcion}</p>
                   </div>
+                </Reveal>
                 ))}
               </div>
             </div>
@@ -215,12 +218,14 @@ export default function Metodologia() {
               </p>
               <div className="space-y-3">
                 {estandares.map((est) => (
-                  <div key={est.nivel} className={`${est.color} rounded-lg border border-brand-pale p-4`}>
-                    <div className={`font-semibold ${est.textColor} mb-1`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      {est.nivel}
+                  <Reveal key={est.nivel} variant="up" delay={0}>
+                    <div className={`${est.color} rounded-lg border border-brand-pale p-4`}>
+                      <div className={`font-semibold ${est.textColor} mb-1`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                        {est.nivel}
+                      </div>
+                      <div className={`text-sm ${est.textColor} opacity-90`}>{est.descripcion}</div>
                     </div>
-                    <div className={`text-sm ${est.textColor} opacity-90`}>{est.descripcion}</div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -234,13 +239,15 @@ export default function Metodologia() {
               </p>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {ambitos.map((ambito) => (
-                  <div key={ambito.titulo} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
-                    <div className="text-2xl mb-2">{ambito.icono}</div>
-                    <h4 className="font-semibold text-brand-dark mb-2 text-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      {ambito.titulo}
-                    </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">{ambito.descripcion}</p>
-                  </div>
+                  <Reveal key={ambito.titulo} variant="up" delay={ambitos.indexOf(ambito) % 2 * 80}>
+                    <div className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
+                      <div className="text-2xl mb-2">{ambito.icono}</div>
+                      <h4 className="font-semibold text-brand-dark mb-2 text-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                        {ambito.titulo}
+                      </h4>
+                      <p className="text-sm text-gray-700 leading-relaxed">{ambito.descripcion}</p>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -277,19 +284,21 @@ export default function Metodologia() {
               </h3>
               <div className="space-y-3">
                 {fases.map((fase) => (
-                  <div key={fase.numero} className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
-                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-                        {fase.numero}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-brand-dark mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                          {fase.titulo}
-                        </h4>
-                        <p className="text-sm text-gray-700 leading-relaxed">{fase.descripcion}</p>
+                  <Reveal key={fase.numero} variant="up" delay={0}>
+                    <div className="rounded-lg border border-brand-pale bg-brand-pale p-4 sm:p-5">
+                      <div className="flex items-start gap-4">
+                        <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                          {fase.numero}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-brand-dark mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                            {fase.titulo}
+                          </h4>
+                          <p className="text-sm text-gray-700 leading-relaxed">{fase.descripcion}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -305,20 +314,22 @@ export default function Metodologia() {
             </h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {principios.map((p) => (
-                <div key={p.titulo} className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-brand-pale flex items-center justify-center">
-                      {p.icono}
+                <Reveal key={p.titulo} variant="up" delay={principios.indexOf(p) % 2 * 80}>
+                  <div className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm sm:p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-brand-pale flex items-center justify-center">
+                        {p.icono}
+                      </div>
+                      <h3
+                        className="font-semibold text-brand-dark"
+                        style={{ fontFamily: 'Montserrat, sans-serif' }}
+                      >
+                        {p.titulo}
+                      </h3>
                     </div>
-                    <h3
-                      className="font-semibold text-brand-dark"
-                      style={{ fontFamily: 'Montserrat, sans-serif' }}
-                    >
-                      {p.titulo}
-                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{p.descripcion}</p>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">{p.descripcion}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </section>

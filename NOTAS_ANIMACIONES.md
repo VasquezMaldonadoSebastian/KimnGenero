@@ -2,7 +2,11 @@
 
 Fecha: 2026-08-22 · Alcance: animaciones de entrada por scroll + micro-interacciones hover
 Origen analizado: https://kimn.uct.cl/ (WordPress + Elementor Pro) — ver NOTAS_ANIMACIONES.md §0
-Estado: PLAN — sin implementar.
+Estado: ✅ COMPLETADO (fases A, B y C implementadas, verificadas y pusheadas a `main`).
+  - Fase A (scaffold reveal): commit `cd30b23` — CSS `.kr`, hook `useReveal`/`observeRevealEl`, componente `Reveal`.
+  - Fase B (PageHeader+Home+hover): commit `a1be120` — fadeInDown en PageHeader (7 interiores), Home escalonado, hover grow/lift.
+  - Fase C (grids): PENDIENTE commit — Indicadores, Metodologia, Glosario con stagger; EstadoAgrupado es iframe (cubierto por PageHeader).
+  Verificado en cada fase: tsc ✓ · vitest 44/44 ✓ · build ✓ · utilidades `.kr*` y chunk `Reveal` en bundle ✓.
 
 ---
 

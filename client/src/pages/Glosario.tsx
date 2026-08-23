@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BookMarked, Search } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 
 const terminos = [
   {
@@ -159,21 +160,20 @@ export default function Glosario() {
           </div>
 
           <div className="space-y-3">
-            {terminosFiltrados.map((t) => (
-              <div
-                key={t.termino}
-                className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm transition-colors hover:border-brand-primary/30 sm:p-6"
-              >
-                <div className="mb-2 flex items-start justify-between gap-4">
-                  <h3 className="text-base font-bold text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                    {t.termino}
-                  </h3>
-                  <span className="flex-shrink-0 rounded-full bg-brand-pale px-2.5 py-1 text-xs font-semibold text-brand-dark">
-                    {t.categoria}
-                  </span>
+            {terminosFiltrados.map((t, i) => (
+              <Reveal key={t.termino} variant="up" delay={Math.min(i, 5) * 60}>
+                <div className="rounded-xl border border-brand-pale bg-white p-5 shadow-sm transition-colors hover:border-brand-primary/30 sm:p-6">
+                  <div className="mb-2 flex items-start justify-between gap-4">
+                    <h3 className="text-base font-bold text-brand-dark" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                      {t.termino}
+                    </h3>
+                    <span className="flex-shrink-0 rounded-full bg-brand-pale px-2.5 py-1 text-xs font-semibold text-brand-dark">
+                      {t.categoria}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-600">{t.definicion}</p>
                 </div>
-                <p className="text-sm leading-relaxed text-gray-600">{t.definicion}</p>
-              </div>
+              </Reveal>
             ))}
 
             {terminosFiltrados.length === 0 && (

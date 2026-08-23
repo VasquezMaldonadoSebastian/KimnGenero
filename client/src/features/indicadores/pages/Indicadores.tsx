@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Filter, Search } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 import type { Indicator } from "@shared/types/indicator-domain";
 import { apiGetJson } from "@/lib/apiClient";
 import { getDimensionColor, getDimensionResource } from "../dimensionColors";
@@ -168,11 +169,13 @@ export default function Indicadores() {
 
         {filtrados.length > 0 ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {filtrados.map((indicador: Indicator) => {
+            {filtrados.map((indicador: Indicator, i: number) => {
               const color = getDimensionColor(indicador.dimension);
               const resource = getDimensionResource(indicador.dimension);
+              const delay = (i % 3) * 80;
               return (
-                <Link key={indicador.id} href={`/indicador/${indicador.id}`} className="group h-full">
+                <Reveal key={indicador.id} variant="up" delay={delay} className="h-full">
+                  <Link href={`/indicador/${indicador.id}`} className="group h-full">
                   <div className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                     <div
                       className="p-4"
@@ -233,7 +236,8 @@ export default function Indicadores() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                  </Link>
+                </Reveal>
               );
             })}
           </div>
