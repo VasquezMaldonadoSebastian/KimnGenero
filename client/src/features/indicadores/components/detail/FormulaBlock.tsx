@@ -56,7 +56,7 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
             fx
           </div>
           <div className="text-left">
-            <h3 className="font-bold text-gray-900">Metodologia</h3>
+            <h3 className="font-bold text-brand-dark">Metodologia</h3>
             <p className="text-xs text-gray-500">Formula de calculo e instructivo</p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
             <p className="mb-2 text-xs font-semibold text-gray-500">VARIABLES</p>
             {variablesParsed.length > 0 ? (
               <div className="rounded-lg border border-gray-200 bg-white p-4">
-                <p className="mb-3 text-sm font-bold text-gray-900">Variables de la formula:</p>
+                <p className="mb-3 text-sm font-bold text-brand-dark">Variables de la formula:</p>
                 <ul className="space-y-2 text-sm text-gray-700">
                   {variablesParsed.map((v, index) => (
                     <li key={index} className="flex flex-col gap-2 rounded-md border border-gray-100 bg-gray-50 p-3 sm:flex-row sm:items-center">
@@ -95,7 +95,7 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
               </div>
             ) : (
               <div className="rounded-lg border border-gray-200 bg-white p-4">
-                <p className="mb-3 text-sm font-bold text-gray-900">Donde:</p>
+                <p className="mb-3 text-sm font-bold text-brand-dark">Donde:</p>
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold text-brand-primary">-</span>

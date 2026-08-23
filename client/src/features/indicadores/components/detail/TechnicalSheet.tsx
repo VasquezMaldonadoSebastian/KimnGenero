@@ -31,7 +31,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800">DB</div>
             <div className="text-left">
-              <h3 className="font-bold text-gray-900">Fuente y Responsables</h3>
+              <h3 className="font-bold text-brand-dark">Fuente y Responsables</h3>
               <p className="text-xs text-gray-500">Sistemas de origen y roles</p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function TechnicalSheet({ indicador }: TechnicalSheetProps) {
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">i</div>
             <div className="text-left">
-              <h3 className="font-bold text-gray-900">Informacion Tecnica</h3>
+              <h3 className="font-bold text-brand-dark">Informacion Tecnica</h3>
               <p className="text-xs text-gray-500">Periodicidad y cobertura</p>
             </div>
           </div>
