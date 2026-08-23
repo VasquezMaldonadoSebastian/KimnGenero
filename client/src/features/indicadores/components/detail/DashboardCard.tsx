@@ -3,6 +3,7 @@ import type { Indicator } from "@shared/types/indicator-domain";
 import { Download, Expand, Info, RefreshCw, Share2 } from "lucide-react";
 import { useMemo, useRef } from "react";
 import { toast } from "sonner";
+import Reveal from "@/components/Reveal";
 
 type DashboardCardProps = {
   indicador: Indicator;
@@ -68,7 +69,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
   return (
     <div className="mb-10 sm:mb-12">
       {/* Toolbar (sin caja/sombra): título + fuente + acciones */}
-      <div className="mb-4 flex flex-col gap-3 border-b border-brand-pale pb-4 sm:flex-row sm:items-center sm:justify-between">
+      <Reveal as="div" variant="up" className="mb-4 flex flex-col gap-3 border-b border-brand-pale pb-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-3">
           <div className={`mt-1.5 w-3 h-3 rounded-full ${tieneIframe ? "bg-status-ok" : "bg-status-update"}`} />
           <div>
@@ -91,7 +92,7 @@ export default function DashboardCard({ indicador }: DashboardCardProps) {
             </button>
           </div>
         )}
-      </div>
+      </Reveal>
 
       {/* Iframe sin marco: a borde completo sobre surface-base, sin sombra ni recuadro */}
       <div className="relative h-[72vh] min-h-[420px] w-full bg-surface-base md:h-[75vh] md:min-h-[700px]">

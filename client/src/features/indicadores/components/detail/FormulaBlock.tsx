@@ -4,6 +4,7 @@ import { ChevronDown, ExternalLink } from "lucide-react";
 import { useMemo, useState } from "react";
 import Latex from "react-latex-next";
 import "katex/dist/katex.min.css";
+import Reveal from "@/components/Reveal";
 
 type FormulaBlockProps = {
   indicador: Indicator;
@@ -44,7 +45,7 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
   }, [indicador.variables]);
 
   return (
-    <div className="mb-3 overflow-hidden rounded-lg bg-white shadow-sm">
+    <Reveal as="div" variant="up" className="mb-3 overflow-hidden rounded-lg bg-white shadow-sm">
       <button
         type="button"
         className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-brand-pale sm:px-6"
@@ -152,6 +153,6 @@ export default function FormulaBlock({ indicador }: FormulaBlockProps) {
           )}
         </div>
       )}
-    </div>
+    </Reveal>
   );
 }

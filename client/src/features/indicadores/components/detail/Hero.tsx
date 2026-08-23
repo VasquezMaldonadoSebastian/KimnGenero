@@ -1,6 +1,7 @@
 import React from "react";
 import type { Indicator } from "@shared/types/indicator-domain";
 import { toast } from "sonner";
+import Reveal from "@/components/Reveal";
 
 function formatFechaCorte(fechaCorte: string) {
   if (!fechaCorte) return "Por definir";
@@ -23,7 +24,7 @@ export default function Hero({ indicador }: HeroProps) {
   };
 
   return (
-    <section className="border-b border-brand-pale bg-white">
+    <Reveal as="section" variant="down" className="border-b border-brand-pale bg-white">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <div className="mb-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-brand-pale bg-brand-pale px-3 py-2 text-xs font-semibold uppercase tracking-wider text-brand-dark">
           <span>Indicador {indicador.codigo || "S/N"}</span>
@@ -70,6 +71,6 @@ export default function Hero({ indicador }: HeroProps) {
           </button>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
