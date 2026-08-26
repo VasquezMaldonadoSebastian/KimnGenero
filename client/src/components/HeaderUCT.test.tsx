@@ -32,30 +32,43 @@ describe('HeaderUCT', () => {
     expect(screen.getAllByText('INICIO').length).toBeGreaterThan(0);
     expect(screen.getAllByText('INDICADORES').length).toBeGreaterThan(0);
     expect(screen.getAllByText('VISTA GENERAL').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('KimnIA').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('KIMNIA').length).toBeGreaterThan(0);
     expect(screen.getAllByText('SOBRE EL MODELO').length).toBeGreaterThan(0);
     expect(screen.getAllByText('CALENDARIO').length).toBeGreaterThan(0);
     expect(screen.getAllByText('GLOSARIO').length).toBeGreaterThan(0);
     expect(screen.getAllByText('CONTACTO').length).toBeGreaterThan(0);
   });
 
-  it('renderiza los links de seccion en la barra superior (estilo UCT)', () => {
+  it('renderiza los links del encabezado principal', () => {
     render(<HeaderUCT />);
     
-    expect(screen.getAllByText('Indicadores').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('KimnIA').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('Contacto').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('INDICADORES').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('KIMNIA').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('CONTACTO').length).toBeGreaterThan(0);
   });
 
-  it('los links de la barra superior apuntan a las rutas internas correctas', () => {
+  it('renderiza la barra institucional de referencia con sus enlaces oficiales', () => {
+    render(<HeaderUCT />);
+
+    expect(screen.getAllByText('CONECTA').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('UCT AL DÍA').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('TEC-UCT').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('DIRECTORIO').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('WEBMAIL').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('TVUCT').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('UCT RADIO').length).toBeGreaterThan(0);
+
+    expect(screen.getAllByRole('link', { name: 'CONECTA' })[0]).toHaveAttribute('href', 'https://conecta.uct.cl/');
+    expect(screen.getAllByRole('link', { name: 'DIRECTORIO' })[0]).toHaveAttribute('href', 'https://directorio.uct.cl/');
+  });
+
+  it('los links del encabezado principal apuntan a las rutas internas correctas', () => {
     render(<HeaderUCT />);
     
-    const indicadoresLinks = screen.getAllByText('Indicadores').map(el => el.closest('a'));
-    const interno = indicadoresLinks.find(a => a?.getAttribute('href') === '/indicadores');
+    const interno = screen.getAllByRole('link').find(a => a.getAttribute('href') === '/indicadores');
     expect(interno).toBeTruthy();
     
-    const contactoLinks = screen.getAllByText('Contacto').map(el => el.closest('a'));
-    const contacto = contactoLinks.find(a => a?.getAttribute('href') === '/contacto');
+    const contacto = screen.getAllByRole('link').find(a => a.getAttribute('href') === '/contacto');
     expect(contacto).toBeTruthy();
   });
 

@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { ArrowRight, BookOpen, ExternalLink, Search, Sparkles, Star, X } from "lucide-react";
 import {
   Dialog,
@@ -39,7 +39,7 @@ function NotebookArtwork({ item }: { item: NotebookItem }) {
     return (
       <div className="flex h-full w-full items-end justify-between bg-gradient-to-br from-brand-dark via-brand-light to-brand-primary p-5 text-white">
         <div className="max-w-[78%]">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">KimnIA</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">KIMNIA</p>
           <p className="mt-2 text-lg font-bold leading-tight">{item.title}</p>
         </div>
         <div className="rounded-full bg-white/15 p-3 backdrop-blur-sm">
@@ -88,7 +88,7 @@ function NotebookCard({
 
       <div className="flex h-full flex-col p-5">
         <div className="inline-flex w-fit rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">
-          KimnIA
+          KIMNIA
         </div>
 
         <h3 className="mt-4 text-xl font-bold leading-tight text-gray-900">
@@ -155,7 +155,7 @@ function NotebookDetailDialog({
             <div className="relative min-h-[260px] bg-gray-100">
               <img src={item.imageUrl} alt={item.imageAlt} className="h-full w-full object-cover" />
               <div className="absolute left-4 top-4 rounded-full bg-brand-primary px-3 py-1 text-xs font-bold text-white">
-                KimnIA
+                KIMNIA
               </div>
             </div>
 
@@ -218,7 +218,7 @@ export default function NotebooksLMS() {
   const [selectedNotebook, setSelectedNotebook] = useState<NotebookItem | null>(null);
 
   useEffect(() => {
-    document.title = "KimnIA | KimnGenero";
+    document.title = "KIMNIA | KimnGenero";
     window.scrollTo(0, 0);
   }, []);
 
@@ -229,9 +229,9 @@ export default function NotebooksLMS() {
   return (
     <div className="min-h-screen bg-surface-base text-gray-700">
       <PageHeader
-        eyebrow={{ icon: <Sparkles className="h-3.5 w-3.5" />, label: "KimnIA" }}
-        title="KimnIA"
-        subtitle="KimnIA: Kimun es la palabra para el conocimiento, la sabiduría o el saber ancestral. KimnIA refleja que este módulo dentro de KimnGenero es un espacio de aprendizaje y sabiduría sobre género, impulsado por tecnología."
+        eyebrow={{ icon: <Sparkles className="h-3.5 w-3.5" />, label: "KIMNIA" }}
+        title="KIMNIA"
+        subtitle="KIMNIA: Kimun es la palabra para el conocimiento, la sabiduría o el saber ancestral. KIMNIA refleja que este módulo dentro de KimnGenero es un espacio de aprendizaje y sabiduría sobre género, impulsado por tecnología."
       />
 
       <div className="container py-6">
@@ -275,7 +275,7 @@ export default function NotebooksLMS() {
               className="mt-2 text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                {stats.total} {notebookLabel} disponibles en KimnIA
+                {stats.total} {notebookLabel} disponibles en KIMNIA
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 md:text-base">
                 Usa la busqueda para filtrar por palabra clave o abre cualquiera de los cuadernos

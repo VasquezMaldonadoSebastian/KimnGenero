@@ -13,14 +13,15 @@ export default function HeaderUCT() {
   }, [location]);
 
   const topLinks = [
-    { label: "Inicio", href: "/" },
-    { label: "Indicadores", href: "/indicadores" },
-    { label: "Vista General", href: "/estado-agrupado" },
-    { label: "KimnIA", href: "/kimnia" },
-    { label: "Modelo", href: "/metodologia" },
-    { label: "Calendario", href: "/calendario" },
-    { label: "Glosario", href: "/glosario" },
-    { label: "Contacto", href: "/contacto" },
+    { label: "CONECTA", href: "https://conecta.uct.cl/" },
+    { label: "UCT AL DÍA", href: "https://www.uct.cl/actualidad/" },
+    { label: "TEC-UCT", href: "https://tec.uct.cl" },
+    { label: "CENTRO DE AYUDA", href: "https://www.uct.cl/centro-de-ayuda/" },
+    { label: "DIRECTORIO", href: "https://directorio.uct.cl/" },
+    { label: "WEBMAIL", href: "https://webmail.uctemuco.cl/" },
+    { label: "PORTAL DE PAGOS", href: "https://pagosweb.uct.cl/" },
+    { label: "TVUCT", href: "https://www.tvuct.cl/" },
+    { label: "UCT RADIO", href: "https://radio.uct.cl/" },
   ];
 
   const socialLinks = [
@@ -40,7 +41,7 @@ export default function HeaderUCT() {
     { label: "INICIO", href: "/" },
     { label: "INDICADORES", href: "/indicadores" },
     { label: "VISTA GENERAL", href: "/estado-agrupado" },
-    { label: "KimnIA", href: "/kimnia" },
+    { label: "KIMNIA", href: "/kimnia" },
     { label: "SOBRE EL MODELO", href: "/metodologia" },
     { label: "CALENDARIO", href: "/calendario" },
     { label: "GLOSARIO", href: "/glosario" },
@@ -51,28 +52,28 @@ export default function HeaderUCT() {
 
   return (
     <>
-      {/* Top bar UCT style — gradiente azul #048fd4→#0086ca, 35px, Roboto 13px */}
+      {/* Institutional UCT top bar, matching kimn.uct.cl */}
       <div
         className="text-white"
-        style={{ background: "linear-gradient(128.19deg, #048fd4 15.7%, #0086ca 74.26%)" }}
+        style={{ background: "linear-gradient(180deg, #048FD4 30%, #0087CC 75%)" }}
       >
-        <div className="mx-auto flex h-[35px] max-w-7xl items-center justify-end px-4 lg:px-12">
+        <div className="mx-auto flex min-h-[40px] max-w-[1600px] items-center justify-end px-3 sm:px-6 lg:px-8">
           <ul
             className="flex h-full items-center gap-0 list-none overflow-x-auto m-0 p-0 scrollbar-none"
-            style={{ fontFamily: "Roboto, sans-serif", fontSize: 13, fontWeight: 400 }}
+            style={{ fontFamily: "Roboto, sans-serif", fontSize: "0.8rem", fontWeight: 400 }}
           >
             {topLinks.map((link, idx) => (
               <li
                 key={link.label}
-                className="flex items-center shrink-0 px-2.5 lg:px-5"
+                className="flex items-center shrink-0 px-1.5 sm:px-2.5 lg:px-[15px]"
                 style={{
-                  height: 15,
+                  minHeight: 14,
                   borderRight: idx < topLinks.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
                 }}
               >
                 <a
                   href={link.href}
-                  className="text-xs uppercase tracking-normal text-white no-underline whitespace-nowrap hover:text-white"
+                  className="text-[0.8rem] uppercase tracking-normal text-white no-underline whitespace-nowrap hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -153,24 +154,24 @@ export default function HeaderUCT() {
           <div className="flex h-full flex-col bg-white">
             <div
               className="text-white"
-              style={{ background: "linear-gradient(128.19deg, #048fd4 15.7%, #0086ca 74.26%)" }}
+              style={{ background: "linear-gradient(180deg, #048FD4 30%, #0087CC 75%)" }}
             >
               <ul
-                className="flex h-[35px] items-center gap-0 list-none overflow-x-auto m-0 px-4 scrollbar-none"
-                style={{ fontFamily: "Roboto, sans-serif", fontSize: 13, fontWeight: 400 }}
+                className="flex min-h-[40px] items-center gap-0 list-none overflow-x-auto m-0 px-4 scrollbar-none"
+                style={{ fontFamily: "Roboto, sans-serif", fontSize: "0.8rem", fontWeight: 400 }}
               >
                 {topLinks.map((link, idx) => (
                   <li
                     key={link.label}
                     className="flex items-center shrink-0 px-2.5"
                     style={{
-                      height: 15,
+                      minHeight: 14,
                       borderRight: idx < topLinks.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
                     }}
                   >
                     <a
                       href={link.href}
-                      className="text-xs uppercase tracking-normal text-white no-underline whitespace-nowrap hover:text-white"
+                      className="text-[0.8rem] uppercase tracking-normal text-white no-underline whitespace-nowrap hover:text-white"
                     >
                       {link.label}
                     </a>

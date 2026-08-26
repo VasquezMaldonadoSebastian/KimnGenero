@@ -95,19 +95,19 @@ export default function Contacto() {
               </ul>
             </div>
 
-            <div className="rounded-xl bg-brand-dark p-5 text-white sm:p-6">
+            <div className="rounded-xl border border-brand-pale bg-brand-pale p-5 text-brand-dark sm:p-6">
               <h3 className="mb-2 text-sm font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Horario de atención
               </h3>
-              <p className="text-xs leading-relaxed text-gray-300">
+              <p className="text-xs leading-relaxed text-gray-700">
                 Lunes a viernes
                 <br />
                 09:00 - 18:00 hrs.
                 <br />
                 <span className="text-gray-600">(Hora de Santiago, GMT-3)</span>
               </p>
-              <div className="mt-4 border-t border-white/10 pt-4">
-                <p className="text-xs leading-relaxed text-gray-600">
+              <div className="mt-4 border-t border-brand-primary/20 pt-4">
+                <p className="text-xs leading-relaxed text-gray-700">
                   El tiempo de respuesta habitual es de 2 a 5 días hábiles.
                 </p>
               </div>

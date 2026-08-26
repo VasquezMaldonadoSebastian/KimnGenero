@@ -119,23 +119,11 @@ export default function Home() {
               </p>
 
               <h1 className="font-montserrat mt-6 text-[4.1rem] font-extrabold leading-[0.8] text-[var(--brand-primary)] sm:mt-7 sm:text-[5.4rem] md:text-[6rem] xl:text-[6.7rem]">
-                Kimn
+                KIMN
                 <br />
                 Género
               </h1>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/indicadores">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-xs font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
-                    Explorar Indicadores
-                  </span>
-                </Link>
-                <Link href="/metodologia">
-                  <span className="inline-flex h-[31px] min-w-[132px] items-center justify-center rounded-full bg-[var(--brand-primary)] px-5 text-xs font-bold text-white transition-colors hover:bg-[var(--brand-dark)]">
-                    Ver Metodología
-                  </span>
-                </Link>
-              </div>
             </Reveal>
 
             <Reveal as="div" variant="up" delay={140} className="pb-2 lg:pb-10">
