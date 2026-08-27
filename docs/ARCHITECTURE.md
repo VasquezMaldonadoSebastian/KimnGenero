@@ -1,68 +1,42 @@
-# Arquitectura Tecnica (Resumen)
+# Arquitectura de KimnGenero
 
-## Objetivo
+## Visión general
 
-Describir la arquitectura actual a alto nivel para facilitar onboarding y decisiones de mantenimiento.
+El cliente React/Vite consume una API Express. Los indicadores se inicializan desde `data/indicadores.json` y se sirven mediante un repositorio en memoria o SQLite.
 
-## 1) Vista de componentes
+```text
+React/Vite -> /api -> Express -> IndicatorService -> Repository -> data/indicadores.json | SQLite
+```
 
-### Frontend (`client/`)
+## Componentes principales
 
-- React + Vite como stack principal.
-- Consumo de API via rutas `/api/*`.
-- Enrutamiento con `wouter`.
+| Ubicación | Responsabilidad |
+|---|---|
+| `client/src/` | Páginas, componentes, estilos y consumo de API. |
+| `server/src/` | API, validación, seguridad, servicios y repositorios. |
+| `shared/types/` | Tipos de dominio compartidos. |
+| `data/indicadores.json` | Fuente versionada de indicadores y reportes agrupados. |
+| `docs/` | Documentación operativa vigente. |
 
-### Backend (`server/`)
+## Flujo de datos
 
-- Express como API HTTP.
-- Capa de rutas para indicadores/categorias.
-- Capa de servicio para normalizacion y logica de dominio.
-- Capa de repositorio con implementaciones `memory` y `sqlite` bajo flag.
+1. `server/src/data/indicatorSeed.ts` valida y normaliza el JSON.
+2. `server/src/config/repositoryFactory.ts` selecciona el repositorio.
+3. `IndicatorService` expone consultas a las rutas `/api`.
+4. El cliente obtiene datos mediante `client/src/lib/apiClient.ts` y contextos/páginas de indicadores.
 
-### Datos (`data/`)
+## Repositorios
 
-- Fuente local inicial de indicadores (`data/indicadores.json`).
-- Inicializacion de datos en arranque de app.
+- `memory` es el valor por defecto y carga los datos desde el JSON en cada arranque.
+- `sqlite` usa `SQLITE_DB_PATH`. El seed inicial se aplica cuando la base está vacía; cambiar el JSON no actualiza una base SQLite existente.
+- SQLite requiere Node.js 22.13+.
 
-### Tipos compartidos (`shared/`)
+## Desarrollo local
 
-- Tipos de dominio y tipos comunes utilizados entre frontend/backend.
+Express escucha en 3000. Vite escucha en 5173 y redirige `/api` y `/health` al servidor Express. Revisa `README.md` para los comandos.
 
-## 2) Flujo principal de request
+## Límites importantes
 
-Ejemplo: `GET /api/indicadores`
-
-1. Cliente solicita `GET /api/indicadores`.
-2. Router Express recibe y valida parametros (si aplica).
-3. Servicio consulta al repositorio activo (`memory` o `sqlite`).
-4. Se normaliza/formatea respuesta de dominio.
-5. API responde payload JSON al cliente.
-6. Cliente renderiza listado de indicadores.
-
-## 3) Decisiones tecnicas vigentes
-
-### Parche de `wouter`
-
-- Se mantiene el parche de `wouter@3.7.1` declarado en `pnpm.patchedDependencies`.
-- Justificacion y riesgos: ver [WOUTER_PATCH_EVALUATION.md](./WOUTER_PATCH_EVALUATION.md).
-
-### Estrategia de repositorio de datos
-
-- `memory`: modo default para desarrollo simple y rapido.
-- `sqlite`: modo alternativo bajo feature flag/variable de entorno para evolucion operativa.
-
-### Contrato de errores API
-
-- Se mantiene contrato uniforme para respuestas de error.
-- Referencia: [API_ERROR_CONTRACT.md](./API_ERROR_CONTRACT.md).
-
-## 4) Observabilidad y operacion
-
-- Existe baseline operativo con SLO inicial y metricas endpoint.
-- Referencia: [OPERATIONS.md](./OPERATIONS.md).
-
-## 5) Convenciones de documentacion
-
-- Toda documentacion tecnica nueva debe enlazarse desde `README.md`.
-- Usar la plantilla base en [DOCUMENT_TEMPLATE.md](./DOCUMENT_TEMPLATE.md).
-
+- Power BI, Google Calendar y NotebookLM son servicios externos.
+- El frontend no debe contener secretos ni claves de proveedores.
+- Las políticas de CSP, proxy y rate limiting se describen en `docs/OPERATIONS.md`.

@@ -16,6 +16,11 @@ type CreateAppDeps = {
 
 export function createApp(deps: CreateAppDeps) {
   const app = express();
+  const trustProxy = process.env.TRUST_PROXY?.trim();
+  if (trustProxy) {
+    const hops = Number(trustProxy);
+    app.set("trust proxy", Number.isInteger(hops) ? hops : trustProxy);
+  }
 
   app.set("etag", "strong");
 

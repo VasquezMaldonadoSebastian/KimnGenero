@@ -3,17 +3,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        NODE_IMAGE: node:20-alpine
-        REPO_URL: https://github.com/VasquezMaldonadoSebastian/KimnGenero.git
-        REPO_REF: main
     container_name: kimngenero
     restart: unless-stopped
     environment:
       NODE_ENV: production
       PORT: "3000"
       INDICATOR_REPOSITORY: memory
-      CSP_REPORT_ONLY: "true"
+      IFRAME_ALLOWLIST: https://app.powerbi.com,https://*.powerbi.com,https://calendar.google.com
+      CSP_REPORT_ONLY: "false"
     ports:
       - "127.0.0.1:3000:3000"
     security_opt:
@@ -21,35 +18,6 @@ services:
     networks:
       - kimngenero_net
 
-  # Variante persistente opcional:
-  # kimngenero-sqlite:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #     args:
-  #       NODE_IMAGE: node:24-alpine
-  #       REPO_URL: https://github.com/VasquezMaldonadoSebastian/KimnGenero.git
-  #       REPO_REF: main
-  #   container_name: kimngenero-sqlite
-  #   restart: unless-stopped
-  #   environment:
-  #     NODE_ENV: production
-  #     PORT: "3000"
-  #     INDICATOR_REPOSITORY: sqlite
-  #     SQLITE_DB_PATH: /app/data/indicators.sqlite
-  #     CSP_REPORT_ONLY: "true"
-  #   ports:
-  #     - "127.0.0.1:3000:3000"
-  #   volumes:
-  #     - kimngenero_sqlite_data:/app/data
-  #   security_opt:
-  #     - no-new-privileges:true
-  #   networks:
-  #     - kimngenero_net
-
 networks:
   kimngenero_net:
     driver: bridge
-
-# volumes:
-#   kimngenero_sqlite_data:

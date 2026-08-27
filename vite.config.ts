@@ -23,10 +23,14 @@ export default defineConfig(({ mode }) => {
       manifest: mode === "analyze",
     },
     server: {
-      port: 3000,
-      strictPort: false,
+      port: 5173,
+      strictPort: true,
       host: true,
       allowedHosts: ["localhost", "127.0.0.1"],
+      proxy: {
+        "/api": { target: "http://127.0.0.1:3000", changeOrigin: true },
+        "/health": { target: "http://127.0.0.1:3000", changeOrigin: true },
+      },
       fs: {
         strict: true,
         deny: ["**/.*"],
