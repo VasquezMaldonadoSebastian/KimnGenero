@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>KIMNGÉNERO · Guía integral</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 14mm 14mm 16mm 14mm;
+    }
+
+    @page {
+      @bottom-center {
+        content: counter(page);
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 8pt;
+        color: #8AA0BF;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html,
+    body {
+      background: #ffffff;
+      color: #1F2A3D;
+      font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      color: #03122E;
+      line-height: 1.2;
+    }
+
+    a {
+      color: #0176DE;
+      text-decoration: none;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      font-size: 8pt;
+      background: #E8F2FF;
+      color: #043d78;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #03122E;
+      color: #E8F2FF;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+      font-size: 8.5pt;
+      overflow-x: auto;
+    }
+
+    pre code {
+      background: transparent;
+      color: #E8F2FF;
+      padding: 0;
+    }
+
+    strong {
+      color: #03122E;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 7px 0;
+      font-size: 8pt;
+    }
+
+    th {
+      background: #03122E;
+      color: #fff;
+      text-align: left;
+      padding: 5px 8px;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 600;
+      font-size: 8pt;
+    }
+
+    td {
+      border: 1px solid #DCE6F2;
+      padding: 5px 8px;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: #F4F9FF;
+    }
+
+    ul,
+    ol {
+      margin: 6px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 3px 0;
+    }
+
+    blockquote {
+      border-left: 4px solid #FEC60D;
+      background: #FFF7E0;
+      padding: 8px 14px;
+      margin: 8px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 9pt;
+    }
+
+    /* ---------- Cover ---------- */
+    .cover {
+      height: 266mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 4mm;
+    }
+
+    .cover-kicker {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 700;
+      letter-spacing: .35em;
+      color: #0176DE;
+      font-size: 11pt;
+      margin-top: 16mm;
+    }
+
+    .cover-title {
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 42pt;
+      line-height: 1.0;
+      color: #03122E;
+      margin: 6mm 0 4mm;
+    }
+
+    .cover-title .accent {
+      color: #0176DE;
+    }
+
+    .cover-sub {
+      font-size: 13.5pt;
+      color: #46608A;
+      max-width: 120mm;
+      line-height: 1.4;
+    }
+
+    .cover-inst {
+      font-weight: 600;
+      color: #173F8A;
+      font-size: 11pt;
+      margin-top: 7mm;
+    }
+
+    .cover-meta {
+      color: #6B7280;
+      font-size: 9pt;
+      margin-top: 2mm;
+    }
+
+    .cover-strip {
+      display: flex;
+      height: 9mm;
+      border-radius: 5mm;
+      overflow: hidden;
+      margin-top: 6mm;
+      width: 100%;
+    }
+
+    .cover-strip i {
+      flex: 1;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 10mm;
+    }
+
+    .cover-dims {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2mm 12mm;
+      font-size: 8.5pt;
+    }
+
+    .cover-dim {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #3a4a66;
+    }
+
+    .cover-dim img {
+      width: 15px;
+      height: 15px;
+      object-fit: contain;
+    }
+
+    .cover-logos {
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+      align-items: flex-end;
+    }
+
+    .cover-logos img {
+      height: 13mm;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ---------- Section headers ---------- */
+    .kicker {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 700;
+      letter-spacing: .22em;
+      font-size: 8.5pt;
+      color: #0176DE;
+      text-transform: uppercase;
+    }
+
+    .sec-title {
+      font-size: 20pt;
+      font-weight: 800;
+      margin: 2mm 0 1mm;
+      border-bottom: 1.5px solid #B3D9FF;
+      padding-bottom: 2mm;
+      position: relative;
+    }
+
+    .sec-title .bar {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background: #0176DE;
+      border-radius: 3px;
+      margin-right: 8px;
+      vertical-align: -3px;
+    }
+
+    h3.sub {
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: #173F8A;
+      margin: 5mm 0 2mm;
+    }
+
+    .sec-group {
+      margin-top: 6mm;
+      page-break-inside: auto;
+    }
+
+    /* ---------- Components ---------- */
+    .toc {
+      list-style: none;
+      padding: 0;
+    }
+
+    .toc li {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 2px;
+      border-bottom: 1px solid #E5EEF9;
+      font-size: 10.5pt;
+    }
+
+    .toc .n {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 800;
+      color: #0176DE;
+      margin-right: 10px;
+    }
+
+    .chip {
+      display: inline-block;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 600;
+      font-size: 8pt;
+      background: #E8F2FF;
+      color: #043d78;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #C9DEFF;
+    }
+
+    /* Dimension palette cards */
+    .dim-table {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4mm;
+    }
+
+    .dim-card {
+      border: 1px solid #DCE6F2;
+      border-left-width: 6px;
+      border-radius: 10px;
+      padding: 4mm;
+    }
+
+    .dim-card .dhd {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2mm;
+    }
+
+    .dim-card .dhd img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .dim-card .dn {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 9.5pt;
+      color: #03122E;
+    }
+
+    .dim-card .dt {
+      font-size: 8pt;
+      color: #5F6368;
+    }
+
+    .sw-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 1.5mm;
+    }
+
+    .sw {
+      width: 22px;
+      height: 13px;
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, .12);
+    }
+
+    /* Swatch chips (palette) */
+    .pal-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pal-chip {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, .15);
+      flex: none;
+    }
+
+    /* Indicator catalog grouped by dimension */
+    .dim-group {
+      border: 1px solid #DCE6F2;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 4mm 0;
+    }
+
+    .dim-band {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 3mm 5mm;
+      color: #fff;
+    }
+
+    .dim-band img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .25));
+    }
+
+    .dim-band .t {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 11pt;
+    }
+
+    .dim-band .c {
+      margin-left: auto;
+      font-family: Consolas, monospace;
+      font-size: 8pt;
+      opacity: .9;
+    }
+
+    .dim-group table {
+      border: none;
+      margin: 0;
+    }
+
+    .dim-group th {
+      background: transparent;
+      color: #03122E;
+      border-bottom: 2px solid #DCE6F2;
+      font-size: 8pt;
+    }
+
+    .dim-group td {
+      border: none;
+      border-top: 1px solid #EFF4FB;
+    }
+
+    /* Steps */
+    .step {
+      display: flex;
+      gap: 10px;
+      margin: 3mm 0;
+    }
+
+    .step .num {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      font-weight: 800;
+      color: #fff;
+      background: #0176DE;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 11pt;
+      line-height: 22px;
+      flex: none;
+    }
+
+    .step .b {
+      flex: 1;
+    }
+
+    /* Callout */
+    .callout {
+      background: #E8F2FF;
+      border: 1px solid #B3D9FF;
+      border-radius: 10px;
+      padding: 3mm 4mm;
+      margin: 3mm 0;
+    }
+
+    .callout.warn {
+      background: #FFF7E0;
+      border-color: #FEC60D;
+    }
+
+    .callout.late {
+      background: #FDECEC;
+      border-color: #F5B7B1;
+    }
+
+    .callout.ok {
+      background: #E7F6EC;
+      border-color: #ABDDBB;
+    }
+
+    /* Status table chips */
+    .st-swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      margin-right: 6px;
+      border: 1px solid rgba(0, 0, 0, .15);
+      vertical-align: -1px;
+    }
+
+    .pb {
+      page-break-before: always;
+    }
+
+    .avoid {
+      page-break-inside: avoid;
+    }
+
+    h2,
+    h3,
+    h4 {
+      page-break-after: avoid;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+
+    table {
+      page-break-inside: avoid;
+    }
+
+    .dim-table {
+      page-break-inside: auto;
+      break-inside: auto;
+    }
+
+    .dim-card,
+    .callout,
+    .step,
+    .dim-group,
+    pre {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== COVER ===== -->
+  <div class="cover">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <img src="images/logo_dg.png" alt="Dirección de Género · Prorectoría"
+          style="height:13mm;width:auto;object-fit:contain;">
+        <img src="images/gobierno-de-datos.webp" alt="Dirección de Gobierno de Datos y Gestión de la Información"
+          style="height:10.6mm;width:auto;object-fit:contain;">
+      </div>
+      <div class="cover-kicker">OBSERVATORIO DE INDICADORES DE GÉNERO · UC TEMUCO</div>
+      <div class="cover-title">KIMNGÉNERO<br><span class="accent">Guía integral</span></div>
+      <div class="cover-sub">Referencia canónica para navegar, diseñar, desarrollar, operar y actualizar el observatorio.</div>
+      <div class="cover-inst">Trabajo colaborativo de la Dirección de Género, KIMN y Gobierno de Datos</div>
+      <div class="cover-meta">Versión 1.0 · 27 de agosto de 2026</div>
+      <div class="cover-strip">
+        <i style="background:#E8F2FF"></i><i style="background:#B3D9FF"></i><i style="background:#8AB8F0"></i>
+        <i style="background:#0176DE"></i><i style="background:#173F8A"></i><i style="background:#03122E"></i>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-dims">
+        <div class="cover-dim"><img src="images/dimension-01.png">Institucionalización</div>
+        <div class="cover-dim"><img src="images/dimension-02.png">Violencia de Género</div>
+        <div class="cover-dim"><img src="images/dimension-03.png">Corresponsabilidad en los cuidados</div>
+        <div class="cover-dim"><img src="images/dimension-04.png">Trayectorias laborales</div>
+        <div class="cover-dim"><img src="images/dimension-05.png">Trayectorias educativas</div>
+        <div class="cover-dim"><img src="images/dimension-06.png">Modelo educativo con PG</div>
+        <div class="cover-dim"><img src="images/dimension-07.png">Participación en divulgación científica</div>
+        <div class="cover-dim"><img src="images/dimension-08.png">Aporte de las mujeres</div>
+      </div>
+      <div class="cover-logos">
+        <img src="images/obs_genero.png" alt="Observatorio de Género · Dirección de Género" style="height:16.1mm;width:auto;object-fit:contain;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOC ===== -->
+  <div class="pb" style="margin-top:6mm;">
+    <div class="kicker">Contenido</div>
+    <h2 class="sec-title"><span class="bar"></span>Índice</h2>
+    <ol class="toc" style="margin-top:4mm;">
+      <li><span><span class="n">1</span>Cómo usar esta guía</span></li>
+      <li><span><span class="n">2</span>Propósito, audiencias y principios</span></li>
+      <li><span><span class="n">3</span>Identidad y recursos autorizados</span></li>
+      <li><span><span class="n">4</span>Paleta general y por dimensión</span></li>
+      <li><span><span class="n">5</span>Tipografía, composición y componentes</span></li>
+      <li><span><span class="n">6</span>Navegación y rutas públicas</span></li>
+      <li><span><span class="n">7</span>Stack técnico y arquitectura</span></li>
+      <li><span><span class="n">8</span>Modelo y actualización de indicadores</span></li>
+      <li><span><span class="n">9</span>Estados de datos e interfaz</span></li>
+      <li><span><span class="n">10</span>Visualizaciones y calendario</span></li>
+      <li><span><span class="n">11</span>Accesibilidad y contenido editorial</span></li>
+      <li><span><span class="n">12</span>Desarrollo, Docker, pruebas y despliegue</span></li>
+      <li><span><span class="n">13</span>Checklist, versión y referencias</span></li>
+    </ol>
+    <div class="callout"><strong>Fuente única.</strong> Este HTML es la guía editable y canónica. El PDF se genera desde este archivo. README conserva sólo el inicio rápido y enlaza aquí.</div>
+    <h3 class="sub">Cómo usar esta guía</h3>
+    <table><tr><th>Necesidad</th><th>Sección</th><th>Resultado esperado</th></tr>
+      <tr><td>Diseñar o revisar una pantalla</td><td>Color, tipografía, componentes y rutas</td><td>Interfaz consistente y accesible</td></tr>
+      <tr><td>Actualizar un indicador</td><td>Modelo y procedimiento de actualización</td><td>Dato validado, probado y trazable</td></tr>
+      <tr><td>Levantar o desplegar el sitio</td><td>Stack, desarrollo y Docker</td><td>Servicio operativo y verificable</td></tr>
+      <tr><td>Publicar el calendario</td><td>Visualizaciones y calendario</td><td>Calendario público, embebido y recuperable</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 1 PROPOSITO ===== -->
+  <div class="pb">
+    <div class="kicker">01 · Contexto</div>
+    <h2 class="sec-title"><span class="bar"></span>Propósito, audiencias y principios</h2>
+    <p style="margin-top:3mm;">KIMNGÉNERO es la plataforma institucional para consultar y analizar los indicadores de
+      género de la Universidad Católica de Temuco. Esta guía permite a los equipos de diseño, desarrollo, datos,
+      contenidos y comunicaciones producir y mantener páginas coherentes sin volver a decidir colores, tipografías,
+      componentes o tono en cada actualización.</p>
+
+    <h3 class="sub">Audiencias</h3>
+    <table>
+      <tr>
+        <th>Audiencia</th>
+        <th>Necesidad</th>
+        <th>Respuesta de la interfaz</th>
+      </tr>
+      <tr>
+        <td>Comunidad universitaria</td>
+        <td>Comprender brechas y tendencias</td>
+        <td>Síntesis clara, filtros y ficha técnica</td>
+      </tr>
+      <tr>
+        <td>Equipos de gestión y decisión</td>
+        <td>Evidencia comparable</td>
+        <td>Metadatos, fuente, período y visualización</td>
+      </tr>
+      <tr>
+        <td>Investigación y docencia</td>
+        <td>Interpretar y reutilizar</td>
+        <td>Metodología, glosario y datos abiertos</td>
+      </tr>
+      <tr>
+        <td>Público general</td>
+        <td>Entender propósito y resultados</td>
+        <td>Lenguaje directo y navegación predecible</td>
+      </tr>
+      <tr>
+        <td>Equipos mantenedores</td>
+        <td>Actualizar sin perder consistencia</td>
+        <td>Tokens, patrones, plantillas y checklist</td>
+      </tr>
+    </table>
+
+    <h3 class="sub">Principios obligatorios</h3>
+    <ol>
+      <li><strong>El dato necesita contexto.</strong> Toda cifra incluye unidad, período, fuente y alcance.</li>
+      <li><strong>La estructura debe ser reconocible.</strong> Navegación, búsqueda y acciones aparecen donde se
+        esperan.</li>
+      <li><strong>La accesibilidad es parte del diseño.</strong> Contraste, teclado, semántica y alternativas textuales
+        no son opcionales.</li>
+      <li><strong>El color refuerza, no reemplaza.</strong> Estados y dimensiones también se distinguen con texto e
+        íconos.</li>
+      <li><strong>La información actual prevalece.</strong> Se muestra fecha de corte y no se presenta como vigente un
+        dato no validado.</li>
+      <li><strong>La interfaz explica antes de exigir.</strong> Divulgación progresiva: resumen, detalle y metodología.
+      </li>
+    </ol>
+  </div>
+
+  <!-- ===== 2 IDENTIDAD ===== -->
+  <div class="pb">
+    <div class="kicker">03 · Identidad</div>
+    <h2 class="sec-title"><span class="bar"></span>Identidad y recursos autorizados</h2>
+    <p><strong>KIMNGÉNERO</strong> es el nombre oficial del observatorio. La Dirección de Género, KIMN y Gobierno de Datos participan mediante trabajo colaborativo. Esta guía no establece dependencia, pertenencia ni jerarquía entre esas entidades.</p>
+    <table><tr><th>Elemento</th><th>Uso</th><th>Regla</th></tr>
+      <tr><td><strong>KIMNGÉNERO</strong></td><td>Nombre público del observatorio</td><td>Usar siempre esta grafía en títulos y texto institucional.</td></tr>
+      <tr><td>UCT</td><td>Identidad institucional</td><td>Usar el activo oficial y respetar su área de seguridad.</td></tr>
+      <tr><td>Dirección de Género, KIMN y Gobierno de Datos</td><td>Entidades colaboradoras</td><td>Nombrar la colaboración sin inferir relaciones jerárquicas.</td></tr>
+    </table>
+    <div class="callout late"><strong>Activo no autorizado:</strong> <code>logo-kimn-obs.png</code> no forma parte de la identidad activa. La existencia de un archivo en el repositorio no autoriza su uso.</div>
+    <h3 class="sub">Activos canónicos</h3>
+    <table><tr><th>Activo</th><th>Ruta</th><th>Uso</th></tr>
+      <tr><td>UCT</td><td><code>client/public/assets/logo-uct.webp</code></td><td>Franja institucional</td></tr>
+      <tr><td>Dirección de Género</td><td><code>client/public/assets/footer/</code></td><td>Crédito “KIMNGÉNERO es parte de”</td></tr>
+      <tr><td>Gobierno de Datos</td><td><code>client/public/assets/footer/</code></td><td>Crédito “Impulsado por”</td></tr>
+      <tr><td>KimnIA</td><td><code>client/public/assets/kimnia-*.png</code></td><td>Tarjetas de <code>/kimnia</code></td></tr>
+      <tr><td>Dimensiones</td><td><code>client/public/assets/dimensions/</code></td><td>Identificación temática; preferir SVG</td></tr>
+    </table>
+    <h3 class="sub">Reglas de recursos</h3>
+    <ul><li>Conservar proporción, fondo y área de seguridad; no deformar, recolorear ni recortar marcas.</li><li>Usar SVG para iconografía y WebP/PNG para imágenes.</li><li>Todo recurso informativo lleva texto alternativo; los decorativos usan <code>alt=""</code>.</li><li>Los íconos de dimensión no sustituyen su nombre textual.</li></ul>
+  </div>
+
+  <!-- ===== 3 PALETA ===== -->
+  <div class="pb">
+    <div class="kicker">03 · Color</div>
+    <h2 class="sec-title"><span class="bar"></span>Sistema de color (paleta utilizada)</h2>
+    <p>La paleta activa del sitio se define por tokens en <code>client/src/index.css</code> (marca, texto, superficies,
+      estados) y en <code>dimensionColors.ts</code> (dimensiones). <strong>No se agregan colores hexadecimales sueltos
+        en componentes.</strong></p>
+
+    <h3 class="sub">Paleta de marca</h3>
+    <table>
+      <tr>
+        <th>Color</th>
+        <th>Hex</th>
+        <th>Función</th>
+        <th>Texto</th>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#0176DE"></span>Azul primario</span></td>
+        <td><code>#0176DE</code></td>
+        <td>Acción, enlace, énfasis</td>
+        <td>Blanco</td>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#03122E"></span>Azul estructural</span></td>
+        <td><code>#03122E</code></td>
+        <td>Header, alta jerarquía</td>
+        <td>Blanco</td>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#E8F2FF;border-color:#B3D9FF"></span>Azul
+            claro</span></td>
+        <td><code>#E8F2FF</code></td>
+        <td>Superficie informativa</td>
+        <td>#173F8A</td>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#173F8A"></span>Azul secundario</span></td>
+        <td><code>#173F8A</code></td>
+        <td>Texto y acción alternativa</td>
+        <td>Blanco</td>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#FEC60D"></span>Amarillo
+            institucional</span></td>
+        <td><code>#FEC60D</code></td>
+        <td>Acento y foco</td>
+        <td>#03122E</td>
+      </tr>
+      <tr>
+        <td><span class="pal-cell"><span class="pal-chip" style="background:#B3D9FF"></span>Azul medio</span></td>
+        <td><code>#B3D9FF</code></td>
+        <td>Bordes y separadores</td>
+        <td>#03122E</td>
+      </tr>
+    </table>
+    <div class="callout" style="margin-top:2mm;">La franja institucional UCT (barra superior) usa el gradiente
+      <strong>#048FD4 → #0087CC</strong> con texto blanco en Roboto.</div>
+
+    <h3 class="sub">Texto, superficie y borde</h3>
+    <table>
+      <tr>
+        <th>Token</th>
+        <th>Hex / valor</th>
+        <th>Uso</th>
+      </tr>
+      <tr>
+        <td><code>--brand-dark</code></td>
+        <td>#03122E</td>
+        <td>Títulos y estructuras oscuras</td>
+      </tr>
+      <tr>
+        <td><code>--text-secondary</code></td>
+        <td>#5F6368</td>
+        <td>Texto secundario</td>
+      </tr>
+      <tr>
+        <td><code>--text-muted</code></td>
+        <td>#6B7280</td>
+        <td>Ayudas y metadata</td>
+      </tr>
+      <tr>
+        <td><code>--border-light</code></td>
+        <td>#E5E5E5</td>
+        <td>Límites no semánticos</td>
+      </tr>
+      <tr>
+        <td>superficie base / alt / strong</td>
+        <td>blanco / <code>#E8F2FF</code> / <code>#03122E</code></td>
+        <td>Fondo general / paneles / estructuras fuertes</td>
+      </tr>
+      <tr>
+        <td>sombra de tarjeta</td>
+        <td><code>0 2px 8px rgba(1,118,222,.08)</code></td>
+        <td>Tarjetas y KPIs</td>
+      </tr>
+    </table>
+
+    <h3 class="sub">Colores de estado</h3>
+    <table>
+      <tr>
+        <th>Estado</th>
+        <th>Color</th>
+        <th>Aplicación accesible</th>
+      </tr>
+      <tr>
+        <td>Correcto / actualizado</td>
+        <td><span class="st-swatch" style="background:#27AE60"></span><code>#27AE60</code></td>
+        <td>Ícono o borde; si es fondo, texto #03122E</td>
+      </tr>
+      <tr>
+        <td>En actualización</td>
+        <td><span class="st-swatch" style="background:#F59E0B"></span><code>#F59E0B</code></td>
+        <td>Fondo con texto #03122E</td>
+      </tr>
+      <tr>
+        <td>Atrasado / error</td>
+        <td><span class="st-swatch" style="background:#D8002D"></span><code>#D8002D</code></td>
+        <td>Fondo con texto blanco</td>
+      </tr>
+      <tr>
+        <td>Información</td>
+        <td><span class="st-swatch" style="background:#0176DE"></span><code>#0176DE</code></td>
+        <td>Fondo con texto blanco</td>
+      </tr>
+      <tr>
+        <td>Deshabilitado</td>
+        <td><span class="st-swatch" style="background:#E5E5E5"></span><code>#E5E5E5</code></td>
+        <td>Texto #5F6368</td>
+      </tr>
+    </table>
+    <div class="callout warn"><strong>Regla:</strong> no usar los colores de estado como sustitutos de una dimensión.
+      Cada estado lleva etiqueta verbal: “Actualizado”, “En actualización”, “Atrasado”.</div>
+
+    <div class="pb"></div>
+    <div class="kicker">03 · Color</div>
+    <h2 class="sec-title"><span class="bar"></span>Paletas completas por dimensión</h2>
+    <p>Cada dimensión usa un <strong>triplete</strong> (fondo pastel, borde, texto) que cumple contraste WCAG AA, junto
+      a su color de identificación.</p>
+    <div class="dim-table">
+      <div class="dim-card" style="border-left-color:#0176DE">
+        <div class="dhd"><img src="images/dimension-01.png">
+          <div>
+            <div class="dn">1 · Institucionalización</div>
+            <div class="dt">#0176DE</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#E8F2FF" title="fondo"></span><span class="sw"
+            style="background:#B3D9FF" title="borde"></span><span class="sw" style="background:#173F8A"
+            title="texto"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#14934E">
+        <div class="dhd"><img src="images/dimension-02.png">
+          <div>
+            <div class="dn">2 · Violencia de Género</div>
+            <div class="dt">#14934E</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#D1FAE5"></span><span class="sw"
+            style="background:#A7F3D0"></span><span class="sw" style="background:#065F46"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#D8002D">
+        <div class="dhd"><img src="images/dimension-03.png">
+          <div>
+            <div class="dn">3 · Corresponsabilidad en los cuidados</div>
+            <div class="dt">#D8002D</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#FEE2E2"></span><span class="sw"
+            style="background:#FECACA"></span><span class="sw" style="background:#B91C1C"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#8E8E8E">
+        <div class="dhd"><img src="images/dimension-04.png">
+          <div>
+            <div class="dn">4 · Trayectorias laborales</div>
+            <div class="dt">#8E8E8E</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#F1F1F3"></span><span class="sw"
+            style="background:#D6D6DA"></span><span class="sw" style="background:#3F3F46"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#8657E0">
+        <div class="dhd"><img src="images/dimension-05.png">
+          <div>
+            <div class="dn">5 · Trayectorias educativas</div>
+            <div class="dt">#8657E0</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#EDE9FE"></span><span class="sw"
+            style="background:#C4B5FD"></span><span class="sw" style="background:#5B21B6"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#F96200">
+        <div class="dhd"><img src="images/dimension-06.png">
+          <div>
+            <div class="dn">6 · Modelo educativo con PG</div>
+            <div class="dt">#F96200</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#FFEDD5"></span><span class="sw"
+            style="background:#FED7AA"></span><span class="sw" style="background:#C2410C"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#FEC300">
+        <div class="dhd"><img src="images/dimension-07.png">
+          <div>
+            <div class="dn">7 · Participación en divulgación científica</div>
+            <div class="dt">#FEC300</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#FEF3C7"></span><span class="sw"
+            style="background:#FDE68A"></span><span class="sw" style="background:#92400E"></span></div>
+      </div>
+      <div class="dim-card" style="border-left-color:#232323">
+        <div class="dhd"><img src="images/dimension-08.png">
+          <div>
+            <div class="dn">8 · Aporte de las mujeres</div>
+            <div class="dt">#232323</div>
+          </div>
+        </div>
+        <div class="sw-row"><span class="sw" style="background:#EAEAEA"></span><span class="sw"
+            style="background:#C9C9C9"></span><span class="sw" style="background:#232323"></span></div>
+      </div>
+    </div>
+
+    <h3 class="sub">Comprobación de contraste (WCAG)</h3>
+    <ul>
+      <li>Texto normal: mínimo <strong>4.5:1</strong> (AA).</li>
+      <li>Texto grande (24 px): mínimo 3:1. Componentes y foco: mínimo 3:1.</li>
+      <li>No reducir opacidad del texto hasta perder el contraste exigido.</li>
+    </ul>
+  </div>
+
+  <!-- ===== 4 TIPOGRAFIA ===== -->
+  <div class="pb">
+    <div class="kicker">04 · Tipografía</div>
+    <h2 class="sec-title"><span class="bar"></span>Tipografía</h2>
+    <table>
+      <tr>
+        <th>Familia</th>
+        <th>Uso</th>
+        <th>Pesos</th>
+      </tr>
+      <tr>
+        <td><strong>Montserrat</strong></td>
+        <td>Títulos, cifras, métricas, rótulos de alta jerarquía</td>
+        <td>600, 700, 800</td>
+      </tr>
+      <tr>
+        <td><strong>Inter</strong></td>
+        <td>Navegación, contenido, formularios, tablas</td>
+        <td>400, 500, 600</td>
+      </tr>
+      <tr>
+        <td><strong>Roboto</strong></td>
+        <td>Sólo la franja institucional UCT</td>
+        <td>400, 500, 700</td>
+      </tr>
+    </table>
+    <div class="callout">No mezclar familias dentro de una misma frase. Si las fuentes web fallan, usar
+      <code>sans-serif</code> del sistema. Ancho de lectura continua ≤ ~70 caracteres; no justificar párrafos.</div>
+  </div>
+
+  <!-- ===== 5 NAVEGACION ===== -->
+  <div class="pb">
+    <div class="kicker">05 · Composición</div>
+    <h2 class="sec-title"><span class="bar"></span>Composición, responsive y componentes</h2>
+    <table><tr><th>Elemento</th><th>Regla</th></tr>
+      <tr><td>Grilla</td><td>Contenedor centrado, jerarquía vertical estable y separación basada en múltiplos de 4 px.</td></tr>
+      <tr><td>Lectura</td><td>Párrafos de hasta 70 caracteres por línea; texto alineado a la izquierda.</td></tr>
+      <tr><td>Responsive</td><td>390 px: una columna; 768 px: transición; 1024 px o más: navegación y grillas completas.</td></tr>
+      <tr><td>Tarjetas</td><td>Radio y sombra consistentes; título, contexto, estado textual y acción completa.</td></tr>
+      <tr><td>Foco</td><td>Indicador visible con contraste mínimo 3:1, sin quedar oculto por overlays.</td></tr>
+    </table>
+    <h3 class="sub">Componentes obligatorios</h3>
+    <ul><li>Header institucional, navegación principal, breadcrumbs y footer.</li><li>Botones primario y secundario, enlaces descriptivos y estados deshabilitados.</li><li>Tarjetas de dimensión e indicador con área clicable clara.</li><li>Buscador, filtros, inputs y validación asociada mediante texto.</li><li>Tablas y fichas técnicas con encabezados semánticos.</li><li>Diálogos con foco contenido, cierre por teclado y nombre accesible.</li><li>Esqueletos de carga, estados vacíos, errores, visualización bloqueada y 404.</li></ul>
+    <div class="callout"><strong>Correcto:</strong> usar tokens, componente existente y etiqueta textual. <strong>Incorrecto:</strong> introducir un hexadecimal aislado, depender sólo del color o duplicar un patrón con estilos nuevos.</div>
+  </div>
+
+  <div class="pb">
+    <div class="kicker">06 · Navegación</div>
+    <h2 class="sec-title"><span class="bar"></span>Navegación y mapa del sitio</h2>
+    <p>La navegación principal es persistente. La página activa usa color, peso y <code>aria-current="page"</code>. En móvil, el menú se abre desde un botón con nombre accesible, conserva el foco y se cierra al cambiar de ruta.</p>
+    <pre><code>Inicio
+├── Indicadores ── Ficha de indicador
+├── Vista general
+├── KimnIA
+├── Sobre el modelo
+├── Calendario
+├── Glosario
+└── Contacto
+Cualquier ruta desconocida ── 404 ── Inicio</code></pre>
+    <h3 class="sub">Header y footer</h3>
+    <table><tr><th>Zona</th><th>Contenido obligatorio</th></tr>
+      <tr><td>Franja UCT</td><td>Accesos institucionales vigentes y redes sociales.</td></tr>
+      <tr><td>Menú principal</td><td>Inicio, Indicadores, Vista general, KimnIA, Sobre el modelo, Calendario, Glosario y Contacto.</td></tr>
+      <tr><td>Footer</td><td>“KIMNGÉNERO es parte de” sobre Dirección de Género; “Impulsado por” sobre Gobierno de Datos; contacto, enlaces y acreditaciones.</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 6 PAGINAS ===== -->
+  <div class="pb">
+    <div class="kicker">06 · Rutas públicas</div>
+    <h2 class="sec-title"><span class="bar"></span>Contenido y comportamiento por ruta</h2>
+    <table><tr><th>Ruta</th><th>Propósito y contenido</th><th>Estados y salida</th></tr>
+      <tr><td><code>/</code></td><td><strong>Inicio.</strong> Propósito, síntesis, cifras y ocho dimensiones. Consume indicadores agregados.</td><td>Carga/esqueleto; si no hay datos, acceso a metodología y contacto. CTA a Indicadores.</td></tr>
+      <tr><td><code>/indicadores</code></td><td><strong>Indicadores.</strong> Buscador, filtros por dimensión/área y tarjetas.</td><td>Sin resultados permite limpiar filtros. Cada tarjeta abre su ficha.</td></tr>
+      <tr><td><code>/indicador/:id</code></td><td><strong>Ficha técnica.</strong> Descripción, objetivo, fórmula, variables, fuente, responsables, fecha y visualización.</td><td>ID inexistente muestra no encontrado. Power BI bloqueado ofrece enlace externo.</td></tr>
+      <tr><td><code>/metodologia</code></td><td><strong>Sobre el modelo.</strong> Marco, dimensiones, criterios y proceso.</td><td>Contenido estático; enlaza a indicadores y glosario.</td></tr>
+      <tr><td><code>/glosario</code></td><td><strong>Glosario.</strong> Conceptos en lenguaje claro y orden consultable.</td><td>Sin coincidencias permite limpiar búsqueda.</td></tr>
+      <tr><td><code>/contacto</code></td><td><strong>Contacto.</strong> Datos institucionales y formulario validado.</td><td>Envío, éxito y error conservan contexto; nunca perder el mensaje escrito.</td></tr>
+      <tr><td><code>/calendario</code></td><td><strong>Calendario.</strong> Fechas de corte y actualización desde Google Calendar.</td><td>Si el iframe falla, mostrar enlace público y explicación.</td></tr>
+      <tr><td><code>/estado-agrupado</code></td><td><strong>Vista general.</strong> Reporte Power BI consolidado.</td><td>Carga y error del embed; alternativa para abrir el reporte.</td></tr>
+      <tr><td><code>/kimnia</code></td><td><strong>KimnIA.</strong> Recursos NotebookLM con alcance y destino explícitos.</td><td>Si falta un recurso, no mostrar tarjeta vacía.</td></tr>
+      <tr><td><code>/404</code></td><td><strong>Página no encontrada.</strong> Explica el problema sin culpar a la persona.</td><td>CTA principal a Inicio y secundario a Indicadores.</td></tr>
+    </table>
+    <div class="callout"><strong>Responsive:</strong> validar cada ruta en 390, 768, 1024, 1280 y 1440 px; sin desplazamiento horizontal, pérdida de foco ni contenido oculto.</div>
+  </div>
+
+  <!-- ===== 7 ESTRUCTURA INDICADORES ===== -->
+  <div class="pb">
+    <div class="kicker">07 · Indicadores</div>
+    <h2 class="sec-title"><span class="bar"></span>Estructura de los indicadores</h2>
+    <p>Los indicadores se publican desde <code>data/indicadores.json</code>, se agrupan en <strong>ocho
+        dimensiones</strong> y se organizan en áreas estratégicas: <span class="chip">Gestión</span> <span
+        class="chip">Docencia</span> <span class="chip">Investigación</span> <span class="chip">Vinculación con el
+        Medio</span>.</p>
+
+    <h3 class="sub">Campos de la ficha de un indicador</h3>
+    <table>
+      <tr>
+        <th>Campo</th>
+        <th>Propósito</th>
+      </tr>
+      <tr>
+        <td><code>id</code> · <code>nro</code> · <code>codigo</code></td>
+        <td>Identificación única y visible (<code>XXYYYY-NN</code>)</td>
+      </tr>
+      <tr>
+        <td><code>nombre</code> · <code>descripcion</code> · <code>objetivo</code></td>
+        <td>Contenido público</td>
+      </tr>
+      <tr>
+        <td><code>area</code> · <code>dimension</code></td>
+        <td>Clasificación y color semántico</td>
+      </tr>
+      <tr>
+        <td><code>unidadMedida</code> · <code>formula</code> · <code>formulaSimplificada</code> · <code>variables</code>
+        </td>
+        <td>Definición de cálculo</td>
+      </tr>
+      <tr>
+        <td><code>frecuenciaMedicion</code> · <code>estado</code> · <code>lineaBase</code> · <code>fechaCorte</code>
+        </td>
+        <td>Vigencia y estado</td>
+      </tr>
+      <tr>
+        <td><code>enlaceVisualizacion</code></td>
+        <td>URL pública de Power BI o <code>null</code></td>
+      </tr>
+      <tr>
+        <td><code>fuenteAdministrativa</code> · <code>responsableCalculo</code> · <code>responsableVerificar</code> ·
+          <code>instructivoCalculo</code></td>
+        <td>Trazabilidad técnica</td>
+      </tr>
+    </table>
+
+    <div class="callout"><strong>Nota:</strong> esta sección documenta la <strong>estructura</strong> (identificación,
+      clasificación y definición del cálculo) de los indicadores. Los <strong>valores de línea base, fuentes de datos y
+        enlaces de visualización</strong> dependen de la validación institucional y se declaran en cada ficha del sitio;
+      los vacíos se muestran como “Por validar”.</div>
+  </div>
+
+  <!-- Catálogo generado desde data/indicadores.json -->
+  <div class="pb">
+    <div class="kicker">08 · Fuente vigente</div>
+    <h2 class="sec-title"><span class="bar"></span>Resumen automático del catálogo</h2>
+    <!-- GUIDE_DATA_START -->
+    <div class="callout ok"><strong>18 indicadores:</strong> 8 oficializados y 10 faltantes. Este bloque se genera desde <code>data/indicadores.json</code>; no mantener cantidades manualmente.</div>
+    <table><tr><th>Dimensión</th><th>Indicadores</th></tr><tr><td>1.- Institucionalización</td><td>3</td></tr><tr><td>2.- Violencia de Género</td><td>3</td></tr><tr><td>3.- Corresponsabilidad en los cuidados</td><td>2</td></tr><tr><td>4.- Trayectorias laborales</td><td>1</td></tr><tr><td>5.- Trayectorias educativas</td><td>2</td></tr><tr><td>6.- Modelo educativo con perspectiva de género</td><td>3</td></tr><tr><td>7.- Participación equilibrada en la divulgación científica</td><td>2</td></tr><tr><td>8.- Visibilización del aporte de las mujeres en las áreas de conocimiento</td><td>2</td></tr></table>
+    <!-- GUIDE_DATA_END -->
+    <p>El catálogo completo se consulta en el sitio. La guía documenta el modelo y el proceso; no replica registros que cambian con los datos.</p>
+  </div>
+
+  <!-- ===== 8 COMO ACTUALIZAR ===== -->
+  <div class="pb">
+    <div class="kicker">08 · Operación de datos</div>
+    <h2 class="sec-title"><span class="bar"></span>Cómo actualizar los indicadores</h2>
+    <div class="callout warn"><strong>Antes de editar:</strong> confirmar fuente, responsable de cálculo, responsable de verificación, período y autorización de publicación. No reemplazar “PENDIENTE” sin validación.</div>
+    <div class="step"><span class="num">1</span><div class="b"><strong>Localizar.</strong> Buscar por <code>id</code>, <code>nro</code> o <code>codigo</code> en <code>data/indicadores.json</code>. No reutilizar identificadores.</div></div>
+    <div class="step"><span class="num">2</span><div class="b"><strong>Editar contenido.</strong> Actualizar nombre, descripción, objetivo, área y dimensión conservando lenguaje claro y la taxonomía existente.</div></div>
+    <div class="step"><span class="num">3</span><div class="b"><strong>Actualizar trazabilidad.</strong> Registrar unidad, fórmula, variables, frecuencia, línea base, fuente, responsables, instructivo y <code>fechaCorte</code> ISO <code>AAAA-MM-DD</code>.</div></div>
+    <div class="step"><span class="num">4</span><div class="b"><strong>Configurar visualización.</strong> Usar sólo URL pública HTTPS de Power BI en <code>enlaceVisualizacion</code>; usar <code>null</code> si no existe una visualización autorizada.</div></div>
+    <div class="step"><span class="num">5</span><div class="b"><strong>Validar JSON.</strong> Confirmar sintaxis, campos requeridos, identificadores únicos, estados permitidos y ausencia de secretos.</div></div>
+    <div class="step"><span class="num">6</span><div class="b"><strong>Ejecutar controles.</strong> <code>pnpm check</code>, <code>pnpm lint</code>, <code>pnpm test</code> y <code>pnpm build</code>.</div></div>
+    <div class="step"><span class="num">7</span><div class="b"><strong>Revisar la ficha.</strong> Verificar catálogo, filtros, fórmula, responsables, fecha, enlaces y visualización en escritorio y móvil.</div></div>
+    <div class="step"><span class="num">8</span><div class="b"><strong>Publicar y verificar.</strong> Desplegar mediante el flujo vigente, comprobar <code>/health</code>, consola, ruta de la ficha y enlace externo.</div></div>
+    <div class="step"><span class="num">9</span><div class="b"><strong>Revertir si falla.</strong> Revertir el commit de datos o restaurar el JSON validado anterior; reconstruir, desplegar y repetir la verificación.</div></div>
+    <h3 class="sub">Reglas del modelo</h3>
+    <ul><li><code>estado</code> admite la completitud editorial vigente: <code>Oficializado</code> o <code>Faltante</code>.</li><li><code>lineaBase</code> puede ser número, texto documentado o <code>null</code>; no inventar ceros.</li><li>Las URL deben ser HTTPS y públicas; jamás incluir tokens, direcciones iCal secretas ni credenciales.</li><li>La fecha se toma de cada indicador; no publicar una fecha global escrita manualmente.</li></ul>
+  </div>
+
+  <div class="pb">
+    <div class="kicker">07 · Tecnología</div>
+    <h2 class="sec-title"><span class="bar"></span>Stack técnico y arquitectura</h2>
+    <table><tr><th>Capa</th><th>Tecnología vigente</th><th>Responsabilidad</th></tr>
+      <tr><td>Interfaz</td><td>React 19, TypeScript, Vite, Tailwind CSS</td><td>Páginas, componentes, estilos y build del cliente.</td></tr>
+      <tr><td>Navegación</td><td>Wouter</td><td>Rutas públicas y parámetros.</td></tr>
+      <tr><td>Servidor</td><td>Express, Helmet, compression, rate limiting, Pino</td><td>API, seguridad HTTP, estáticos, salud y observabilidad.</td></tr>
+      <tr><td>Validación</td><td>Zod</td><td>Contratos y validación de datos.</td></tr>
+      <tr><td>Pruebas</td><td>Vitest, Testing Library, Supertest</td><td>Unidades, componentes y endpoints.</td></tr>
+      <tr><td>Integraciones</td><td>Power BI, Google Calendar, NotebookLM</td><td>Contenido externo con alternativa accesible.</td></tr>
+      <tr><td>Contenedores</td><td>Docker multi-stage sobre Node 22</td><td>Build y runtime reproducible; el proyecto no usa Nginx.</td></tr>
+    </table>
+    <pre><code>Navegador → React/Vite → /api → Express → repositorio de indicadores → data/indicadores.json
+                         └────→ Power BI / Calendar / NotebookLM (HTTPS público)</code></pre>
+    <p>El cliente vive en <code>client/</code>, el servidor en <code>server/</code>, los datos versionados en <code>data/</code>, los activos públicos en <code>client/public/</code> y las utilidades en <code>scripts/</code>.</p>
+  </div>
+
+  <!-- ===== 9 ESTADOS ===== -->
+  <div class="pb">
+    <div class="kicker">09 · Estados</div>
+    <h2 class="sec-title"><span class="bar"></span>Estados de datos e interfaz</h2>
+    <table><tr><th>Categoría</th><th>Estados</th><th>Regla</th></tr>
+      <tr><td>Completitud del indicador</td><td><code>Oficializado</code> / <code>Faltante</code></td><td>Proviene del JSON y no expresa actualidad temporal.</td></tr>
+      <tr><td>Vigencia del dato</td><td>Actualizado / En actualización / Atrasado</td><td>Se determina con fecha de corte, frecuencia y validación; siempre lleva texto.</td></tr>
+      <tr><td>Interfaz</td><td>Cargando / Vacío / Error / Bloqueado / Sin conexión</td><td>Describe el sistema, ofrece causa comprensible y siguiente acción.</td></tr>
+    </table>
+    <table><tr><th>Situación</th><th>Texto recomendado</th><th>Acción</th></tr>
+      <tr><td>Sin resultados</td><td>No encontramos indicadores con estos filtros.</td><td>Limpiar filtros.</td></tr>
+      <tr><td>Error de API</td><td>No pudimos cargar la información.</td><td>Reintentar.</td></tr>
+      <tr><td>Visualización bloqueada</td><td>La visualización no está disponible aquí.</td><td>Abrir la fuente en una pestaña nueva.</td></tr>
+      <tr><td>Formulario enviado</td><td>Recibimos tu mensaje.</td><td>Mostrar confirmación y referencia.</td></tr>
+      <tr><td>Error de formulario</td><td>No pudimos enviar el mensaje. Tus datos siguen en el formulario.</td><td>Reintentar o usar contacto alternativo.</td></tr>
+      <tr><td>404</td><td>La página que buscás no existe o cambió de dirección.</td><td>Ir al inicio o a Indicadores.</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== 10 VISUALIZACION ===== -->
+  <div class="pb">
+    <div class="kicker">10 · Integraciones</div>
+    <h2 class="sec-title"><span class="bar"></span>Visualizaciones y contenido embebido</h2>
+    <ul><li>Toda cifra incluye unidad, período, fuente y fecha de corte.</li><li>No depender sólo del color: usar etiquetas, patrones o íconos.</li><li>Los iframes llevan título accesible, carga diferida cuando corresponda y enlace alternativo.</li><li>Power BI debe usar URL pública autorizada y dominio incluido en <code>IFRAME_ALLOWLIST</code>.</li><li>No incorporar credenciales, tokens ni parámetros privados.</li></ul>
+    <h3 class="sub">Calendario institucional: crear y gobernar</h3>
+    <ol><li>Crear un calendario específico desde una cuenta institucional, no personal.</li><li>Registrar propietario, editores, cuenta de respaldo y procedimiento de recuperación.</li><li>Definir título, descripción, zona horaria y convención de eventos.</li><li>Revisar que cada evento contenga nombre del indicador, fecha, responsable y detalle publicable.</li><li>Otorgar a editores sólo los permisos necesarios y retirar accesos al cambiar responsabilidades.</li></ol>
+    <h3 class="sub">Hacer público y compartir</h3>
+    <ol><li>En Google Calendar, abrir <strong>Configurar y compartir</strong>.</li><li>En permisos de acceso, activar <strong>Hacer que esté disponible para el público</strong> y permitir ver todos los detalles publicables.</li><li>Usar <strong>Obtener vínculo para compartir</strong> para correos y redes.</li><li>Publicar un enlace de suscripción cuando se requiera seguimiento continuo.</li><li><strong>Nunca publicar la dirección secreta en formato iCal.</strong></li></ol>
+    <h3 class="sub">Insertar en React</h3>
+    <ol><li>En <strong>Integrar el calendario</strong>, personalizar vista, dimensiones y controles.</li><li>Copiar el iframe y adaptar atributos a JSX: <code>frameBorder</code>, <code>allowFullScreen</code> y estilos mediante clases.</li><li>Asignar <code>title="Calendario de actualización de indicadores"</code>.</li><li>Agregar el dominio a <code>IFRAME_ALLOWLIST</code> y conservar un enlace externo visible.</li></ol>
+    <pre><code>&lt;iframe
+  title="Calendario de actualización de indicadores"
+  src="URL_PUBLICA_AUTORIZADA"
+  className="h-[720px] w-full border-0"
+  loading="lazy"
+  frameBorder="0"
+/&gt;</code></pre>
+    <h3 class="sub">Verificación, revocación y rollback</h3>
+    <ul><li>Probar sin sesión en ventana de incógnito y en 390, 768 y 1440 px.</li><li>Confirmar eventos, zona horaria, teclado, título y enlace alternativo.</li><li>Ante exposición indebida: retirar el evento o la publicación, revocar accesos, eliminar el iframe, desplegar y verificar anónimamente.</li><li>Documentar el incidente y rotar cualquier dirección secreta comprometida.</li></ul>
+  </div>
+
+  <!-- ===== 11 VOZ ===== -->
+  <div class="pb">
+    <div class="kicker">11 · Editorial</div>
+    <h2 class="sec-title"><span class="bar"></span>Voz y contenido editorial</h2>
+    <p>La voz es institucional, clara, directa, inclusiva y basada en evidencia. Evita tecnicismos innecesarios,
+      afirmaciones promocionales sin respaldo y lenguaje que atribuya características a las personas por su género.</p>
+    <ul>
+      <li>Empezar por la información más importante; una idea principal por párrafo.</li>
+      <li>Voz activa y verbos concretos; enlaces descriptivos (no “haz clic aquí”).</li>
+      <li>Escribir de forma consistente <strong>KIMNGÉNERO</strong>, <strong>KIMN</strong>, <strong>UCT</strong>,
+        <strong>KimnIA</strong>, <strong>Power BI</strong> y <strong>NotebookLM</strong>, desarrollando siglas en la
+        primera aparición.</li>
+      <li>Cifras en español (coma decimal); archivos en minúsculas y separados por guion.</li>
+    </ul>
+  </div>
+
+  <!-- ===== 12 MANTENIMIENTO ===== -->
+  <div class="pb">
+    <div class="kicker">12 · Operación</div>
+    <h2 class="sec-title"><span class="bar"></span>Desarrollo, Docker, pruebas y despliegue</h2>
+    <h3 class="sub">Inicio rápido</h3>
+    <pre><code>pnpm install --frozen-lockfile
+pnpm dev
+
+# verificación local
+pnpm check
+pnpm lint
+pnpm test
+pnpm build</code></pre>
+    <h3 class="sub">Docker</h3>
+    <pre><code>docker compose up --build -d
+docker compose ps
+curl http://localhost:3000/health
+
+# detener
+docker compose down</code></pre>
+    <p>El Dockerfile usa etapas de build, dependencias de producción y runtime Node sin privilegios. Copia <code>dist/</code>, <code>data/</code> y <code>package.json</code>. No existe una capa Nginx en la configuración vigente.</p>
+    <h3 class="sub">Checklist de publicación</h3>
+    <ul><li>Repositorio limpio y cambios revisados.</li><li>JSON válido, identificadores únicos y responsables confirmados.</li><li><code>check</code>, lint, tests y build exitosos.</li><li>Rutas públicas, consola y <code>/health</code> sin errores.</li><li>Responsive, teclado, foco, contraste, textos alternativos y embeds verificados.</li><li>Calendario y Power BI probados sin sesión; enlaces alternativos disponibles.</li><li>Fecha de corte tomada desde el indicador, no desde texto global.</li><li>Rollback identificado antes del despliegue.</li></ul>
+    <h3 class="sub">Control de versión</h3>
+    <p>Actualizar versión, fecha y commit de referencia cuando cambien identidad, navegación, modelo de datos, stack o procedimientos. Regenerar el PDF sólo desde este HTML mediante <code>python scripts/render_guia.py</code>.</p>
+  </div>
+
+  <!-- ===== 13 REFERENCIAS / BACK ===== -->
+  <div class="pb" style="display:flex;flex-direction:column;justify-content:space-between;min-height:230mm;">
+    <div>
+      <div class="kicker">13 · Referencias</div>
+      <h2 class="sec-title"><span class="bar"></span>Referencias</h2>
+      <ul>
+        <li><code>guides/Guia_KimnGenero.html</code> — fuente canónica, editable e integral.</li>
+        <li><code>README.md</code> — instalación rápida y acceso a esta guía.</li>
+        <li><code>docs/ARCHITECTURE.md</code>, <code>docs/API_REFERENCE.md</code> y <code>docs/OPERATIONS.md</code> — referencias técnicas especializadas.</li>
+        <li><code>data/indicadores.json</code> — fuente versionada de los indicadores.</li>
+        <li><em>Evaluación y recomendaciones en Diseño UX/UI para Plataforma KIMN</em> (2022) — antecedente
+          metodológico.</li>
+        <li>WCAG 2.2 — criterios de contraste mínimo y no textual.</li>
+      </ul>
+      <div class="callout ok" style="margin-top:5mm;"><strong>El HTML es la única fuente de la guía.</strong> El PDF
+        se regenera exclusivamente con <code>python scripts/render_guia.py</code>.</div>
+    </div>
+    <div
+      style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #DCE6F2;padding-top:5mm;margin-top:8mm;">
+      <div style="display:flex;gap:8mm;align-items:center;">
+        <img src="images/obs_genero.png" alt="Observatorio de Género · Dirección de Género" style="height:18.4mm;object-fit:contain;">
+      </div>
+      <div style="text-align:right;color:#5F6368;font-size:8.5pt;">
+        <strong style="color:#03122E;">KIMNGÉNERO</strong> · Observatorio de Indicadores de Género<br>
+        Trabajo colaborativo: Dirección de Género · KIMN · Gobierno de Datos · UC Temuco
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

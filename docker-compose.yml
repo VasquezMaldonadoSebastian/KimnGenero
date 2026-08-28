@@ -1,0 +1,23 @@
+services:
+  kimngenero:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kimngenero
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      INDICATOR_REPOSITORY: memory
+      IFRAME_ALLOWLIST: https://app.powerbi.com,https://*.powerbi.com,https://calendar.google.com
+      CSP_REPORT_ONLY: "false"
+    ports:
+      - "127.0.0.1:3000:3000"
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - kimngenero_net
+
+networks:
+  kimngenero_net:
+    driver: bridge

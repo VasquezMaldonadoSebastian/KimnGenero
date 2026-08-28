@@ -1,0 +1,16 @@
+.git
+.github
+node_modules
+dist
+coverage
+outputs
+scripts/node_modules
+*.sqlite
+*.sqlite-*
+.env
+.env.*
+!.env.example
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

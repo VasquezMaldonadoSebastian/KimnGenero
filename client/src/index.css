@@ -1,0 +1,393 @@
+/*
+ * OBSERVATORIO DE INDICADORES DE GÉNERO
+ * Design System: "Observatorio Moderno con Sidebar Dinámica"
+ * Color Philosophy: Blue UCT (#0176DE) como identidad institucional de la Universidad Católica de Temuco
+ * Typography: Montserrat (display/KPIs) + Inter (body)
+ * Layout: Header sticky + Hero gradient + Sidebar 260px + Main content area
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom brand colors - UCT Official Palette */
+  --color-brand-primary: #0176DE;
+  --color-brand-dark: #03122E;
+  --color-brand-light: #173F8A;
+  --color-brand-pale: #E8F2FF;
+  --color-brand-accent: #FEC60D;
+  --color-brand-mid: #B3D9FF;
+
+  /* Header colors */
+  --color-header-blue: #03122E; /* estructura navy - unificado a brand-dark (tema global) */
+
+  /* Text colors - WCAG AA compliant (minimum 4.5:1 contrast ratio) */
+  --color-text-secondary: #5F6368;
+  --color-text-muted: #6B7280;
+  --color-text-light: #71717A;
+  --color-text-dark: #4A4A4A;
+
+  /* Border and background colors */
+    --color-border-light: #E5E5E5;
+
+  /* Tema global - superficies (base=--background, alt=brand-pale, strong=brand-dark) */
+  --color-surface-base: var(--background);
+  --color-surface-alt: var(--color-brand-pale);
+  --color-surface-strong: var(--color-brand-dark);
+  --shadow-card: 0 2px 8px rgba(1, 118, 222, 0.08);
+
+  /* Status (dashboards / estado agrupado) */
+  --color-status-ok: #27AE60;
+  --color-status-update: #F59E0B;
+  --color-status-late: #D8002D;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Aliases bare var(--brand-*) / var(--text-*) usados en componentes (Home, Footer).
+     @theme inline NO emite variables en runtime (solo --color-*); sin estos aliases
+     el CSS compilado dejaba var(--brand-primary) etc. sin definir → Home caía a
+     colores heredados (título gris, botones transparentes). Valores = tokens
+     oficiales del @theme (fuente única de hex: este archivo). */
+  --brand-primary: #0176DE;
+  --brand-dark: #03122E;
+  --brand-pale: #E8F2FF;
+  --brand-light: #173F8A;
+  --brand-accent: #FEC60D;
+  --brand-mid: #B3D9FF;
+  --text-secondary: #5F6368;
+  --text-muted: #6B7280;
+  --text-dark: #4A4A4A;
+  --text-light: #71717A;
+  --border-light: #E5E5E5;
+
+  /* Brand blue palette - UCT */
+  --primary: oklch(0.55 0.2 250); /* #0176DE */
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Backgrounds */
+  --background: oklch(0.98 0.01 250);
+  --foreground: oklch(0.15 0.05 260);
+
+  /* Cards */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.05 260);
+
+  /* Popover */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.05 260);
+
+  /* Secondary */
+  --secondary: oklch(0.92 0.03 250);
+  --secondary-foreground: oklch(0.35 0.15 260);
+
+  /* Muted */
+  --muted: oklch(0.95 0.01 250);
+  --muted-foreground: oklch(0.45 0.05 260);
+
+  /* Accent */
+  --accent: oklch(0.85 0.2 85); /* #FEC60D */
+  --accent-foreground: oklch(0.15 0.05 260);
+
+  /* Destructive */
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Border & Input */
+  --border: oklch(0.88 0.02 250);
+  --input: oklch(0.88 0.02 250);
+  --ring: oklch(0.55 0.2 250);
+
+  /* Charts */
+  --chart-1: oklch(0.55 0.2 250);
+  --chart-2: oklch(0.35 0.15 260);
+  --chart-3: oklch(0.85 0.2 85);
+  --chart-4: oklch(0.65 0.12 250);
+  --chart-5: oklch(0.75 0.08 250);
+
+  /* Sidebar */
+  --sidebar: oklch(0.15 0.05 260); /* #03122E */
+  --sidebar-foreground: oklch(0.95 0.01 250);
+  --sidebar-primary: oklch(0.55 0.2 250);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.35 0.15 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 250);
+  --sidebar-border: oklch(0.35 0.15 260);
+  --sidebar-ring: oklch(0.55 0.2 250);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: clip;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  img,
+  iframe,
+  video {
+    max-width: 100%;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1400px;
+    }
+  }
+
+  /* Dashboard iframe wrapper */
+  .dashboard-container {
+    position: relative;
+    width: 100%;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(1, 118, 222, 0.08),
+                0 10px 30px -5px rgba(1, 118, 222, 0.12),
+                0 0 0 1px rgba(1, 118, 222, 0.06);
+    overflow: hidden;
+  }
+
+  .dashboard-container iframe {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* Sidebar nav item */
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: oklch(0.85 0.02 250);
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar-item:hover {
+    background: oklch(0.35 0.15 260);
+    color: white;
+    border-left-color: oklch(0.55 0.2 250);
+    transform: translateX(2px);
+  }
+
+  .sidebar-item.active {
+    background: oklch(0.55 0.2 250);
+    color: white;
+    border-left-color: oklch(0.85 0.2 85);
+    font-weight: 600;
+  }
+
+  /* KPI card */
+  .kpi-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--color-brand-primary);
+    box-shadow: 0 2px 8px rgba(1, 118, 222, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 118, 222, 0.15);
+  }
+
+  /* Accordion metodología */
+  .metodologia-accordion {
+    background: white;
+    border-radius: 0.75rem;
+    border: 1px solid oklch(0.88 0.02 250);
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.35s ease forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+/* ---------------------------------------------------------------------------
+ * Scroll reveal (ancestro kimn.uct.cl).
+ * Replica el "revelado progresivo por scroll" de Elementor (fadeInUp/Down/Fade).
+ * Activado por IntersectionObserver vía data-kr + .is-visible (hook useReveal).
+ * Respeta prefers-reduced-motion: en ese caso todo queda visible sin animar.
+ * Nombre corto `.kr` (= "Kimn Reveal") para no colisionar con utilidades.
+ *---------------------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  .kr {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.kr {
+  opacity: 0;
+  transition:
+    opacity var(--kr-dur, 0.6s) ease,
+    transform var(--kr-dur, 0.6s) ease;
+  transition-delay: var(--kr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.kr-up {
+  transform: translateY(24px); /* = fadeInUp UCT */
+}
+.kr-down {
+  transform: translateY(-24px); /* = fadeInDown UCT */
+}
+.kr-fade {
+  transform: none; /* = fadeIn UCT */
+}
+.kr-scale {
+  transform: scale(0.96); /* micro zoom suave */
+}
+
+.kr.is-visible {
+  opacity: 1;
+  transform: none;
+}
